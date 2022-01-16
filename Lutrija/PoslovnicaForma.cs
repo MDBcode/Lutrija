@@ -12,11 +12,11 @@ namespace Lutrija
 {
     public partial class PoslovnicaForma : Form
     {
-        public KlijentForma klijent = null;
+        public KlijentForma klijent;
         public PoslovnicaForma()
         {
             InitializeComponent();
-            klijent = new KlijentForma(this);
+            klijent = new KlijentForma();
             klijent.Show();
         }
 

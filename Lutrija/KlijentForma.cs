@@ -12,7 +12,7 @@ namespace Lutrija
 {
     public partial class KlijentForma : Form
     {
-        public KlijentForma(Form PoslovnicaForma)
+        public KlijentForma()
         {
             InitializeComponent();
             SuspendLayout();
