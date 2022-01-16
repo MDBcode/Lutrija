@@ -16,7 +16,7 @@ namespace Lutrija
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Poslovnica());
+            Application.Run(new PoslovnicaForma());
         }
     }
 }
