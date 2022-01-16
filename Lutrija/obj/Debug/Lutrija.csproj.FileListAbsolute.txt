@@ -1,0 +1,10 @@
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\bin\Debug\Lutrija.exe.config
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\bin\Debug\Lutrija.exe
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\bin\Debug\Lutrija.pdb
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.csproj.AssemblyReference.cache
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.Poslovnica.resources
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.Properties.Resources.resources
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.csproj.GenerateResource.cache
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.csproj.CoreCompileInputs.cache
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.exe
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.pdb
