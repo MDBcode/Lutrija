@@ -18,8 +18,52 @@ namespace Lutrija
             SuspendLayout();
 
             stilizirajBingoTablicu();
+            stilizirajLotoTablicu();
 
             ResumeLayout();
+        }
+
+        public void stilizirajLotoTablicu()
+        {
+            for (int j = 26; j <= 31; j++)
+            {
+                var label = table_loto.Controls["label" + j.ToString()];
+                label.Text = "";
+                Padding pad = new Padding();
+                pad.Left = label.Parent.Size.Width / 25;
+                pad.Top = label.Parent.Size.Height / 3;
+                label.Padding = pad;
+                Font font = new Font(label.Font, FontStyle.Bold);
+                label.Font = font;
+                Size velicina = new Size();
+                velicina.Width = label.Parent.Width;
+                velicina.Height = label.Parent.Height;
+                label.Size = velicina;
+            }
+            generiraj_joker_brojeve();
+        }
+
+        public void generiraj_joker_brojeve()
+        {
+            Random rnd = new Random();
+            for (int k = 32; k <= 37; k++)
+            {
+                var label = table_joker.Controls["label" + k.ToString()];
+
+                int broj = rnd.Next(0, 10);
+                label.Text = broj.ToString();
+
+                Padding pad = new Padding();
+                pad.Left = label.Parent.Size.Width / 25;
+                pad.Top = label.Parent.Size.Height / 3;
+                label.Padding = pad;
+                Font font = new Font(label.Font, FontStyle.Bold);
+                label.Font = font;
+                Size velicina = new Size();
+                velicina.Width = label.Parent.Width;
+                velicina.Height = label.Parent.Height;
+                label.Size = velicina;
+            }
         }
 
         public void stilizirajBingoTablicu() {
@@ -134,5 +178,69 @@ namespace Lutrija
             } */
             kreirajBingoListic();
         }
+
+        private void generiraj_joker_Click(object sender, EventArgs e)
+        {
+            generiraj_joker_brojeve();
+        }
+
+        private void povecaj_Click(object sender, EventArgs e)
+        {
+            var label = table_joker.Controls["label" + (sender as Button).Tag.ToString()];
+            int broj = Int16.Parse(label.Text);
+            broj++;
+            if (broj == 10) broj = 0;
+            label.Text = broj.ToString();
+        }
+
+        private void smanji_Click(object sender, EventArgs e)
+        {
+            var label = table_joker.Controls["label" + (sender as Button).Tag.ToString()];
+            int broj = Int16.Parse(label.Text);
+            broj--;
+            if (broj == -1) broj = 9;
+            label.Text = broj.ToString();
+        }
+
+        private void generiraj_loto_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int[] brojevi = new int[6];
+            for (int i = 1; i <= 6; i++)
+            {
+                int broj = rnd.Next(1, 46);
+                brojevi[i-1] = broj;
+            }
+
+            Array.Sort(brojevi);
+            //pogledam da nije izgenerirao više istih
+            for (int x = 0; x < 5; x++)
+            {
+                if (brojevi[x] == brojevi[x + 1])
+                    brojevi[x + 1]++;
+                if (brojevi[x] > brojevi[x + 1])
+                    brojevi[x + 1] = brojevi[x] + 1;
+            }
+
+            int brojac = 26;
+            foreach(int value in brojevi)
+            {
+                var label = table_loto.Controls["label" + brojac.ToString()];
+                label.Text = value.ToString();
+                brojac++;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var forma = new Form_unos_loto();
+            forma.ShowDialog();
+
+            for(int i=0; i<6; i++)
+            {
+                table_loto.Controls["label" + (i+26).ToString()].Text = Form_unos_loto.brojevi[i].ToString();
+            }
+        }
+
     }
 }
