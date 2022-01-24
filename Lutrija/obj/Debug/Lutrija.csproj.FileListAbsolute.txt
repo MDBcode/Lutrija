@@ -22,3 +22,4 @@ C:\Users\Korisnik\Desktop\iva\Lutrija-main\Lutrija\obj\Debug\Lutrija.csproj.Core
 C:\Users\Korisnik\Desktop\iva\Lutrija-main\Lutrija\obj\Debug\Lutrija.exe
 C:\Users\Korisnik\Desktop\iva\Lutrija-main\Lutrija\obj\Debug\Lutrija.pdb
 C:\Users\Korisnik\Desktop\iva\Lutrija-main\Lutrija\obj\Debug\Lutrija.Form_unos_loto.resources
+C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt\Lutrija\obj\Debug\Lutrija.Form_unos_loto.resources

@@ -7,16 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Lutrija
 {
     public partial class KlijentForma : Form
     {
-        public KlijentForma()
+        public PoslovnicaForma poslovnica;
+        List<int> izvuceni;
+        Boolean bingoAlert;
+        public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
             SuspendLayout();
 
+            this.poslovnica = pf;
+            izvuceni = new List<int>();
+            bingoAlert = false;
             stilizirajBingoTablicu();
             stilizirajLotoTablicu();
 
@@ -88,84 +95,195 @@ namespace Lutrija
 
         public void kreirajBingoListic()
         {
+            List<int> brojeviNaListicu = new List<int>();
             Random r = new Random();
+            this.izvuceni.Clear();
+            this.bingoAlert = false;
+            this.poslovnica.textBoxIzvuceniBrojevi.Text = "";
+            this.poslovnica.labelRedniIzvuceni.Text = "0";
+            this.poslovnica.buttonIzvlacenjeBinga.Enabled = true;
+            this.tableListićBingo.Visible = false;
             for (int i = 1; i <= 25; i++) {
                 var labela = tableListićBingo.Controls["label" + i.ToString()];
-                if(i==13) labela.Text = ""; // središnja ćelija, ona je prazna
-                else labela.Text = r.Next(1,75+1).ToString();
-                labela.ForeColor = Color.Black;
+                if (i == 13) labela.Text = ""; // središnja ćelija, ona je prazna
+                else {
+                    int randBroj = r.Next(1, 75 + 1);
+                    while (brojeviNaListicu.Contains(randBroj)) randBroj = r.Next(1, 75 + 1);
+                    brojeviNaListicu.Add(randBroj);
+                    labela.Text = randBroj.ToString();
+                    labela.ForeColor = Color.Black;    
+                }
             }
+            this.tableListićBingo.Visible = true;
         }
 
-        public void izvlacenjeBinga() {
-            int ukupno = 0;
-            List<int> brojevi = new List<int>();
-            var r = new Random();
-            Boolean bingo = true;
-            Boolean bingoAlert = false;
-            while (ukupno < 40) // zašto 40?
+        public Boolean provjeriRetke(ref Boolean bingoAlert)
+        {
+            int pogodenihRedova = 4;
+            for (int i = 0; i < 5; i++)
             {
-                int rand = r.Next(1,75+1);
-                if (!brojevi.Contains(rand)) brojevi.Add(rand);
-                else
+                if (i != 2)
                 {
-                    while (!brojevi.Contains(rand)) rand = r.Next(1, 75 + 1);
-                }
-                ukupno++;
-                for (int i=1; i<=25; i++) {
-                    if (i != 13) {
-                        var label = tableListićBingo.Controls["label" + i.ToString()];
-                        if (label.Text.Equals(rand.ToString())) label.ForeColor = Color.Green;
+                    Boolean pogoden = true;
+                    for (int j = 5 * i + 1; j <= 5 * i + 5; j++)
+                    {
+                        var label = tableListićBingo.Controls["label" + j.ToString()];
+                        if (j == 13) continue;
+                        if (label.ForeColor != Color.Green)
+                        {
+                            pogoden = false;
+                            pogodenihRedova--;
+                            break;
+                        }
+                    }
+                    if (pogoden)
+                    {
+                        if (!bingoAlert)
+                        {
+                            MessageBox.Show("Listić je dobitan! Pogođen redak.");
+                            //TODO spremi u bazu
+                            bingoAlert = true;
+                            //break;
+
+                        }
                     }
                 }
             }
-            // pronađi postoji li dobitan redak
-            for (int i=0; i<5; i++) {
-                for (int j = 5*i+1; j <= 5*i+5; j++) {
-                    var label = tableListićBingo.Controls["label" + j.ToString()];
-                    if (j == 13) continue;
-                    if (label.ForeColor != Color.Green) {
-                        bingo = false;
-                        break;
+            if (pogodenihRedova == 4) return true;
+            return false;
+        }
+
+        public Boolean provjeriStupce(ref Boolean bingoAlert)
+        {
+            int pogodenihStupaca = 4;
+            for (int i = 0; i < 5; i++)
+            {
+                if (i != 2)
+                {
+                    Boolean pogoden = true;
+                    for (int j = i + 1; j <= 20 + i + 1; j += 5)
+                    {
+                        var label = tableListićBingo.Controls["label" + j.ToString()];
+                        if (j == 13) continue;
+                        if (label.ForeColor != Color.Green)
+                        {
+                            pogoden = false;
+                            pogodenihStupaca--;
+                            break;
+                        }
+                    }
+                    if (pogoden)
+                    {
+                        if (!bingoAlert)
+                        {
+                            MessageBox.Show("Listić je dobitan! Pogođen stupac.");
+                            //TODO spremi ga u bazu
+                            bingoAlert = true;
+                            //break;
+                        }
                     }
                 }
-                if (bingo)
+            }
+            if (pogodenihStupaca == 4) return true;
+            return false;
+        }
+        public Boolean provjeriPlus(ref Boolean bingoAlert)
+        {
+            Boolean pogoden = true;
+            for (int j = 11; j <= 15; j++)
+            {
+                var label = tableListićBingo.Controls["label" + j.ToString()];
+                if (j == 13) continue;
+                if (label.ForeColor != Color.Green)
                 {
-                    if(!bingoAlert) MessageBox.Show("Bingo! Listić je dobitan.");
-                    bingoAlert = true; 
+                    pogoden = false;
                     break;
                 }
             }
-            // pronađi postoji li dobitan stupac
-            for (int i=0; i<5; i++)
+            if (pogoden)
             {
-                for (int j=i+1; j<=20+i+1; j+=5)
+                for (int j = 3; j <= 23; j += 5)
                 {
                     var label = tableListićBingo.Controls["label" + j.ToString()];
                     if (j == 13) continue;
                     if (label.ForeColor != Color.Green)
                     {
-                        bingo = false;
+                        pogoden = false;
                         break;
                     }
                 }
-                if (bingo)
+                if (pogoden)
                 {
-                    if (!bingoAlert) MessageBox.Show("Bingo! Listić je dobitan.");
+                    if (!bingoAlert)
+                    {
+                        MessageBox.Show("Listić je dobitan! Dobitak druge vrste - PLUS.");
+                        bingoAlert = true;
+
+                    }
+                }
+            }
+            if (pogoden) return true;
+            return false;
+        }
+        public Boolean provjeriKuteve(ref Boolean bingoAlert)
+        {
+            Boolean pogoden = false;
+            if (tableListićBingo.Controls["label1"].ForeColor == Color.Green && tableListićBingo.Controls["label5"].ForeColor == Color.Green
+                && tableListićBingo.Controls["label21"].ForeColor == Color.Green && tableListićBingo.Controls["label25"].ForeColor == Color.Green)
+            {
+                pogoden = true;
+                if (!bingoAlert)
+                {
+                    MessageBox.Show("Listić je dobitan! Dobitak treće vrste - KUTOVI.");
                     bingoAlert = true;
+                }
+            }
+            if (pogoden) return true;
+            return false;
+        }
+
+        public void izvlacenjeBinga() {
+            int ukupnoIzvucenih = 0;
+            var r = new Random();
+            while (ukupnoIzvucenih < 10)
+            {
+                int randBroj = r.Next(1,75+1);
+                while (this.izvuceni.Contains(randBroj) && this.izvuceni.Count < 75) randBroj = r.Next(1, 75 + 1);
+                this.izvuceni.Add(randBroj);
+                ukupnoIzvucenih++;
+                Thread.Sleep(200);
+                poslovnica.zapisiIzvuceniBroj(randBroj, this.izvuceni.Count);
+                poslovnica.Refresh();
+
+                for (int i=1; i<=25; i++) {
+                    if (i != 13)
+                    {
+                        var label = tableListićBingo.Controls["label" + i.ToString()];
+                        if (label.Text.Equals(randBroj.ToString()))
+                        {
+                            label.ForeColor = Color.Green;
+                            this.Refresh();
+                        }
+                    }
+                }
+                // pronađi postoji li dobitan stupac
+                Boolean sviStupciPogodeni = provjeriStupce(ref bingoAlert);
+
+                // je li bingo u znaku "plus"...srednji redak i srednji stupac
+                Boolean pogodenPlus = provjeriPlus(ref bingoAlert);
+                if (sviStupciPogodeni && pogodenPlus)
+                {
+                    MessageBox.Show("BINGO!");
+                    this.poslovnica.buttonIzvlacenjeBinga.Enabled = false;
                     break;
                 }
-            }
-            if (tableListićBingo.Controls["label1"].ForeColor == Color.Green && tableListićBingo.Controls["label5"].ForeColor == Color.Green
-                && tableListićBingo.Controls["label21"].ForeColor == Color.Green && tableListićBingo.Controls["label25"].ForeColor == Color.Green) {
-                if (!bingo)
-                {
-                    bingo = true;
-                    if (!bingoAlert) MessageBox.Show("Bingo! Listić je dobitan.");
-                    bingoAlert = true;
+                else {
+                    // pronađi postoji li dobitan redak
+                    Boolean sviRedoviPogodeni = provjeriRetke(ref bingoAlert);
+                    // jesu li pogođeni kutovi
+                    Boolean pogodeniKutevi = provjeriKuteve(ref bingoAlert);
                 }
             }
-
         }
 
         private void buttonKreirajBingoListic_Click(object sender, EventArgs e)
@@ -242,5 +360,9 @@ namespace Lutrija
             }
         }
 
+        private void KlijentForma_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

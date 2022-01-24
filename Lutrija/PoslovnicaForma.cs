@@ -16,10 +16,26 @@ namespace Lutrija
         public PoslovnicaForma()
         {
             InitializeComponent();
-            klijent = new KlijentForma();
+
+            labelRedniIzvuceni.Text = "0";
+            listViewDobitniListici.Visible = false;
+            labelDobitniListici.Visible = false;
+            buttonIzvlacenjeBinga.Enabled = false;
+            klijent = new KlijentForma(this);
             klijent.Show();
         }
 
+        public void zapisiIzvuceniBroj(int izvuceniBroj, int redniIzvuceni) {
+            textBoxIzvuceniBrojevi.Text += izvuceniBroj.ToString() + "  ";
+            labelRedniIzvuceni.Text = redniIzvuceni.ToString();
+        }
+
         private void buttonIzvlacenjeBinga_Click(object sender, EventArgs e) => klijent.izvlacenjeBinga();
+
+        private void buttonDobitniBingoListici_Click(object sender, EventArgs e)
+        {
+            labelDobitniListici.Visible = !labelDobitniListici.Visible;
+            listViewDobitniListici.Visible = !listViewDobitniListici.Visible;
+        }
     }
 }
