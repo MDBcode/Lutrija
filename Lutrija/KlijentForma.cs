@@ -15,6 +15,8 @@ namespace Lutrija
     {
         public PoslovnicaForma poslovnica;
         List<int> izvuceni;
+        List<int> brojeviNaListicu;
+        DateTime vrijemeUplateBingoListica;
         Boolean bingoAlert;
         public KlijentForma(PoslovnicaForma pf)
         {
@@ -23,6 +25,7 @@ namespace Lutrija
 
             this.poslovnica = pf;
             izvuceni = new List<int>();
+            brojeviNaListicu = new List<int>();
             bingoAlert = false;
             stilizirajBingoTablicu();
             stilizirajLotoTablicu();
@@ -95,21 +98,22 @@ namespace Lutrija
 
         public void kreirajBingoListic()
         {
-            List<int> brojeviNaListicu = new List<int>();
-            Random r = new Random();
+            this.brojeviNaListicu.Clear();
             this.izvuceni.Clear();
             this.bingoAlert = false;
+            this.vrijemeUplateBingoListica = DateTime.Now;
             this.poslovnica.textBoxIzvuceniBrojevi.Text = "";
             this.poslovnica.labelRedniIzvuceni.Text = "0";
             this.poslovnica.buttonIzvlacenjeBinga.Enabled = true;
             this.tableListićBingo.Visible = false;
+            Random r = new Random();
             for (int i = 1; i <= 25; i++) {
                 var labela = tableListićBingo.Controls["label" + i.ToString()];
                 if (i == 13) labela.Text = ""; // središnja ćelija, ona je prazna
                 else {
                     int randBroj = r.Next(1, 75 + 1);
-                    while (brojeviNaListicu.Contains(randBroj)) randBroj = r.Next(1, 75 + 1);
-                    brojeviNaListicu.Add(randBroj);
+                    while (this.brojeviNaListicu.Contains(randBroj)) randBroj = r.Next(1, 75 + 1);
+                    this.brojeviNaListicu.Add(randBroj);
                     labela.Text = randBroj.ToString();
                     labela.ForeColor = Color.Black;    
                 }
@@ -243,14 +247,11 @@ namespace Lutrija
         }
 
         public void izvlacenjeBinga() {
-            int ukupnoIzvucenih = 0;
             var r = new Random();
-            while (ukupnoIzvucenih < 10)
-            {
+            for (int ukupnoIzvucenih=0; ukupnoIzvucenih<10; ukupnoIzvucenih++) { 
                 int randBroj = r.Next(1,75+1);
                 while (this.izvuceni.Contains(randBroj) && this.izvuceni.Count < 75) randBroj = r.Next(1, 75 + 1);
                 this.izvuceni.Add(randBroj);
-                ukupnoIzvucenih++;
                 Thread.Sleep(200);
                 poslovnica.zapisiIzvuceniBroj(randBroj, this.izvuceni.Count);
                 poslovnica.Refresh();
@@ -275,6 +276,7 @@ namespace Lutrija
                 {
                     MessageBox.Show("BINGO!");
                     this.poslovnica.buttonIzvlacenjeBinga.Enabled = false;
+                    this.poslovnica.spremiBingoListicUBazu(this.vrijemeUplateBingoListica, this.brojeviNaListicu);
                     break;
                 }
                 else {
@@ -285,6 +287,7 @@ namespace Lutrija
                 }
             }
         }
+
 
         private void buttonKreirajBingoListic_Click(object sender, EventArgs e)
         {

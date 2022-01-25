@@ -527,7 +527,7 @@ namespace Lutrija
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLoto.AutoSize = true;
             this.labelLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelLoto.Location = new System.Drawing.Point(384, 26);
+            this.labelLoto.Location = new System.Drawing.Point(383, 33);
             this.labelLoto.Name = "labelLoto";
             this.labelLoto.Size = new System.Drawing.Size(90, 25);
             this.labelLoto.TabIndex = 0;
@@ -548,17 +548,19 @@ namespace Lutrija
             // 
             // buttonKreirajBingoListic
             // 
-            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(606, 204);
+            this.buttonKreirajBingoListic.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(580, 251);
             this.buttonKreirajBingoListic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKreirajBingoListic.Name = "buttonKreirajBingoListic";
             this.buttonKreirajBingoListic.Size = new System.Drawing.Size(152, 45);
             this.buttonKreirajBingoListic.TabIndex = 4;
-            this.buttonKreirajBingoListic.Text = "Kreiraj listić";
-            this.buttonKreirajBingoListic.UseVisualStyleBackColor = true;
+            this.buttonKreirajBingoListic.Text = "KREIRAJ LISTIĆ";
+            this.buttonKreirajBingoListic.UseVisualStyleBackColor = false;
             this.buttonKreirajBingoListic.Click += new System.EventHandler(this.buttonKreirajBingoListic_Click);
             // 
             // tableListićBingo
             // 
+            this.tableListićBingo.BackColor = System.Drawing.Color.SandyBrown;
             this.tableListićBingo.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableListićBingo.ColumnCount = 5;
             this.tableListićBingo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -591,7 +593,7 @@ namespace Lutrija
             this.tableListićBingo.Controls.Add(this.label21, 0, 4);
             this.tableListićBingo.Controls.Add(this.label1, 0, 0);
             this.tableListićBingo.Controls.Add(this.label6, 0, 1);
-            this.tableListićBingo.Location = new System.Drawing.Point(145, 92);
+            this.tableListićBingo.Location = new System.Drawing.Point(203, 140);
             this.tableListićBingo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableListićBingo.Name = "tableListićBingo";
             this.tableListićBingo.RowCount = 5;
@@ -834,7 +836,7 @@ namespace Lutrija
             // 
             this.labelBingo.AutoSize = true;
             this.labelBingo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBingo.Location = new System.Drawing.Point(372, 26);
+            this.labelBingo.Location = new System.Drawing.Point(372, 34);
             this.labelBingo.Name = "labelBingo";
             this.labelBingo.Size = new System.Drawing.Size(163, 29);
             this.labelBingo.TabIndex = 2;

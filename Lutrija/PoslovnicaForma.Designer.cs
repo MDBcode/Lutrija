@@ -31,17 +31,17 @@ namespace Lutrija
         {
             this.tabPageKladionica = new System.Windows.Forms.TabPage();
             this.tabPageBingo = new System.Windows.Forms.TabPage();
+            this.labelDobitniListici = new System.Windows.Forms.Label();
+            this.labelRedniIzvuceni = new System.Windows.Forms.Label();
+            this.labelBrojIzvucenih = new System.Windows.Forms.Label();
+            this.textBoxIzvuceniBrojevi = new System.Windows.Forms.TextBox();
+            this.labelIzvuceniBrojevi = new System.Windows.Forms.Label();
             this.buttonDobitniBingoListici = new System.Windows.Forms.Button();
             this.buttonIzvlacenjeBinga = new System.Windows.Forms.Button();
             this.labelBingo = new System.Windows.Forms.Label();
             this.tabControlPoslovnica = new System.Windows.Forms.TabControl();
             this.tabPageLoto = new System.Windows.Forms.TabPage();
-            this.labelIzvuceniBrojevi = new System.Windows.Forms.Label();
-            this.textBoxIzvuceniBrojevi = new System.Windows.Forms.TextBox();
-            this.labelBrojIzvucenih = new System.Windows.Forms.Label();
-            this.labelRedniIzvuceni = new System.Windows.Forms.Label();
-            this.listViewDobitniListici = new System.Windows.Forms.ListView();
-            this.labelDobitniListici = new System.Windows.Forms.Label();
+            this.listBoxDobitniListici = new System.Windows.Forms.ListBox();
             this.tabPageBingo.SuspendLayout();
             this.tabControlPoslovnica.SuspendLayout();
             this.SuspendLayout();
@@ -51,15 +51,15 @@ namespace Lutrija
             this.tabPageKladionica.BackColor = System.Drawing.Color.AntiqueWhite;
             this.tabPageKladionica.Location = new System.Drawing.Point(4, 29);
             this.tabPageKladionica.Name = "tabPageKladionica";
-            this.tabPageKladionica.Size = new System.Drawing.Size(792, 417);
+            this.tabPageKladionica.Size = new System.Drawing.Size(804, 605);
             this.tabPageKladionica.TabIndex = 0;
             this.tabPageKladionica.Text = "Kladionica";
             // 
             // tabPageBingo
             // 
             this.tabPageBingo.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabPageBingo.Controls.Add(this.listBoxDobitniListici);
             this.tabPageBingo.Controls.Add(this.labelDobitniListici);
-            this.tabPageBingo.Controls.Add(this.listViewDobitniListici);
             this.tabPageBingo.Controls.Add(this.labelRedniIzvuceni);
             this.tabPageBingo.Controls.Add(this.labelBrojIzvucenih);
             this.tabPageBingo.Controls.Add(this.textBoxIzvuceniBrojevi);
@@ -72,6 +72,50 @@ namespace Lutrija
             this.tabPageBingo.Size = new System.Drawing.Size(804, 605);
             this.tabPageBingo.TabIndex = 0;
             this.tabPageBingo.Text = "Bingo";
+            // 
+            // labelDobitniListici
+            // 
+            this.labelDobitniListici.AutoSize = true;
+            this.labelDobitniListici.Location = new System.Drawing.Point(56, 340);
+            this.labelDobitniListici.Name = "labelDobitniListici";
+            this.labelDobitniListici.Size = new System.Drawing.Size(143, 20);
+            this.labelDobitniListici.TabIndex = 8;
+            this.labelDobitniListici.Text = "Dobitni bingo listići:";
+            // 
+            // labelRedniIzvuceni
+            // 
+            this.labelRedniIzvuceni.AutoSize = true;
+            this.labelRedniIzvuceni.Location = new System.Drawing.Point(714, 193);
+            this.labelRedniIzvuceni.Name = "labelRedniIzvuceni";
+            this.labelRedniIzvuceni.Size = new System.Drawing.Size(51, 20);
+            this.labelRedniIzvuceni.TabIndex = 6;
+            this.labelRedniIzvuceni.Text = "label1";
+            // 
+            // labelBrojIzvucenih
+            // 
+            this.labelBrojIzvucenih.AutoSize = true;
+            this.labelBrojIzvucenih.Location = new System.Drawing.Point(606, 193);
+            this.labelBrojIzvucenih.Name = "labelBrojIzvucenih";
+            this.labelBrojIzvucenih.Size = new System.Drawing.Size(114, 20);
+            this.labelBrojIzvucenih.TabIndex = 5;
+            this.labelBrojIzvucenih.Text = "Broj izvučenih: ";
+            // 
+            // textBoxIzvuceniBrojevi
+            // 
+            this.textBoxIzvuceniBrojevi.Location = new System.Drawing.Point(60, 216);
+            this.textBoxIzvuceniBrojevi.Multiline = true;
+            this.textBoxIzvuceniBrojevi.Name = "textBoxIzvuceniBrojevi";
+            this.textBoxIzvuceniBrojevi.Size = new System.Drawing.Size(681, 89);
+            this.textBoxIzvuceniBrojevi.TabIndex = 4;
+            // 
+            // labelIzvuceniBrojevi
+            // 
+            this.labelIzvuceniBrojevi.AutoSize = true;
+            this.labelIzvuceniBrojevi.Location = new System.Drawing.Point(56, 193);
+            this.labelIzvuceniBrojevi.Name = "labelIzvuceniBrojevi";
+            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(120, 20);
+            this.labelIzvuceniBrojevi.TabIndex = 3;
+            this.labelIzvuceniBrojevi.Text = "Izvučeni brojevi:";
             // 
             // buttonDobitniBingoListici
             // 
@@ -122,62 +166,20 @@ namespace Lutrija
             this.tabPageLoto.BackColor = System.Drawing.Color.AntiqueWhite;
             this.tabPageLoto.Location = new System.Drawing.Point(4, 29);
             this.tabPageLoto.Name = "tabPageLoto";
-            this.tabPageLoto.Size = new System.Drawing.Size(792, 417);
+            this.tabPageLoto.Size = new System.Drawing.Size(804, 605);
             this.tabPageLoto.TabIndex = 0;
             this.tabPageLoto.Text = "Loto";
             // 
-            // labelIzvuceniBrojevi
+            // listBoxDobitniListici
             // 
-            this.labelIzvuceniBrojevi.AutoSize = true;
-            this.labelIzvuceniBrojevi.Location = new System.Drawing.Point(56, 193);
-            this.labelIzvuceniBrojevi.Name = "labelIzvuceniBrojevi";
-            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(120, 20);
-            this.labelIzvuceniBrojevi.TabIndex = 3;
-            this.labelIzvuceniBrojevi.Text = "Izvučeni brojevi:";
-            // 
-            // textBoxIzvuceniBrojevi
-            // 
-            this.textBoxIzvuceniBrojevi.Location = new System.Drawing.Point(60, 216);
-            this.textBoxIzvuceniBrojevi.Multiline = true;
-            this.textBoxIzvuceniBrojevi.Name = "textBoxIzvuceniBrojevi";
-            this.textBoxIzvuceniBrojevi.Size = new System.Drawing.Size(681, 89);
-            this.textBoxIzvuceniBrojevi.TabIndex = 4;
-            // 
-            // labelBrojIzvucenih
-            // 
-            this.labelBrojIzvucenih.AutoSize = true;
-            this.labelBrojIzvucenih.Location = new System.Drawing.Point(606, 193);
-            this.labelBrojIzvucenih.Name = "labelBrojIzvucenih";
-            this.labelBrojIzvucenih.Size = new System.Drawing.Size(114, 20);
-            this.labelBrojIzvucenih.TabIndex = 5;
-            this.labelBrojIzvucenih.Text = "Broj izvučenih: ";
-            // 
-            // labelRedniIzvuceni
-            // 
-            this.labelRedniIzvuceni.AutoSize = true;
-            this.labelRedniIzvuceni.Location = new System.Drawing.Point(714, 193);
-            this.labelRedniIzvuceni.Name = "labelRedniIzvuceni";
-            this.labelRedniIzvuceni.Size = new System.Drawing.Size(51, 20);
-            this.labelRedniIzvuceni.TabIndex = 6;
-            this.labelRedniIzvuceni.Text = "label1";
-            // 
-            // listViewDobitniListici
-            // 
-            this.listViewDobitniListici.HideSelection = false;
-            this.listViewDobitniListici.Location = new System.Drawing.Point(60, 363);
-            this.listViewDobitniListici.Name = "listViewDobitniListici";
-            this.listViewDobitniListici.Size = new System.Drawing.Size(681, 195);
-            this.listViewDobitniListici.TabIndex = 7;
-            this.listViewDobitniListici.UseCompatibleStateImageBehavior = false;
-            // 
-            // labelDobitniListici
-            // 
-            this.labelDobitniListici.AutoSize = true;
-            this.labelDobitniListici.Location = new System.Drawing.Point(56, 340);
-            this.labelDobitniListici.Name = "labelDobitniListici";
-            this.labelDobitniListici.Size = new System.Drawing.Size(100, 20);
-            this.labelDobitniListici.TabIndex = 8;
-            this.labelDobitniListici.Text = "Dobitni listići:";
+            this.listBoxDobitniListici.FormattingEnabled = true;
+            this.listBoxDobitniListici.HorizontalScrollbar = true;
+            this.listBoxDobitniListici.ItemHeight = 20;
+            this.listBoxDobitniListici.Location = new System.Drawing.Point(60, 364);
+            this.listBoxDobitniListici.Name = "listBoxDobitniListici";
+            this.listBoxDobitniListici.ScrollAlwaysVisible = true;
+            this.listBoxDobitniListici.Size = new System.Drawing.Size(681, 184);
+            this.listBoxDobitniListici.TabIndex = 9;
             // 
             // PoslovnicaForma
             // 
@@ -209,7 +211,7 @@ namespace Lutrija
         public System.Windows.Forms.Label labelRedniIzvuceni;
         public System.Windows.Forms.Button buttonIzvlacenjeBinga;
         private System.Windows.Forms.Label labelDobitniListici;
-        public System.Windows.Forms.ListView listViewDobitniListici;
+        private System.Windows.Forms.ListBox listBoxDobitniListici;
     }
 }
 
