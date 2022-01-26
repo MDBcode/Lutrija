@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <LotoListic>
+    <ID>1</ID>
+    <vrijemeUplate>25.1.2022. 21:28:44</vrijemeUplate>
+    <brojevi>3 7 22 34 39 42 </brojevi>
+    <pogodeni>7 34 39</pogodeni>
+  </LotoListic>
+  <LotoListic>
+    <ID>2</ID>
+    <vrijemeUplate>26.1.2022. 21:32:01</vrijemeUplate>
+    <brojevi>14 21 22 38 41 45</brojevi>
+    <pogodeni>14 22 38 41</pogodeni>
+  </LotoListic>
+  <LotoListic>
+    <ID>3</ID>
+    <vrijemeUplate>26.1.2022. 22:15:30</vrijemeUplate>
+    <brojevi>7 11 18 22 28 31 </brojevi>
+    <pogodeni>7 18 31</pogodeni>
+  </LotoListic>
+  <LotoListic>
+    <ID>4</ID>
+    <vrijemeUplate>26.1.2022. 14:59:58</vrijemeUplate>
+    <brojevi>4 5 6 8 11 13 </brojevi>
+    <pogodeni>8 11 13 </pogodeni>
+  </LotoListic>
+</Root>

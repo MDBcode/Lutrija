@@ -15,9 +15,15 @@ namespace Lutrija
     {
         public PoslovnicaForma poslovnica;
         List<int> izvuceni;
+        List<int> izvuceniLoto;
         List<int> brojeviNaListicu;
+        List<int> brojeviNaLotoListicu;
+        List<int> pogodeniLotoBrojevi;
         DateTime vrijemeUplateBingoListica;
+        DateTime vrijemeUplateLotoListica;
         Boolean bingoAlert;
+        Boolean igraj;
+        Boolean joker_loto;
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
@@ -25,8 +31,13 @@ namespace Lutrija
 
             this.poslovnica = pf;
             izvuceni = new List<int>();
+            izvuceniLoto = new List<int>();
             brojeviNaListicu = new List<int>();
+            brojeviNaLotoListicu = new List<int>();
+            pogodeniLotoBrojevi = new List<int>();
             bingoAlert = false;
+            igraj = false;
+            joker_loto = false;
             stilizirajBingoTablicu();
             stilizirajLotoTablicu();
 
@@ -330,6 +341,7 @@ namespace Lutrija
             for (int i = 1; i <= 6; i++)
             {
                 int broj = rnd.Next(1, 46);
+                if (brojevi.Contains(broj)) broj = rnd.Next(1, 45 + 1);
                 brojevi[i-1] = broj;
             }
 
@@ -348,6 +360,7 @@ namespace Lutrija
             {
                 var label = table_loto.Controls["label" + brojac.ToString()];
                 label.Text = value.ToString();
+                label.ForeColor = Color.Black;
                 brojac++;
             }
         }
@@ -367,5 +380,104 @@ namespace Lutrija
         {
             Application.Exit();
         }
+
+        public void izvlacenjeLota()
+        {
+            var r = new Random();
+            int broji_dobitne = 0;
+            for (int ukupnoIzvucenih = 0; ukupnoIzvucenih < 6; ukupnoIzvucenih++)
+            {
+                int randBroj = r.Next(1, 45 + 1);
+                if (this.izvuceniLoto.Contains(randBroj)) randBroj = r.Next(1, 45 + 1);
+                this.izvuceniLoto.Add(randBroj);
+                Thread.Sleep(500);
+                poslovnica.zapisiIzvuceniLotoBroj(randBroj, this.izvuceniLoto.Count);
+                poslovnica.Refresh();
+                poslovnica.buttonIzvlacenjeLota.Enabled = false;
+
+                for (int i = 26; i <= 31; i++)
+                {
+                    var label = table_loto.Controls["label" + i.ToString()];
+                    if (label.Text.Equals(randBroj.ToString()))
+                    {
+                        label.ForeColor = Color.Green;
+                        this.Refresh();
+                        broji_dobitne++;
+                        pogodeniLotoBrojevi.Add(randBroj);
+                    }
+                }
+            }
+            Thread.Sleep(3000);
+            poslovnica.textBoxIzvuceniBrojeviLoto.Clear();
+            izvuceniLoto.Sort();
+            for(int i =0; i <izvuceniLoto.Count; i++)
+            {
+                poslovnica.zapisiIzvuceniLotoBrojSortirano(izvuceniLoto[i], i);
+            }
+
+            if (broji_dobitne >= 3)
+            {
+                MessageBox.Show("Dobitan!");
+                this.poslovnica.spremiLotoListicUBazu(this.vrijemeUplateLotoListica, this.brojeviNaLotoListicu, this.pogodeniLotoBrojevi);
+            }
+
+            Button novi_listic = new Button();
+            novi_listic.Text = "NOVA IGRA!";
+            novi_listic.Font = new Font("MicrosoftSansSerif", 10);
+            novi_listic.Size = new System.Drawing.Size(106, 48);
+            novi_listic.BackColor = Color.PaleGreen;
+            tabPageLoto.Controls.Add(novi_listic);
+
+            novi_listic.Click += nova_igra;
+
+            //nova_igra();
+        }
+
+        void nova_igra(object sender, EventArgs e)
+        {
+            this.brojeviNaLotoListicu.Clear();
+            this.pogodeniLotoBrojevi.Clear();
+            tabPageLoto.Controls.Remove((Control)sender);
+            izvuceniLoto.Clear();
+            igraj = false;
+            foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
+                gumb.Enabled = true;
+            foreach (var gumb in panel1.Controls.OfType<Button>())
+                gumb.Enabled = true;
+            checkBox1.Enabled = true;
+            poslovnica.buttonIzvlacenjeLota.Enabled = false;
+            for (int i = 26; i <= 31; i++)
+            {
+                var label = table_loto.Controls["label" + i.ToString()];
+                label.Text = "";
+            }
+            poslovnica.textBoxIzvuceniBrojeviLoto.BackColor = Color.White;
+            poslovnica.textBoxIzvuceniBrojeviLoto.Clear();
+            generiraj_joker_brojeve();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) joker_loto = true;
+            else joker_loto = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            igraj = true;
+            foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
+                gumb.Enabled = false;
+            foreach (var gumb in panel1.Controls.OfType<Button>())
+                gumb.Enabled = false;
+            checkBox1.Enabled = false;
+            poslovnica.buttonIzvlacenjeLota.Enabled = true;
+            for (int i = 26; i <= 31; i++)
+            {
+                var label = table_loto.Controls["label" + i.ToString()];
+                brojeviNaLotoListicu.Add(Int16.Parse(label.Text));
+            }
+            this.vrijemeUplateLotoListica = DateTime.Now;
+        }
+
     }
 }
