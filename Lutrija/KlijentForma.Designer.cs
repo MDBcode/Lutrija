@@ -31,6 +31,7 @@ namespace Lutrija
         {
             this.tabControlKlijent = new System.Windows.Forms.TabControl();
             this.tabPageLoto = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.smanji_sesti = new System.Windows.Forms.Button();
             this.povecaj_sesti = new System.Windows.Forms.Button();
@@ -94,7 +95,21 @@ namespace Lutrija
             this.label6 = new System.Windows.Forms.Label();
             this.labelBingo = new System.Windows.Forms.Label();
             this.tabPageKladionica = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPageEurojackpot = new System.Windows.Forms.TabPage();
+            this.label38 = new System.Windows.Forms.Label();
+            this.ej_igraj = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.generiraj_ej = new System.Windows.Forms.Button();
+            this.table_ej2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ejlabel7 = new System.Windows.Forms.Label();
+            this.ejlabel6 = new System.Windows.Forms.Label();
+            this.table_ej = new System.Windows.Forms.TableLayoutPanel();
+            this.ejlabel5 = new System.Windows.Forms.Label();
+            this.ejlabel4 = new System.Windows.Forms.Label();
+            this.ejlabel3 = new System.Windows.Forms.Label();
+            this.ejlabel2 = new System.Windows.Forms.Label();
+            this.ejlabel1 = new System.Windows.Forms.Label();
             this.tabControlKlijent.SuspendLayout();
             this.tabPageLoto.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,6 +117,9 @@ namespace Lutrija
             this.table_loto.SuspendLayout();
             this.tabPageBingo.SuspendLayout();
             this.tableListićBingo.SuspendLayout();
+            this.tabPageEurojackpot.SuspendLayout();
+            this.table_ej2.SuspendLayout();
+            this.table_ej.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlKlijent
@@ -109,6 +127,7 @@ namespace Lutrija
             this.tabControlKlijent.Controls.Add(this.tabPageLoto);
             this.tabControlKlijent.Controls.Add(this.tabPageBingo);
             this.tabControlKlijent.Controls.Add(this.tabPageKladionica);
+            this.tabControlKlijent.Controls.Add(this.tabPageEurojackpot);
             this.tabControlKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlKlijent.Location = new System.Drawing.Point(0, 0);
             this.tabControlKlijent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -133,6 +152,16 @@ namespace Lutrija
             this.tabPageLoto.Size = new System.Drawing.Size(718, 469);
             this.tabPageLoto.TabIndex = 0;
             this.tabPageLoto.Text = "Loto";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(453, 170);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(194, 37);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Po podacima iz prošlosti";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -331,7 +360,7 @@ namespace Lutrija
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 1);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(51, 16);
+            this.label32.Size = new System.Drawing.Size(54, 17);
             this.label32.TabIndex = 0;
             this.label32.Text = "label32";
             // 
@@ -340,7 +369,7 @@ namespace Lutrija
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(65, 1);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(51, 16);
+            this.label33.Size = new System.Drawing.Size(54, 17);
             this.label33.TabIndex = 1;
             this.label33.Text = "label33";
             // 
@@ -349,7 +378,7 @@ namespace Lutrija
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(126, 1);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(51, 16);
+            this.label34.Size = new System.Drawing.Size(54, 17);
             this.label34.TabIndex = 2;
             this.label34.Text = "label34";
             // 
@@ -358,7 +387,7 @@ namespace Lutrija
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(187, 1);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(51, 16);
+            this.label35.Size = new System.Drawing.Size(54, 17);
             this.label35.TabIndex = 3;
             this.label35.Text = "label35";
             // 
@@ -367,7 +396,7 @@ namespace Lutrija
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(248, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(51, 16);
+            this.label36.Size = new System.Drawing.Size(54, 17);
             this.label36.TabIndex = 4;
             this.label36.Text = "label36";
             // 
@@ -376,7 +405,7 @@ namespace Lutrija
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(309, 1);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(51, 16);
+            this.label37.Size = new System.Drawing.Size(54, 17);
             this.label37.TabIndex = 5;
             this.label37.Text = "label37";
             // 
@@ -456,7 +485,7 @@ namespace Lutrija
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(309, 1);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(51, 16);
+            this.label31.Size = new System.Drawing.Size(54, 17);
             this.label31.TabIndex = 5;
             this.label31.Text = "label31";
             // 
@@ -465,7 +494,7 @@ namespace Lutrija
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(248, 1);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(51, 16);
+            this.label30.Size = new System.Drawing.Size(54, 17);
             this.label30.TabIndex = 4;
             this.label30.Text = "label30";
             // 
@@ -474,7 +503,7 @@ namespace Lutrija
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(187, 1);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(51, 16);
+            this.label29.Size = new System.Drawing.Size(54, 17);
             this.label29.TabIndex = 3;
             this.label29.Text = "label29";
             // 
@@ -483,7 +512,7 @@ namespace Lutrija
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(126, 1);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(51, 16);
+            this.label28.Size = new System.Drawing.Size(54, 17);
             this.label28.TabIndex = 2;
             this.label28.Text = "label28";
             // 
@@ -492,7 +521,7 @@ namespace Lutrija
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(65, 1);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(51, 16);
+            this.label27.Size = new System.Drawing.Size(54, 17);
             this.label27.TabIndex = 1;
             this.label27.Text = "label27";
             // 
@@ -501,7 +530,7 @@ namespace Lutrija
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(4, 1);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(51, 16);
+            this.label26.Size = new System.Drawing.Size(54, 17);
             this.label26.TabIndex = 0;
             this.label26.Text = "label26";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -596,7 +625,7 @@ namespace Lutrija
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(236, 177);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(51, 16);
+            this.label25.Size = new System.Drawing.Size(54, 17);
             this.label25.TabIndex = 24;
             this.label25.Text = "label25";
             // 
@@ -605,7 +634,7 @@ namespace Lutrija
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(178, 177);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 16);
+            this.label24.Size = new System.Drawing.Size(46, 34);
             this.label24.TabIndex = 23;
             this.label24.Text = "label24";
             // 
@@ -614,7 +643,7 @@ namespace Lutrija
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(120, 177);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(51, 16);
+            this.label23.Size = new System.Drawing.Size(46, 34);
             this.label23.TabIndex = 22;
             this.label23.Text = "label23";
             // 
@@ -623,7 +652,7 @@ namespace Lutrija
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(62, 177);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(51, 16);
+            this.label22.Size = new System.Drawing.Size(46, 34);
             this.label22.TabIndex = 21;
             this.label22.Text = "label22";
             // 
@@ -632,7 +661,7 @@ namespace Lutrija
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(236, 133);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 16);
+            this.label20.Size = new System.Drawing.Size(54, 17);
             this.label20.TabIndex = 19;
             this.label20.Text = "label20";
             // 
@@ -641,7 +670,7 @@ namespace Lutrija
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(178, 133);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 16);
+            this.label19.Size = new System.Drawing.Size(46, 34);
             this.label19.TabIndex = 18;
             this.label19.Text = "label19";
             // 
@@ -650,7 +679,7 @@ namespace Lutrija
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(120, 133);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(51, 16);
+            this.label18.Size = new System.Drawing.Size(46, 34);
             this.label18.TabIndex = 17;
             this.label18.Text = "label18";
             // 
@@ -659,7 +688,7 @@ namespace Lutrija
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(62, 133);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 16);
+            this.label17.Size = new System.Drawing.Size(46, 34);
             this.label17.TabIndex = 16;
             this.label17.Text = "label17";
             // 
@@ -668,7 +697,7 @@ namespace Lutrija
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(4, 133);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 16);
+            this.label16.Size = new System.Drawing.Size(46, 34);
             this.label16.TabIndex = 15;
             this.label16.Text = "label16";
             // 
@@ -677,7 +706,7 @@ namespace Lutrija
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(236, 89);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 16);
+            this.label15.Size = new System.Drawing.Size(54, 17);
             this.label15.TabIndex = 14;
             this.label15.Text = "label15";
             // 
@@ -686,7 +715,7 @@ namespace Lutrija
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(178, 89);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 16);
+            this.label14.Size = new System.Drawing.Size(46, 34);
             this.label14.TabIndex = 13;
             this.label14.Text = "label14";
             // 
@@ -695,7 +724,7 @@ namespace Lutrija
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(120, 89);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 16);
+            this.label13.Size = new System.Drawing.Size(46, 34);
             this.label13.TabIndex = 12;
             this.label13.Text = "label13";
             // 
@@ -704,7 +733,7 @@ namespace Lutrija
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(62, 89);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 16);
+            this.label12.Size = new System.Drawing.Size(46, 34);
             this.label12.TabIndex = 11;
             this.label12.Text = "label12";
             // 
@@ -713,7 +742,7 @@ namespace Lutrija
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(4, 89);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 16);
+            this.label11.Size = new System.Drawing.Size(46, 34);
             this.label11.TabIndex = 10;
             this.label11.Text = "label11";
             // 
@@ -722,7 +751,7 @@ namespace Lutrija
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(236, 45);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 16);
+            this.label10.Size = new System.Drawing.Size(54, 17);
             this.label10.TabIndex = 9;
             this.label10.Text = "label10";
             // 
@@ -731,7 +760,7 @@ namespace Lutrija
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(178, 45);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 16);
+            this.label9.Size = new System.Drawing.Size(46, 17);
             this.label9.TabIndex = 8;
             this.label9.Text = "label9";
             // 
@@ -740,7 +769,7 @@ namespace Lutrija
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(120, 45);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 16);
+            this.label8.Size = new System.Drawing.Size(46, 17);
             this.label8.TabIndex = 7;
             this.label8.Text = "label8";
             // 
@@ -749,7 +778,7 @@ namespace Lutrija
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(62, 45);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(46, 17);
             this.label7.TabIndex = 6;
             this.label7.Text = "label7";
             // 
@@ -758,7 +787,7 @@ namespace Lutrija
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(236, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "label5";
             // 
@@ -767,7 +796,7 @@ namespace Lutrija
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(178, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "label4";
             // 
@@ -776,7 +805,7 @@ namespace Lutrija
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(120, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
             // 
@@ -785,7 +814,7 @@ namespace Lutrija
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(62, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
             // 
@@ -794,7 +823,7 @@ namespace Lutrija
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(4, 177);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 16);
+            this.label21.Size = new System.Drawing.Size(46, 34);
             this.label21.TabIndex = 20;
             this.label21.Text = "label21";
             // 
@@ -813,7 +842,7 @@ namespace Lutrija
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(4, 45);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "label6";
             // 
@@ -835,19 +864,186 @@ namespace Lutrija
             this.tabPageKladionica.Location = new System.Drawing.Point(4, 25);
             this.tabPageKladionica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageKladionica.Name = "tabPageKladionica";
-            this.tabPageKladionica.Size = new System.Drawing.Size(772, 455);
+            this.tabPageKladionica.Size = new System.Drawing.Size(718, 469);
             this.tabPageKladionica.TabIndex = 0;
             this.tabPageKladionica.Text = "Kladionica";
             // 
-            // button3
+            // tabPageEurojackpot
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(453, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 37);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Po podacima iz prošlosti";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabPageEurojackpot.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabPageEurojackpot.Controls.Add(this.label38);
+            this.tabPageEurojackpot.Controls.Add(this.ej_igraj);
+            this.tabPageEurojackpot.Controls.Add(this.button4);
+            this.tabPageEurojackpot.Controls.Add(this.button5);
+            this.tabPageEurojackpot.Controls.Add(this.generiraj_ej);
+            this.tabPageEurojackpot.Controls.Add(this.table_ej2);
+            this.tabPageEurojackpot.Controls.Add(this.table_ej);
+            this.tabPageEurojackpot.Location = new System.Drawing.Point(4, 25);
+            this.tabPageEurojackpot.Name = "tabPageEurojackpot";
+            this.tabPageEurojackpot.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageEurojackpot.Size = new System.Drawing.Size(718, 469);
+            this.tabPageEurojackpot.TabIndex = 1;
+            this.tabPageEurojackpot.Text = "Eurojackpot";
+            // 
+            // label38
+            // 
+            this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label38.Location = new System.Drawing.Point(289, 53);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(145, 20);
+            this.label38.TabIndex = 27;
+            this.label38.Text = "EUROJACKPOT";
+            // 
+            // ej_igraj
+            // 
+            this.ej_igraj.BackColor = System.Drawing.Color.PaleGreen;
+            this.ej_igraj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ej_igraj.Location = new System.Drawing.Point(306, 351);
+            this.ej_igraj.Name = "ej_igraj";
+            this.ej_igraj.Size = new System.Drawing.Size(106, 48);
+            this.ej_igraj.TabIndex = 26;
+            this.ej_igraj.Text = "IGRAJ";
+            this.ej_igraj.UseVisualStyleBackColor = false;
+            this.ej_igraj.Visible = false;
+            this.ej_igraj.Click += new System.EventHandler(this.ej_igraj_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(455, 261);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(194, 37);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Po podacima iz prošlosti";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(49, 261);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(200, 37);
+            this.button5.TabIndex = 24;
+            this.button5.Text = "Odaberi kombinaciju";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // generiraj_ej
+            // 
+            this.generiraj_ej.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generiraj_ej.Location = new System.Drawing.Point(255, 261);
+            this.generiraj_ej.Name = "generiraj_ej";
+            this.generiraj_ej.Size = new System.Drawing.Size(194, 37);
+            this.generiraj_ej.TabIndex = 23;
+            this.generiraj_ej.Text = "Generiraj brojeve";
+            this.generiraj_ej.UseVisualStyleBackColor = true;
+            this.generiraj_ej.Click += new System.EventHandler(this.generiraj_ej_Click);
+            // 
+            // table_ej2
+            // 
+            this.table_ej2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.table_ej2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.table_ej2.ColumnCount = 2;
+            this.table_ej2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.28571F));
+            this.table_ej2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.71429F));
+            this.table_ej2.Controls.Add(this.ejlabel7, 1, 0);
+            this.table_ej2.Controls.Add(this.ejlabel6, 0, 0);
+            this.table_ej2.Location = new System.Drawing.Point(524, 150);
+            this.table_ej2.Name = "table_ej2";
+            this.table_ej2.RowCount = 1;
+            this.table_ej2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.table_ej2.Size = new System.Drawing.Size(145, 72);
+            this.table_ej2.TabIndex = 3;
+            // 
+            // ejlabel7
+            // 
+            this.ejlabel7.AutoSize = true;
+            this.ejlabel7.Location = new System.Drawing.Point(76, 1);
+            this.ejlabel7.Name = "ejlabel7";
+            this.ejlabel7.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel7.TabIndex = 1;
+            this.ejlabel7.Text = "label48";
+            // 
+            // ejlabel6
+            // 
+            this.ejlabel6.AutoSize = true;
+            this.ejlabel6.Location = new System.Drawing.Point(4, 1);
+            this.ejlabel6.Name = "ejlabel6";
+            this.ejlabel6.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel6.TabIndex = 0;
+            this.ejlabel6.Text = "label49";
+            this.ejlabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // table_ej
+            // 
+            this.table_ej.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.table_ej.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.table_ej.ColumnCount = 5;
+            this.table_ej.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table_ej.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table_ej.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table_ej.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table_ej.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table_ej.Controls.Add(this.ejlabel5, 4, 0);
+            this.table_ej.Controls.Add(this.ejlabel4, 3, 0);
+            this.table_ej.Controls.Add(this.ejlabel3, 2, 0);
+            this.table_ej.Controls.Add(this.ejlabel2, 1, 0);
+            this.table_ej.Controls.Add(this.ejlabel1, 0, 0);
+            this.table_ej.Location = new System.Drawing.Point(28, 150);
+            this.table_ej.Name = "table_ej";
+            this.table_ej.RowCount = 1;
+            this.table_ej.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.table_ej.Size = new System.Drawing.Size(368, 72);
+            this.table_ej.TabIndex = 2;
+            // 
+            // ejlabel5
+            // 
+            this.ejlabel5.AutoSize = true;
+            this.ejlabel5.Location = new System.Drawing.Point(296, 1);
+            this.ejlabel5.Name = "ejlabel5";
+            this.ejlabel5.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel5.TabIndex = 4;
+            this.ejlabel5.Text = "label39";
+            // 
+            // ejlabel4
+            // 
+            this.ejlabel4.AutoSize = true;
+            this.ejlabel4.Location = new System.Drawing.Point(223, 1);
+            this.ejlabel4.Name = "ejlabel4";
+            this.ejlabel4.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel4.TabIndex = 3;
+            this.ejlabel4.Text = "label40";
+            // 
+            // ejlabel3
+            // 
+            this.ejlabel3.AutoSize = true;
+            this.ejlabel3.Location = new System.Drawing.Point(150, 1);
+            this.ejlabel3.Name = "ejlabel3";
+            this.ejlabel3.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel3.TabIndex = 2;
+            this.ejlabel3.Text = "label41";
+            // 
+            // ejlabel2
+            // 
+            this.ejlabel2.AutoSize = true;
+            this.ejlabel2.Location = new System.Drawing.Point(77, 1);
+            this.ejlabel2.Name = "ejlabel2";
+            this.ejlabel2.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel2.TabIndex = 1;
+            this.ejlabel2.Text = "label42";
+            // 
+            // ejlabel1
+            // 
+            this.ejlabel1.AutoSize = true;
+            this.ejlabel1.Location = new System.Drawing.Point(4, 1);
+            this.ejlabel1.Name = "ejlabel1";
+            this.ejlabel1.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel1.TabIndex = 0;
+            this.ejlabel1.Text = "label43";
+            this.ejlabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // KlijentForma
             // 
@@ -872,6 +1068,12 @@ namespace Lutrija
             this.tabPageBingo.PerformLayout();
             this.tableListićBingo.ResumeLayout(false);
             this.tableListićBingo.PerformLayout();
+            this.tabPageEurojackpot.ResumeLayout(false);
+            this.tabPageEurojackpot.PerformLayout();
+            this.table_ej2.ResumeLayout(false);
+            this.table_ej2.PerformLayout();
+            this.table_ej.ResumeLayout(false);
+            this.table_ej.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -944,5 +1146,20 @@ namespace Lutrija
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TabPage tabPageEurojackpot;
+        private System.Windows.Forms.TableLayoutPanel table_ej2;
+        private System.Windows.Forms.Label ejlabel7;
+        private System.Windows.Forms.TableLayoutPanel table_ej;
+        private System.Windows.Forms.Label ejlabel6;
+        private System.Windows.Forms.Label ejlabel5;
+        private System.Windows.Forms.Label ejlabel4;
+        private System.Windows.Forms.Label ejlabel3;
+        private System.Windows.Forms.Label ejlabel2;
+        private System.Windows.Forms.Label ejlabel1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button generiraj_ej;
+        private System.Windows.Forms.Button ej_igraj;
+        private System.Windows.Forms.Label label38;
     }
 }

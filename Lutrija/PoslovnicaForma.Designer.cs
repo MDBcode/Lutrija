@@ -42,6 +42,7 @@ namespace Lutrija
             this.labelBingo = new System.Windows.Forms.Label();
             this.tabControlPoslovnica = new System.Windows.Forms.TabControl();
             this.tabPageLoto = new System.Windows.Forms.TabPage();
+            this.izvuceniJoker = new System.Windows.Forms.Label();
             this.listBoxDobitniListiciLoto = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxIzvuceniBrojeviLoto = new System.Windows.Forms.TextBox();
@@ -49,10 +50,20 @@ namespace Lutrija
             this.buttonDobitniLotoListici = new System.Windows.Forms.Button();
             this.buttonIzvlacenjeLota = new System.Windows.Forms.Button();
             this.labelLoto = new System.Windows.Forms.Label();
-            this.izvuceniJoker = new System.Windows.Forms.Label();
+            this.tabPageEurojackpot = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxEJekstra = new System.Windows.Forms.TextBox();
+            this.listBoxDobitniListiciEJ = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxEJglavni = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonPrikaziDobitneEJ = new System.Windows.Forms.Button();
+            this.buttonIzvlacenjeEJ = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPageBingo.SuspendLayout();
             this.tabControlPoslovnica.SuspendLayout();
             this.tabPageLoto.SuspendLayout();
+            this.tabPageEurojackpot.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageKladionica
@@ -61,7 +72,7 @@ namespace Lutrija
             this.tabPageKladionica.Location = new System.Drawing.Point(4, 25);
             this.tabPageKladionica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageKladionica.Name = "tabPageKladionica";
-            this.tabPageKladionica.Size = new System.Drawing.Size(714, 481);
+            this.tabPageKladionica.Size = new System.Drawing.Size(718, 469);
             this.tabPageKladionica.TabIndex = 0;
             this.tabPageKladionica.Text = "Kladionica";
             // 
@@ -101,7 +112,7 @@ namespace Lutrija
             this.labelDobitniListici.AutoSize = true;
             this.labelDobitniListici.Location = new System.Drawing.Point(50, 272);
             this.labelDobitniListici.Name = "labelDobitniListici";
-            this.labelDobitniListici.Size = new System.Drawing.Size(121, 16);
+            this.labelDobitniListici.Size = new System.Drawing.Size(129, 17);
             this.labelDobitniListici.TabIndex = 8;
             this.labelDobitniListici.Text = "Dobitni bingo listići:";
             // 
@@ -110,7 +121,7 @@ namespace Lutrija
             this.labelRedniIzvuceni.AutoSize = true;
             this.labelRedniIzvuceni.Location = new System.Drawing.Point(635, 154);
             this.labelRedniIzvuceni.Name = "labelRedniIzvuceni";
-            this.labelRedniIzvuceni.Size = new System.Drawing.Size(44, 16);
+            this.labelRedniIzvuceni.Size = new System.Drawing.Size(46, 17);
             this.labelRedniIzvuceni.TabIndex = 6;
             this.labelRedniIzvuceni.Text = "label1";
             // 
@@ -119,7 +130,7 @@ namespace Lutrija
             this.labelBrojIzvucenih.AutoSize = true;
             this.labelBrojIzvucenih.Location = new System.Drawing.Point(539, 154);
             this.labelBrojIzvucenih.Name = "labelBrojIzvucenih";
-            this.labelBrojIzvucenih.Size = new System.Drawing.Size(95, 16);
+            this.labelBrojIzvucenih.Size = new System.Drawing.Size(104, 17);
             this.labelBrojIzvucenih.TabIndex = 5;
             this.labelBrojIzvucenih.Text = "Broj izvučenih: ";
             // 
@@ -137,7 +148,7 @@ namespace Lutrija
             this.labelIzvuceniBrojevi.AutoSize = true;
             this.labelIzvuceniBrojevi.Location = new System.Drawing.Point(50, 154);
             this.labelIzvuceniBrojevi.Name = "labelIzvuceniBrojevi";
-            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(102, 16);
+            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(109, 17);
             this.labelIzvuceniBrojevi.TabIndex = 3;
             this.labelIzvuceniBrojevi.Text = "Izvučeni brojevi:";
             // 
@@ -180,6 +191,7 @@ namespace Lutrija
             this.tabControlPoslovnica.Controls.Add(this.tabPageLoto);
             this.tabControlPoslovnica.Controls.Add(this.tabPageBingo);
             this.tabControlPoslovnica.Controls.Add(this.tabPageKladionica);
+            this.tabControlPoslovnica.Controls.Add(this.tabPageEurojackpot);
             this.tabControlPoslovnica.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPoslovnica.Location = new System.Drawing.Point(0, 0);
             this.tabControlPoslovnica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -206,6 +218,16 @@ namespace Lutrija
             this.tabPageLoto.TabIndex = 0;
             this.tabPageLoto.Text = "Loto";
             // 
+            // izvuceniJoker
+            // 
+            this.izvuceniJoker.AutoSize = true;
+            this.izvuceniJoker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.izvuceniJoker.Location = new System.Drawing.Point(49, 224);
+            this.izvuceniJoker.Name = "izvuceniJoker";
+            this.izvuceniJoker.Size = new System.Drawing.Size(82, 20);
+            this.izvuceniJoker.TabIndex = 11;
+            this.izvuceniJoker.Text = "JOKER: ";
+            // 
             // listBoxDobitniListiciLoto
             // 
             this.listBoxDobitniListiciLoto.FormattingEnabled = true;
@@ -224,7 +246,7 @@ namespace Lutrija
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(50, 272);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 16);
+            this.label2.Size = new System.Drawing.Size(117, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Dobitni loto listići:";
             this.label2.Visible = false;
@@ -244,7 +266,7 @@ namespace Lutrija
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
+            this.label1.Size = new System.Drawing.Size(109, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Izvučeni brojevi:";
             // 
@@ -283,15 +305,120 @@ namespace Lutrija
             this.labelLoto.TabIndex = 1;
             this.labelLoto.Text = "LOTO 6";
             // 
-            // izvuceniJoker
+            // tabPageEurojackpot
             // 
-            this.izvuceniJoker.AutoSize = true;
-            this.izvuceniJoker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.izvuceniJoker.Location = new System.Drawing.Point(49, 224);
-            this.izvuceniJoker.Name = "izvuceniJoker";
-            this.izvuceniJoker.Size = new System.Drawing.Size(82, 20);
-            this.izvuceniJoker.TabIndex = 11;
-            this.izvuceniJoker.Text = "JOKER: ";
+            this.tabPageEurojackpot.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabPageEurojackpot.Controls.Add(this.label3);
+            this.tabPageEurojackpot.Controls.Add(this.textBoxEJekstra);
+            this.tabPageEurojackpot.Controls.Add(this.listBoxDobitniListiciEJ);
+            this.tabPageEurojackpot.Controls.Add(this.label4);
+            this.tabPageEurojackpot.Controls.Add(this.textBoxEJglavni);
+            this.tabPageEurojackpot.Controls.Add(this.label5);
+            this.tabPageEurojackpot.Controls.Add(this.buttonPrikaziDobitneEJ);
+            this.tabPageEurojackpot.Controls.Add(this.buttonIzvlacenjeEJ);
+            this.tabPageEurojackpot.Controls.Add(this.label6);
+            this.tabPageEurojackpot.Location = new System.Drawing.Point(4, 25);
+            this.tabPageEurojackpot.Name = "tabPageEurojackpot";
+            this.tabPageEurojackpot.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageEurojackpot.Size = new System.Drawing.Size(718, 469);
+            this.tabPageEurojackpot.TabIndex = 1;
+            this.tabPageEurojackpot.Text = "Eurojackpot";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(508, 156);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 17);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Izvučeni ekstra brojevi:";
+            // 
+            // textBoxEJekstra
+            // 
+            this.textBoxEJekstra.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEJekstra.Location = new System.Drawing.Point(511, 175);
+            this.textBoxEJekstra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxEJekstra.Name = "textBoxEJekstra";
+            this.textBoxEJekstra.Size = new System.Drawing.Size(153, 49);
+            this.textBoxEJekstra.TabIndex = 19;
+            this.textBoxEJekstra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // listBoxDobitniListiciEJ
+            // 
+            this.listBoxDobitniListiciEJ.FormattingEnabled = true;
+            this.listBoxDobitniListiciEJ.HorizontalScrollbar = true;
+            this.listBoxDobitniListiciEJ.ItemHeight = 16;
+            this.listBoxDobitniListiciEJ.Location = new System.Drawing.Point(58, 293);
+            this.listBoxDobitniListiciEJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxDobitniListiciEJ.Name = "listBoxDobitniListiciEJ";
+            this.listBoxDobitniListiciEJ.ScrollAlwaysVisible = true;
+            this.listBoxDobitniListiciEJ.Size = new System.Drawing.Size(606, 148);
+            this.listBoxDobitniListiciEJ.TabIndex = 18;
+            this.listBoxDobitniListiciEJ.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 274);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 17);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Dobitni listići:";
+            this.label4.Visible = false;
+            // 
+            // textBoxEJglavni
+            // 
+            this.textBoxEJglavni.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEJglavni.Location = new System.Drawing.Point(58, 175);
+            this.textBoxEJglavni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxEJglavni.Name = "textBoxEJglavni";
+            this.textBoxEJglavni.Size = new System.Drawing.Size(368, 49);
+            this.textBoxEJglavni.TabIndex = 16;
+            this.textBoxEJglavni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(55, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 17);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Izvučeni glavni brojevi:";
+            // 
+            // buttonPrikaziDobitneEJ
+            // 
+            this.buttonPrikaziDobitneEJ.Location = new System.Drawing.Point(404, 88);
+            this.buttonPrikaziDobitneEJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonPrikaziDobitneEJ.Name = "buttonPrikaziDobitneEJ";
+            this.buttonPrikaziDobitneEJ.Size = new System.Drawing.Size(169, 36);
+            this.buttonPrikaziDobitneEJ.TabIndex = 14;
+            this.buttonPrikaziDobitneEJ.Text = "Prikaži dobitne listiće";
+            this.buttonPrikaziDobitneEJ.UseVisualStyleBackColor = true;
+            this.buttonPrikaziDobitneEJ.Click += new System.EventHandler(this.buttonPrikaziDobitneEJ_Click);
+            // 
+            // buttonIzvlacenjeEJ
+            // 
+            this.buttonIzvlacenjeEJ.Enabled = false;
+            this.buttonIzvlacenjeEJ.Location = new System.Drawing.Point(165, 88);
+            this.buttonIzvlacenjeEJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIzvlacenjeEJ.Name = "buttonIzvlacenjeEJ";
+            this.buttonIzvlacenjeEJ.Size = new System.Drawing.Size(169, 36);
+            this.buttonIzvlacenjeEJ.TabIndex = 13;
+            this.buttonIzvlacenjeEJ.Text = "Pokreni izvlačenje";
+            this.buttonIzvlacenjeEJ.UseVisualStyleBackColor = true;
+            this.buttonIzvlacenjeEJ.Click += new System.EventHandler(this.buttonIzvlacenjeEJ_Click);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(284, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(145, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "EUROJACKPOT";
             // 
             // PoslovnicaForma
             // 
@@ -308,6 +435,8 @@ namespace Lutrija
             this.tabControlPoslovnica.ResumeLayout(false);
             this.tabPageLoto.ResumeLayout(false);
             this.tabPageLoto.PerformLayout();
+            this.tabPageEurojackpot.ResumeLayout(false);
+            this.tabPageEurojackpot.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -335,6 +464,16 @@ namespace Lutrija
         public System.Windows.Forms.TextBox textBoxIzvuceniBrojeviLoto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label izvuceniJoker;
+        private System.Windows.Forms.TabPage tabPageEurojackpot;
+        private System.Windows.Forms.ListBox listBoxDobitniListiciEJ;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox textBoxEJglavni;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonPrikaziDobitneEJ;
+        public System.Windows.Forms.Button buttonIzvlacenjeEJ;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox textBoxEJekstra;
     }
 }
 

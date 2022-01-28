@@ -21,13 +21,18 @@ namespace Lutrija
         List<int> pogodeniLotoBrojevi;
         List<int> odabraniJoker;
         List<int> izvuceniJoker;
+        List<int> brojeviNaListicuEJ;
+        List<int> pogodeniEJBrojevi;
+        List<int> izvuceniEJ;
         DateTime vrijemeUplateBingoListica;
         DateTime vrijemeUplateLotoListica;
+        DateTime vrijemeUplateEJListica;
         Boolean dobitan_loto;
         Boolean dobitan_joker;
         Boolean bingoAlert;
         Boolean igraj;
         Boolean joker_loto;
+        Boolean dobitan_ej;
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
@@ -41,11 +46,15 @@ namespace Lutrija
             pogodeniLotoBrojevi = new List<int>();
             odabraniJoker = new List<int>();
             izvuceniJoker = new List<int>();
+            brojeviNaListicuEJ = new List<int>();
+            pogodeniEJBrojevi = new List<int>();
+            izvuceniEJ = new List<int>();
             bingoAlert = false;
             igraj = false;
             joker_loto = false;
             stilizirajBingoTablicu();
             stilizirajLotoTablicu();
+            stilizirajEJ();
 
             ResumeLayout();
         }
@@ -552,6 +561,208 @@ namespace Lutrija
             }
             this.vrijemeUplateLotoListica = DateTime.Now;
         }
+        // eurojackpot
+        private void ej_igraj_Click(object sender, EventArgs e)
+        {
+            igraj = true;
+            foreach (var gumb in tabPageEurojackpot.Controls.OfType<Button>())
+                gumb.Enabled = false;
+            
+            
+            poslovnica.buttonIzvlacenjeEJ.Enabled = true;
+            for (int i = 1; i <= 7; i++)
+            {
+                var label = new Control();
+                if (i <= 5)
+                    label = table_ej.Controls["ejlabel" + i.ToString()];
+                else
+                    label = table_ej2.Controls["ejlabel" + i.ToString()];
+                
+                brojeviNaListicuEJ.Add(Int16.Parse(label.Text));
+            }
+            this.vrijemeUplateEJListica = DateTime.Now;
+        }
 
+        public void stilizirajEJ()
+        {
+            for (int j = 1; j <= 7; j++)
+            {
+                var label = new Control();
+                if (j<=5)
+                   label = table_ej.Controls["ejlabel" + j.ToString()];
+                else
+                   label = table_ej2.Controls["ejlabel" + j.ToString()];
+                label.Text = "";
+                Padding pad = new Padding();
+                pad.Left = label.Parent.Size.Width / 25;
+                pad.Top = label.Parent.Size.Height / 3;
+                label.Padding = pad;
+                Font font = new Font(label.Font, FontStyle.Bold);
+                label.Font = font;
+                Size velicina = new Size();
+                velicina.Width = label.Parent.Width;
+                velicina.Height = label.Parent.Height;
+                label.Size = velicina;
+            }
+           
+        }
+
+        private void generiraj_ej_Click(object sender, EventArgs e)
+        {
+            ej_igraj.Visible = true;
+            Random rnd = new Random();
+            int[] brojevi = new int[7];
+            for (int i = 1; i <= 7; i++)
+            {
+                if (i <= 5)
+                {
+                    int broj = rnd.Next(1, 51);
+                    if (brojevi.Contains(broj)) broj = rnd.Next(1, 51);
+                    brojevi[i - 1] = broj;
+                }
+                else
+                {
+                    int broj = rnd.Next(1, 11);
+                    if (brojevi[6]==brojevi[5]) broj = rnd.Next(1, 11);
+                    brojevi[i - 1] = broj;
+                }
+            }
+
+            //Array.Sort(brojevi);
+            //pogledam da nije izgenerirao više istih
+           /* for (int x = 0; x < 5; x++)
+            {
+                if (brojevi[x] == brojevi[x + 1])
+                    brojevi[x + 1]++;
+                if (brojevi[x] > brojevi[x + 1])
+                    brojevi[x + 1] = brojevi[x] + 1;
+            }*/
+
+            int brojac = 1;
+            foreach (int value in brojevi)
+            {
+                var label = new Control();
+                if (brojac <= 5)
+                    label = table_ej.Controls["ejlabel" + brojac.ToString()];
+                else
+                    label = table_ej2.Controls["ejlabel" + brojac.ToString()];
+                label.Text = value.ToString();
+                label.ForeColor = Color.Black;
+                brojac++;
+            }
+        }
+
+
+        public void izvlacenjeEJ()
+        {
+            var r = new Random();
+            int broji_dobitne = 0;
+            for (int ukupnoIzvucenih = 0; ukupnoIzvucenih < 7; ukupnoIzvucenih++)
+            {
+                int randBroj = r.Next(1, 51);
+                if (ukupnoIzvucenih < 5)
+                {
+                    randBroj = r.Next(1, 51);
+                    if (this.izvuceniEJ.Contains(randBroj)) randBroj = r.Next(1, 51);
+                    this.izvuceniEJ.Add(randBroj);
+                }
+                else
+                {
+                    randBroj = r.Next(1, 11);
+                    if (this.izvuceniEJ.Contains(randBroj)) randBroj = r.Next(1, 11);
+                    this.izvuceniEJ.Add(randBroj);
+                }
+
+                Thread.Sleep(500);
+                
+                poslovnica.zapisiIzvuceniEJBroj(randBroj, this.izvuceniEJ.Count);
+                poslovnica.Refresh();
+                poslovnica.buttonIzvlacenjeEJ.Enabled = false;
+
+                for (int i = 1; i <= 7; i++)
+                {
+                    var label = new Control();
+                    if (i <= 5)
+                        label = table_ej.Controls["ejlabel" + i.ToString()];
+                    else
+                        label = table_ej2.Controls["ejlabel" + i.ToString()];
+                    
+                    if (label.Text.Equals(randBroj.ToString()))
+                    {
+                        label.ForeColor = Color.Green;
+                        this.Refresh();
+                        broji_dobitne++;
+                        pogodeniEJBrojevi.Add(randBroj);
+                    }
+                }
+            }
+            Thread.Sleep(3000);
+            poslovnica.textBoxEJglavni.Clear();
+            poslovnica.textBoxEJekstra.Clear();
+            //izvuceniLoto.Sort();
+            /*
+            for (int i = 0; i < izvuceniLoto.Count; i++)
+            {
+                poslovnica.zapisiIzvuceniLotoBrojSortirano(izvuceniLoto[i], i);
+            }
+            */
+           
+            if (broji_dobitne >= 3)
+            {
+                MessageBox.Show("Dobitan!");
+                dobitan_ej = true;
+            }
+
+
+            if (dobitan_ej == false)
+            {
+                brojeviNaListicuEJ.Clear();
+                pogodeniEJBrojevi.Clear();
+            }
+
+            if (dobitan_ej == true)
+                this.poslovnica.spremiEJListicUBazu(this.vrijemeUplateEJListica, this.brojeviNaListicuEJ, 
+                    this.pogodeniEJBrojevi);
+
+            Button novi_listic = new Button();
+            novi_listic.Text = "NOVA IGRA!";
+            novi_listic.Font = new Font("MicrosoftSansSerif", 10);
+            novi_listic.Size = new System.Drawing.Size(106, 48);
+            novi_listic.BackColor = Color.PaleGreen;
+            tabPageEurojackpot.Controls.Add(novi_listic);
+
+            novi_listic.Click += nova_igra_ej;
+        }
+
+        void nova_igra_ej(object sender, EventArgs e)
+        {
+            ej_igraj.Visible = false;
+            this.brojeviNaListicuEJ.Clear();
+            this.pogodeniEJBrojevi.Clear();
+      
+            tabPageEurojackpot.Controls.Remove((Control)sender);
+            izvuceniEJ.Clear();
+            igraj = false;
+            foreach (var gumb in tabPageEurojackpot.Controls.OfType<Button>())
+                gumb.Enabled = true;
+            poslovnica.buttonIzvlacenjeLota.Enabled = false;
+            for (int j = 1; j < 8; j++)
+            {
+                var label = new Control();
+                if (j <= 5)
+                    label = table_ej.Controls["ejlabel" + j.ToString()];
+                else
+                    label = table_ej2.Controls["ejlabel" + j.ToString()];
+                label.Text = "";
+                label.ForeColor = Color.Black;
+            }
+
+            
+            poslovnica.textBoxEJglavni.BackColor = Color.White;
+            poslovnica.textBoxEJglavni.Clear();
+            poslovnica.textBoxEJekstra.BackColor = Color.White;
+            poslovnica.textBoxEJekstra.Clear();
+
+        }
     }
 }

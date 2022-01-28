@@ -17,8 +17,10 @@ namespace Lutrija
         public KlijentForma klijent;
         string path;
         string pathLoto;
+        string pathEJ;
         XDocument doc;
         XDocument docLoto;
+        XDocument docEJ;
         public PoslovnicaForma()
         {
             InitializeComponent();
@@ -36,6 +38,10 @@ namespace Lutrija
             pathLoto = Directory.GetParent(environment).Parent.FullName;
             pathLoto += @"\Database\LotoListic.xml";
             docLoto = XDocument.Load(pathLoto);
+
+            pathEJ = Directory.GetParent(environment).Parent.FullName;
+            pathEJ += @"\Database\EJListic.xml";
+            docEJ = XDocument.Load(pathLoto);
 
             klijent = new KlijentForma(this);
             klijent.Show();
@@ -160,6 +166,65 @@ namespace Lutrija
             label2.Visible = !label2.Visible;
             listBoxDobitniListiciLoto.Visible = !listBoxDobitniListiciLoto.Visible;
             dohvatiLotoListiceIzBaze();
+        }
+
+        // eurojackpot
+
+
+        public void dohvatiEJListiceIzBaze()
+        {
+            var dobitniEJListici = from listic in this.docEJ.Elements("Root").Elements("EJListic")
+                                     select new
+                                     {
+                                         ID = (string)listic.Element("ID"),
+                                         vrijemeUplate = (string)listic.Element("vrijemeUplate"),
+                                         brojevi = (string)listic.Element("brojevi"),
+                                         pogodeni = (string)listic.Element("pogodeni")
+                                     };
+
+            listBoxDobitniListiciEJ.Items.Clear();
+            foreach (var listic in dobitniEJListici)
+            {
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni ;
+                listBoxDobitniListiciEJ.Items.Add(sadrzaj);
+            }
+        }
+        public void spremiEJListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni)
+             {
+            string stringBrojeva = "";
+            string stringPogodenih = "";
+            
+            foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
+            foreach (int pogodeni_broj in pogodeni) stringPogodenih += pogodeni_broj.ToString() + " ";
+
+            int noviID = this.docEJ.Descendants("EJListic").Count() + 1;
+
+            XElement EJListic = new XElement("EJListic",
+                new XElement("ID", noviID.ToString()),
+                new XElement("vrijemeUplate", d.ToString()),
+                new XElement("brojevi", stringBrojeva),
+                new XElement("pogodeni", stringPogodenih));
+                
+
+            this.docEJ.Root.Add(EJListic);
+            this.docEJ.Save(this.pathLoto);
+        }
+
+        private void buttonPrikaziDobitneEJ_Click(object sender, EventArgs e)
+        {
+            label4.Visible = !label4.Visible;
+            listBoxDobitniListiciEJ.Visible = !listBoxDobitniListiciEJ.Visible;
+            dohvatiEJListiceIzBaze();
+        }
+
+        private void buttonIzvlacenjeEJ_Click(object sender, EventArgs e) => klijent.izvlacenjeEJ();
+
+        public void zapisiIzvuceniEJBroj(int izvuceniBroj, int redniIzvuceni)
+        {
+            if(redniIzvuceni <= 5)
+            textBoxEJglavni.Text += izvuceniBroj.ToString() + "  ";
+            else
+            textBoxEJekstra.Text +=izvuceniBroj.ToString() + "  ";
         }
     }
 }

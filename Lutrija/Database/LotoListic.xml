@@ -48,4 +48,10 @@
     <uneseni_joker>5 8 7 2 2 5 </uneseni_joker>
     <izvuceni_joker>6 6 9 3 5 5 </izvuceni_joker>
   </LotoListic>
+  <EJListic>
+    <ID>1</ID>
+    <vrijemeUplate>28/01/2022 23:02:49</vrijemeUplate>
+    <brojevi>19 48 26 36 44 3 10 </brojevi>
+    <pogodeni>26 36 3 </pogodeni>
+  </EJListic>
 </Root>
