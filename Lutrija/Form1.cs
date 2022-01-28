@@ -20,6 +20,7 @@ namespace Lutrija
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             int j = 0;
             foreach (NumericUpDown n in this.Controls.OfType<NumericUpDown>())
             {

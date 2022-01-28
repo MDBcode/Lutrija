@@ -94,6 +94,7 @@ namespace Lutrija
             this.label6 = new System.Windows.Forms.Label();
             this.labelBingo = new System.Windows.Forms.Label();
             this.tabPageKladionica = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControlKlijent.SuspendLayout();
             this.tabPageLoto.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,12 +114,13 @@ namespace Lutrija
             this.tabControlKlijent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlKlijent.Name = "tabControlKlijent";
             this.tabControlKlijent.SelectedIndex = 0;
-            this.tabControlKlijent.Size = new System.Drawing.Size(780, 484);
+            this.tabControlKlijent.Size = new System.Drawing.Size(726, 498);
             this.tabControlKlijent.TabIndex = 1;
             // 
             // tabPageLoto
             // 
             this.tabPageLoto.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabPageLoto.Controls.Add(this.button3);
             this.tabPageLoto.Controls.Add(this.panel1);
             this.tabPageLoto.Controls.Add(this.button2);
             this.tabPageLoto.Controls.Add(this.button1);
@@ -128,7 +130,7 @@ namespace Lutrija
             this.tabPageLoto.Location = new System.Drawing.Point(4, 25);
             this.tabPageLoto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageLoto.Name = "tabPageLoto";
-            this.tabPageLoto.Size = new System.Drawing.Size(772, 455);
+            this.tabPageLoto.Size = new System.Drawing.Size(718, 469);
             this.tabPageLoto.TabIndex = 0;
             this.tabPageLoto.Text = "Loto";
             // 
@@ -149,7 +151,7 @@ namespace Lutrija
             this.panel1.Controls.Add(this.generiraj_joker);
             this.panel1.Controls.Add(this.table_joker);
             this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Location = new System.Drawing.Point(39, 253);
+            this.panel1.Location = new System.Drawing.Point(26, 253);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 140);
             this.panel1.TabIndex = 21;
@@ -392,7 +394,7 @@ namespace Lutrija
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(166, 170);
+            this.button2.Location = new System.Drawing.Point(47, 170);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 37);
             this.button2.TabIndex = 20;
@@ -404,18 +406,19 @@ namespace Lutrija
             // 
             this.button1.BackColor = System.Drawing.Color.PaleGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(658, 399);
+            this.button1.Location = new System.Drawing.Point(604, 413);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 48);
             this.button1.TabIndex = 19;
             this.button1.Text = "IGRAJ";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // generiraj_loto
             // 
             this.generiraj_loto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.generiraj_loto.Location = new System.Drawing.Point(394, 170);
+            this.generiraj_loto.Location = new System.Drawing.Point(253, 170);
             this.generiraj_loto.Name = "generiraj_loto";
             this.generiraj_loto.Size = new System.Drawing.Size(194, 37);
             this.generiraj_loto.TabIndex = 18;
@@ -445,13 +448,13 @@ namespace Lutrija
             this.table_loto.Name = "table_loto";
             this.table_loto.RowCount = 1;
             this.table_loto.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.table_loto.Size = new System.Drawing.Size(422, 72);
+            this.table_loto.Size = new System.Drawing.Size(368, 72);
             this.table_loto.TabIndex = 1;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(354, 1);
+            this.label31.Location = new System.Drawing.Point(309, 1);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(51, 16);
             this.label31.TabIndex = 5;
@@ -460,7 +463,7 @@ namespace Lutrija
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(284, 1);
+            this.label30.Location = new System.Drawing.Point(248, 1);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(51, 16);
             this.label30.TabIndex = 4;
@@ -469,7 +472,7 @@ namespace Lutrija
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(214, 1);
+            this.label29.Location = new System.Drawing.Point(187, 1);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(51, 16);
             this.label29.TabIndex = 3;
@@ -478,7 +481,7 @@ namespace Lutrija
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(144, 1);
+            this.label28.Location = new System.Drawing.Point(126, 1);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(51, 16);
             this.label28.TabIndex = 2;
@@ -487,7 +490,7 @@ namespace Lutrija
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(74, 1);
+            this.label27.Location = new System.Drawing.Point(65, 1);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(51, 16);
             this.label27.TabIndex = 1;
@@ -509,7 +512,7 @@ namespace Lutrija
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLoto.AutoSize = true;
             this.labelLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelLoto.Location = new System.Drawing.Point(340, 26);
+            this.labelLoto.Location = new System.Drawing.Point(318, 26);
             this.labelLoto.Name = "labelLoto";
             this.labelLoto.Size = new System.Drawing.Size(75, 20);
             this.labelLoto.TabIndex = 0;
@@ -524,14 +527,14 @@ namespace Lutrija
             this.tabPageBingo.Location = new System.Drawing.Point(4, 25);
             this.tabPageBingo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPageBingo.Name = "tabPageBingo";
-            this.tabPageBingo.Size = new System.Drawing.Size(772, 455);
+            this.tabPageBingo.Size = new System.Drawing.Size(718, 469);
             this.tabPageBingo.TabIndex = 0;
             this.tabPageBingo.Text = "Bingo";
             // 
             // buttonKreirajBingoListic
             // 
             this.buttonKreirajBingoListic.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(516, 201);
+            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(486, 204);
             this.buttonKreirajBingoListic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKreirajBingoListic.Name = "buttonKreirajBingoListic";
             this.buttonKreirajBingoListic.Size = new System.Drawing.Size(135, 36);
@@ -575,7 +578,7 @@ namespace Lutrija
             this.tableListićBingo.Controls.Add(this.label21, 0, 4);
             this.tableListićBingo.Controls.Add(this.label1, 0, 0);
             this.tableListićBingo.Controls.Add(this.label6, 0, 1);
-            this.tableListićBingo.Location = new System.Drawing.Point(180, 112);
+            this.tableListićBingo.Location = new System.Drawing.Point(137, 112);
             this.tableListićBingo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableListićBingo.Name = "tableListićBingo";
             this.tableListićBingo.RowCount = 5;
@@ -818,7 +821,7 @@ namespace Lutrija
             // 
             this.labelBingo.AutoSize = true;
             this.labelBingo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBingo.Location = new System.Drawing.Point(331, 27);
+            this.labelBingo.Location = new System.Drawing.Point(284, 26);
             this.labelBingo.Name = "labelBingo";
             this.labelBingo.Size = new System.Drawing.Size(136, 24);
             this.labelBingo.TabIndex = 2;
@@ -836,11 +839,21 @@ namespace Lutrija
             this.tabPageKladionica.TabIndex = 0;
             this.tabPageKladionica.Text = "Kladionica";
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(453, 170);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(194, 37);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Po podacima iz prošlosti";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // KlijentForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 484);
+            this.ClientSize = new System.Drawing.Size(726, 498);
             this.Controls.Add(this.tabControlKlijent);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KlijentForma";
@@ -930,5 +943,6 @@ namespace Lutrija
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button3;
     }
 }

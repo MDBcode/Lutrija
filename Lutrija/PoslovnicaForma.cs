@@ -61,12 +61,16 @@ namespace Lutrija
             this.doc.Save(this.path);
         }
 
-        public void spremiLotoListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni)
+        public void spremiLotoListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni, List<int> uneseni_joker, List<int> izvuceni_joker)
         {
             string stringBrojeva = "";
             string stringPogodenih = "";
+            string stringUneseniJoker = "";
+            string stringIzvuceniJoker = "";
             foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
             foreach (int pogodeni_broj in pogodeni) stringPogodenih += pogodeni_broj.ToString() + " ";
+            foreach (int unio in uneseni_joker) stringUneseniJoker += unio.ToString() + " ";
+            foreach (int izv in izvuceni_joker) stringIzvuceniJoker += izv.ToString() + " ";
 
             int noviID = this.docLoto.Descendants("LotoListic").Count() + 1;
 
@@ -74,7 +78,9 @@ namespace Lutrija
                 new XElement("ID", noviID.ToString()),
                 new XElement("vrijemeUplate", d.ToString()),
                 new XElement("brojevi", stringBrojeva),
-                new XElement("pogodeni", stringPogodenih));
+                new XElement("pogodeni", stringPogodenih),
+                new XElement("uneseni_joker", stringUneseniJoker),
+                new XElement("izvuceni_joker", stringIzvuceniJoker));
 
             this.docLoto.Root.Add(LotoListic);
             this.docLoto.Save(this.pathLoto);
@@ -102,13 +108,15 @@ namespace Lutrija
                                      ID = (string)listic.Element("ID"),
                                      vrijemeUplate = (string)listic.Element("vrijemeUplate"),
                                      brojevi = (string)listic.Element("brojevi"),
-                                     pogodeni = (string)listic.Element("pogodeni")
+                                     pogodeni = (string)listic.Element("pogodeni"),
+                                     uneseni_joker = (string)listic.Element("uneseni_joker"),
+                                     izvuceni_joker = (string)listic.Element("izvuceni_joker")
                                  };
 
             listBoxDobitniListiciLoto.Items.Clear();
             foreach (var listic in dobitniLotoListici)
             {
-                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni;
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni + "  |  " + listic.uneseni_joker + "  |  " + listic.izvuceni_joker;
                 listBoxDobitniListiciLoto.Items.Add(sadrzaj);
             }
         }
@@ -128,6 +136,16 @@ namespace Lutrija
         {
             textBoxIzvuceniBrojeviLoto.Text += izvuceniBroj.ToString() + "  ";
             labelRedniIzvuceni.Text = redniIzvuceni.ToString();
+        }
+
+        public void zapisiIzvuceniJoker(int jokerBroj)
+        {
+            izvuceniJoker.Text += jokerBroj.ToString() + "  ";
+        }
+
+        public void obrisiJoker()
+        {
+            izvuceniJoker.Text = "JOKER: ";
         }
 
         public void zapisiIzvuceniLotoBrojSortirano(int izvuceniBroj, int redniIzvuceni)
