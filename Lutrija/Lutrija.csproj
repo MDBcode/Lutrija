@@ -184,6 +184,7 @@
   <ItemGroup>
     <Content Include="Database\BingoListic.xml" />
     <Content Include="Database\LotoListic.xml" />
+    <Content Include="Database\sviLotoListici.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

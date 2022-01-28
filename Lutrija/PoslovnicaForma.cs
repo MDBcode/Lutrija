@@ -17,9 +17,11 @@ namespace Lutrija
         public KlijentForma klijent;
         string path;
         string pathLoto;
+        string pathLotoSvi;
         string pathEJ;
         XDocument doc;
         XDocument docLoto;
+        XDocument docLotoSvi;
         XDocument docEJ;
         public PoslovnicaForma()
         {
@@ -38,6 +40,10 @@ namespace Lutrija
             pathLoto = Directory.GetParent(environment).Parent.FullName;
             pathLoto += @"\Database\LotoListic.xml";
             docLoto = XDocument.Load(pathLoto);
+
+            pathLotoSvi = Directory.GetParent(environment).Parent.FullName;
+            pathLotoSvi += @"\Database\sviLotoListici.xml";
+            docLotoSvi = XDocument.Load(pathLotoSvi);
 
             pathEJ = Directory.GetParent(environment).Parent.FullName;
             pathEJ += @"\Database\EJListic.xml";
@@ -166,6 +172,37 @@ namespace Lutrija
             label2.Visible = !label2.Visible;
             listBoxDobitniListiciLoto.Visible = !listBoxDobitniListiciLoto.Visible;
             dohvatiLotoListiceIzBaze();
+        }
+
+        internal void spremiUBazuSvihLotoListica(List<int> brojevi)
+        {
+            string stringBrojeva = "";
+            foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
+            stringBrojeva = stringBrojeva.Remove(stringBrojeva.Length - 1, 1);
+            XElement LotoListic = new XElement("LotoListic",
+                new XElement("brojevi", stringBrojeva));
+
+            this.docLotoSvi.Root.Add(LotoListic);
+            this.docLotoSvi.Save(this.pathLotoSvi);
+        }
+
+        public Dictionary<int, int> povuciIzBazeLota()
+        {
+            Dictionary<int, int> stat = new Dictionary<int, int>();
+            for (int i = 1; i < 46; i++)
+                stat.Add(i, 0);
+            var LotoListici = from listic in this.docLotoSvi.Elements("Root").Elements("LotoListic")
+                              select new
+                              {
+                                  brojevi = (string)listic.Element("brojevi")
+                              };
+            foreach (var listic in LotoListici)
+            {
+                int[] array = listic.brojevi.Split(' ').Select(int.Parse).ToArray();
+                for (int i = 0; i < 6; i++)
+                    stat[array[i]]++;
+            }
+            return stat;
         }
 
         // eurojackpot

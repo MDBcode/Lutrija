@@ -33,6 +33,7 @@ namespace Lutrija
         Boolean igraj;
         Boolean joker_loto;
         Boolean dobitan_ej;
+        Dictionary<int, int> statistika;
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace Lutrija
             brojeviNaListicuEJ = new List<int>();
             pogodeniEJBrojevi = new List<int>();
             izvuceniEJ = new List<int>();
+            statistika = new Dictionary<int, int>();
             bingoAlert = false;
             igraj = false;
             joker_loto = false;
@@ -560,7 +562,30 @@ namespace Lutrija
                 brojeviNaLotoListicu.Add(Int16.Parse(label.Text));
             }
             this.vrijemeUplateLotoListica = DateTime.Now;
+            this.poslovnica.spremiUBazuSvihLotoListica(this.brojeviNaLotoListicu);
         }
+
+        private void button_proslost_Click(object sender, EventArgs e)
+        {
+            statistika = this.poslovnica.povuciIzBazeLota();
+            int brojac = 0;
+            int[] brojevi = new int[6];
+            foreach (KeyValuePair<int, int> broj in statistika.OrderByDescending(key => key.Value))
+            {
+                brojevi[brojac] = broj.Key;
+                brojac++;
+                if (brojac == 6) break;
+            }
+
+            Array.Sort(brojevi);
+            for (int i = 0; i < 6; i++)
+            {
+                table_loto.Controls["label" + (i + 26).ToString()].Text = brojevi[i].ToString();
+            }
+
+            button1.Visible = true;
+        }
+
         // eurojackpot
         private void ej_igraj_Click(object sender, EventArgs e)
         {
