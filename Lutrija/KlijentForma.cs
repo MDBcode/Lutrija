@@ -41,6 +41,10 @@ namespace Lutrija
                                             KLADIONICA
         -----------------------------------------------------------------------------------------------*/
         List<string> ponuda;
+        List<string> koef1;
+        List<string> koefx;
+        List<string> koef2;
+        List<(string, string)> listic;
         DateTime vrijemeUplateKladionicaListica;
         string pathPonuda;
         XDocument docPonuda;
@@ -82,9 +86,13 @@ namespace Lutrija
             stilizirajLotoTablicu();
 
             /*----------------------------------------------------------------------------------------------
-                                                EUROJACKPOT
+                                                KLADIONICA
             -----------------------------------------------------------------------------------------------*/
             ponuda = new List<string>();
+            koef1 = new List<string>();
+            koefx = new List<string>();
+            koef2 = new List<string>();
+            listic = new List<(string, string)>();
             prikaziponudu();
             /*----------------------------------------------------------------------------------------------
                                                 EUROJACKPOT
@@ -618,7 +626,7 @@ namespace Lutrija
         }
 
         /*----------------------------------------------------------------------------------------------
-                                                LOTO
+                                                KLADIONICA
          -----------------------------------------------------------------------------------------------*/
         public void prikaziponudu()
         {
@@ -689,17 +697,6 @@ namespace Lutrija
                         listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":X, Tečaj:" + labelx.Text);
                         Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(labelx.Text)).ToString();
                     }
-                    /*else
-                    {
-                        labelx.BackColor = Color.Red;
-                        label1.BackColor = Color.Lavender;
-                        label2.BackColor = Color.Lavender;
-                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(labelx.Text)).ToString();
-                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) * Decimal.Parse(labelx.Text)).ToString();
-                        listBoxOdigraniparovi.Items.Add(labelpar.Text + ":X, Tečaj:" + labelx.Text);
-                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":1, Tečaj:" + labelx.Text);
-                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":2, Tečaj:" + labelx.Text);
-                    }*/
                 };
                 label2.Click += (sender, e) =>
                 {
@@ -720,12 +717,90 @@ namespace Lutrija
                 panelPonuda.Controls.Add(label1);
                 panelPonuda.Controls.Add(labelx);
                 panelPonuda.Controls.Add(label2);
+                ponuda.Add(labelpar.Text);
+                koef1.Add(label1.Text);
+                koefx.Add(labelx.Text);
+                koef2.Add(label2.Text);
                 labelpar.Location = new System.Drawing.Point(0, i * 22);
                 label1.Location = new System.Drawing.Point(210, i * 22);
                 labelx.Location = new System.Drawing.Point(260, i * 22);
                 label2.Location = new System.Drawing.Point(310, i * 22);
                 i++;
                 //ponuda.Add(ponuda)
+            }
+        }
+
+        private void buttonPomoć_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Odaberite tip klikom na tečaj");
+        }
+
+        private void Tečaj_TextChanged(object sender, EventArgs e)
+        {
+            Decimal s;
+            if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
+                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
+        }
+
+        private void Uplata_TextBox_TextChanged(object sender, EventArgs e)
+        {
+            Decimal s;
+            if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
+                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
+            else
+            {
+                MessageBox.Show(this, "Molimo upisujte brojeve");
+                string s1 = Uplata_TextBox.Text.Remove(Uplata_TextBox.Text.Length - 1, 1);
+                Uplata_TextBox.Text = s1;
+                Uplata_TextBox.Select(Uplata_TextBox.Text.Length, 0);
+            }
+        }
+
+        private void UplatiListicButton_Click(object sender, EventArgs e)
+        {
+            if (Tečaj.Text == "1")
+                MessageBox.Show(this, "Izaberite barem jedan tip iz ponude.");
+            else if (Dobitak.Text == "0")
+                MessageBox.Show(this, "Ulog mora biti veći od 0.");
+            else
+            {
+                this.vrijemeUplateKladionicaListica = DateTime.Now;
+                for (int i = 0; i < listBoxOdigraniparovi.Items.Count; i++)
+                {
+                    string par = listBoxOdigraniparovi.Items[i].ToString();
+                    int index = par.IndexOf(':');
+                    string dvoboj = par.Substring(0, index);
+                    string tip = par.Substring(index + 1, 1);
+                    listic.Add((dvoboj, tip));
+                }
+                MessageBox.Show(this, "Listić je uplaćen.");
+            }
+        }
+
+        public void odigrajKolo()
+        {
+            for (int i = 0; i < ponuda.Count; i++)
+            {
+                List<string> kolo = new List<string>(new string[1000]);
+                int vjer1 = (int)Math.Floor(1000 / Decimal.Parse(koef1[i]));
+                int vjerx = (int)Math.Floor(1000 / Decimal.Parse(koefx[i]));
+                int vjer2 = 1000 - (vjerx + vjer1);
+                var r = new Random();
+                for (int j = 0; j < vjer1; j++)
+                {
+                    kolo[j] = "1";
+                }
+                for (int j = vjer1; j < vjer2; j++)
+                {
+                    kolo[j] = "X";
+                }
+                for (int j = vjer2; j < kolo.Count; j++)
+                {
+                    kolo[j] = "2";
+                }
+                int odabrani = r.Next(0, 999);
+
+                this.poslovnica.listBoxRezultati.Items.Add(ponuda[i] + ":" + kolo[odabrani].ToString());
             }
         }
 
@@ -931,37 +1006,6 @@ namespace Lutrija
             poslovnica.textBoxEJekstra.BackColor = Color.White;
             poslovnica.textBoxEJekstra.Clear();
 
-        }
-
-        private void buttonPomoć_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(this, "Odaberite tip klikom na tečaj");
-        }
-
-        private void Tečaj_TextChanged(object sender, EventArgs e)
-        {
-            Decimal s;
-            if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
-                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
-        }
-
-        private void Uplata_TextBox_TextChanged(object sender, EventArgs e)
-        {
-            Decimal s;
-            if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
-                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
-            else
-            {
-                MessageBox.Show(this, "Molimo upisujte brojeve");
-                string s1 = Uplata_TextBox.Text.Remove(Uplata_TextBox.Text.Length - 1, 1);
-                Uplata_TextBox.Text = s1;
-                Uplata_TextBox.Select(Uplata_TextBox.Text.Length, 0);
-            }
-        }
-
-        private void UplatiListicButton_Click(object sender, EventArgs e)
-        {
-            //this.vrijemeUplateKladionicaListica = DateTime.Now;
         }
     }
 }

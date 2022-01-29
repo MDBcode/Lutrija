@@ -257,6 +257,7 @@ namespace Lutrija
             return stat;
         }
 
+
         /*----------------------------------------------------------------------------------------------
                                                KLADIONICA
        -----------------------------------------------------------------------------------------------*/
@@ -364,6 +365,8 @@ namespace Lutrija
             listBoxDobitniListiciKladionica.Visible = !listBoxDobitniListiciKladionica.Visible;
             dohvatiKladionicaListiceIzBaze();
         }
+
+        private void ButtonPokreni_parove_Click(object sender, EventArgs e) => klijent.odigrajKolo();
 
         /*----------------------------------------------------------------------------------------------
                                              EUROJACKPOT

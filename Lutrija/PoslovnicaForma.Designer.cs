@@ -30,6 +30,23 @@ namespace Lutrija
         private void InitializeComponent()
         {
             this.tabPageKladionica = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxTečajZaTip2 = new System.Windows.Forms.TextBox();
+            this.textBoxTečajZaTipX = new System.Windows.Forms.TextBox();
+            this.textBoxTečajZaTip1 = new System.Windows.Forms.TextBox();
+            this.textBoxtim2 = new System.Windows.Forms.TextBox();
+            this.textBoxtim1 = new System.Windows.Forms.TextBox();
+            this.buttonDobitniListiciKladionica = new System.Windows.Forms.Button();
+            this.buttonDodajpar = new System.Windows.Forms.Button();
+            this.ButtonPokreni_parove = new System.Windows.Forms.Button();
+            this.listBoxDobitniListiciKladionica = new System.Windows.Forms.ListBox();
+            this.Dobitnilisticikladionicalabel = new System.Windows.Forms.Label();
+            this.listBoxRezultati = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPageBingo = new System.Windows.Forms.TabPage();
             this.listBoxDobitniListici = new System.Windows.Forms.ListBox();
             this.labelDobitniListici = new System.Windows.Forms.Label();
@@ -60,23 +77,6 @@ namespace Lutrija
             this.buttonPrikaziDobitneEJ = new System.Windows.Forms.Button();
             this.buttonIzvlacenjeEJ = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBoxRezultati = new System.Windows.Forms.ListBox();
-            this.Dobitnilisticikladionicalabel = new System.Windows.Forms.Label();
-            this.listBoxDobitniListiciKladionica = new System.Windows.Forms.ListBox();
-            this.ButtonPokreni_parove = new System.Windows.Forms.Button();
-            this.buttonDodajpar = new System.Windows.Forms.Button();
-            this.buttonDobitniListiciKladionica = new System.Windows.Forms.Button();
-            this.textBoxtim1 = new System.Windows.Forms.TextBox();
-            this.textBoxtim2 = new System.Windows.Forms.TextBox();
-            this.textBoxTečajZaTip1 = new System.Windows.Forms.TextBox();
-            this.textBoxTečajZaTipX = new System.Windows.Forms.TextBox();
-            this.textBoxTečajZaTip2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.tabPageKladionica.SuspendLayout();
             this.tabPageBingo.SuspendLayout();
             this.tabControlPoslovnica.SuspendLayout();
@@ -105,11 +105,161 @@ namespace Lutrija
             this.tabPageKladionica.Controls.Add(this.listBoxRezultati);
             this.tabPageKladionica.Controls.Add(this.label7);
             this.tabPageKladionica.Location = new System.Drawing.Point(4, 22);
-            this.tabPageKladionica.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageKladionica.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageKladionica.Name = "tabPageKladionica";
             this.tabPageKladionica.Size = new System.Drawing.Size(536, 379);
             this.tabPageKladionica.TabIndex = 0;
             this.tabPageKladionica.Text = "Kladionica";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(424, 189);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "tečaj za 2";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(423, 162);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "tečaj za X";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(424, 136);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "tečaj za 1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(472, 106);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "drugi tim";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(472, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "prvi tim";
+            // 
+            // textBoxTečajZaTip2
+            // 
+            this.textBoxTečajZaTip2.Location = new System.Drawing.Point(391, 186);
+            this.textBoxTečajZaTip2.Name = "textBoxTečajZaTip2";
+            this.textBoxTečajZaTip2.Size = new System.Drawing.Size(27, 20);
+            this.textBoxTečajZaTip2.TabIndex = 11;
+            this.textBoxTečajZaTip2.Text = "1,0";
+            this.textBoxTečajZaTip2.TextChanged += new System.EventHandler(this.textBoxTečajZaTip2_TextChanged);
+            // 
+            // textBoxTečajZaTipX
+            // 
+            this.textBoxTečajZaTipX.Location = new System.Drawing.Point(391, 159);
+            this.textBoxTečajZaTipX.Name = "textBoxTečajZaTipX";
+            this.textBoxTečajZaTipX.Size = new System.Drawing.Size(27, 20);
+            this.textBoxTečajZaTipX.TabIndex = 10;
+            this.textBoxTečajZaTipX.Text = "1,0";
+            this.textBoxTečajZaTipX.TextChanged += new System.EventHandler(this.textBoxTečajZaTipX_TextChanged);
+            // 
+            // textBoxTečajZaTip1
+            // 
+            this.textBoxTečajZaTip1.Location = new System.Drawing.Point(391, 132);
+            this.textBoxTečajZaTip1.Name = "textBoxTečajZaTip1";
+            this.textBoxTečajZaTip1.Size = new System.Drawing.Size(27, 20);
+            this.textBoxTečajZaTip1.TabIndex = 9;
+            this.textBoxTečajZaTip1.Text = "1,0";
+            this.textBoxTečajZaTip1.TextChanged += new System.EventHandler(this.textBoxTečajZaTip1_TextChanged);
+            // 
+            // textBoxtim2
+            // 
+            this.textBoxtim2.Location = new System.Drawing.Point(391, 103);
+            this.textBoxtim2.Name = "textBoxtim2";
+            this.textBoxtim2.Size = new System.Drawing.Size(75, 20);
+            this.textBoxtim2.TabIndex = 8;
+            // 
+            // textBoxtim1
+            // 
+            this.textBoxtim1.Location = new System.Drawing.Point(391, 77);
+            this.textBoxtim1.Name = "textBoxtim1";
+            this.textBoxtim1.Size = new System.Drawing.Size(75, 20);
+            this.textBoxtim1.TabIndex = 7;
+            // 
+            // buttonDobitniListiciKladionica
+            // 
+            this.buttonDobitniListiciKladionica.Location = new System.Drawing.Point(379, 295);
+            this.buttonDobitniListiciKladionica.Name = "buttonDobitniListiciKladionica";
+            this.buttonDobitniListiciKladionica.Size = new System.Drawing.Size(131, 26);
+            this.buttonDobitniListiciKladionica.TabIndex = 6;
+            this.buttonDobitniListiciKladionica.Text = "Prikaži dobitne listiće";
+            this.buttonDobitniListiciKladionica.UseVisualStyleBackColor = true;
+            this.buttonDobitniListiciKladionica.Click += new System.EventHandler(this.buttonDobitniListiciKladionica_Click);
+            // 
+            // buttonDodajpar
+            // 
+            this.buttonDodajpar.Location = new System.Drawing.Point(391, 211);
+            this.buttonDodajpar.Name = "buttonDodajpar";
+            this.buttonDodajpar.Size = new System.Drawing.Size(106, 26);
+            this.buttonDodajpar.TabIndex = 5;
+            this.buttonDodajpar.Text = "Dodaj novi par";
+            this.buttonDodajpar.UseVisualStyleBackColor = true;
+            this.buttonDodajpar.Click += new System.EventHandler(this.buttonDodajpar_Click);
+            // 
+            // ButtonPokreni_parove
+            // 
+            this.ButtonPokreni_parove.Location = new System.Drawing.Point(391, 48);
+            this.ButtonPokreni_parove.Name = "ButtonPokreni_parove";
+            this.ButtonPokreni_parove.Size = new System.Drawing.Size(75, 23);
+            this.ButtonPokreni_parove.TabIndex = 4;
+            this.ButtonPokreni_parove.Text = "Odigraj Kolo";
+            this.ButtonPokreni_parove.UseVisualStyleBackColor = true;
+            this.ButtonPokreni_parove.Click += new System.EventHandler(this.ButtonPokreni_parove_Click);
+            // 
+            // listBoxDobitniListiciKladionica
+            // 
+            this.listBoxDobitniListiciKladionica.FormattingEnabled = true;
+            this.listBoxDobitniListiciKladionica.Location = new System.Drawing.Point(32, 237);
+            this.listBoxDobitniListiciKladionica.Name = "listBoxDobitniListiciKladionica";
+            this.listBoxDobitniListiciKladionica.Size = new System.Drawing.Size(341, 134);
+            this.listBoxDobitniListiciKladionica.TabIndex = 3;
+            // 
+            // Dobitnilisticikladionicalabel
+            // 
+            this.Dobitnilisticikladionicalabel.AutoSize = true;
+            this.Dobitnilisticikladionicalabel.Location = new System.Drawing.Point(29, 211);
+            this.Dobitnilisticikladionicalabel.Name = "Dobitnilisticikladionicalabel";
+            this.Dobitnilisticikladionicalabel.Size = new System.Drawing.Size(68, 13);
+            this.Dobitnilisticikladionicalabel.TabIndex = 2;
+            this.Dobitnilisticikladionicalabel.Text = "Dobitni listići:";
+            // 
+            // listBoxRezultati
+            // 
+            this.listBoxRezultati.FormattingEnabled = true;
+            this.listBoxRezultati.Location = new System.Drawing.Point(32, 48);
+            this.listBoxRezultati.Name = "listBoxRezultati";
+            this.listBoxRezultati.Size = new System.Drawing.Size(341, 147);
+            this.listBoxRezultati.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Rezultati:";
             // 
             // tabPageBingo
             // 
@@ -124,7 +274,7 @@ namespace Lutrija
             this.tabPageBingo.Controls.Add(this.buttonIzvlacenjeBinga);
             this.tabPageBingo.Controls.Add(this.labelBingo);
             this.tabPageBingo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBingo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageBingo.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageBingo.Name = "tabPageBingo";
             this.tabPageBingo.Size = new System.Drawing.Size(536, 379);
             this.tabPageBingo.TabIndex = 0;
@@ -135,7 +285,7 @@ namespace Lutrija
             this.listBoxDobitniListici.FormattingEnabled = true;
             this.listBoxDobitniListici.HorizontalScrollbar = true;
             this.listBoxDobitniListici.Location = new System.Drawing.Point(40, 236);
-            this.listBoxDobitniListici.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxDobitniListici.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxDobitniListici.Name = "listBoxDobitniListici";
             this.listBoxDobitniListici.ScrollAlwaysVisible = true;
             this.listBoxDobitniListici.Size = new System.Drawing.Size(456, 121);
@@ -174,7 +324,7 @@ namespace Lutrija
             // textBoxIzvuceniBrojevi
             // 
             this.textBoxIzvuceniBrojevi.Location = new System.Drawing.Point(40, 141);
-            this.textBoxIzvuceniBrojevi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxIzvuceniBrojevi.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIzvuceniBrojevi.Multiline = true;
             this.textBoxIzvuceniBrojevi.Name = "textBoxIzvuceniBrojevi";
             this.textBoxIzvuceniBrojevi.Size = new System.Drawing.Size(456, 59);
@@ -193,7 +343,7 @@ namespace Lutrija
             // buttonDobitniBingoListici
             // 
             this.buttonDobitniBingoListici.Location = new System.Drawing.Point(282, 70);
-            this.buttonDobitniBingoListici.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonDobitniBingoListici.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDobitniBingoListici.Name = "buttonDobitniBingoListici";
             this.buttonDobitniBingoListici.Size = new System.Drawing.Size(127, 29);
             this.buttonDobitniBingoListici.TabIndex = 2;
@@ -204,7 +354,7 @@ namespace Lutrija
             // buttonIzvlacenjeBinga
             // 
             this.buttonIzvlacenjeBinga.Location = new System.Drawing.Point(120, 70);
-            this.buttonIzvlacenjeBinga.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIzvlacenjeBinga.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIzvlacenjeBinga.Name = "buttonIzvlacenjeBinga";
             this.buttonIzvlacenjeBinga.Size = new System.Drawing.Size(127, 29);
             this.buttonIzvlacenjeBinga.TabIndex = 1;
@@ -233,7 +383,7 @@ namespace Lutrija
             this.tabControlPoslovnica.Controls.Add(this.tabPageEurojackpot);
             this.tabControlPoslovnica.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPoslovnica.Location = new System.Drawing.Point(0, 0);
-            this.tabControlPoslovnica.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControlPoslovnica.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlPoslovnica.Name = "tabControlPoslovnica";
             this.tabControlPoslovnica.SelectedIndex = 0;
             this.tabControlPoslovnica.Size = new System.Drawing.Size(544, 405);
@@ -251,7 +401,7 @@ namespace Lutrija
             this.tabPageLoto.Controls.Add(this.buttonIzvlacenjeLota);
             this.tabPageLoto.Controls.Add(this.labelLoto);
             this.tabPageLoto.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageLoto.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageLoto.Name = "tabPageLoto";
             this.tabPageLoto.Size = new System.Drawing.Size(536, 379);
             this.tabPageLoto.TabIndex = 0;
@@ -273,7 +423,7 @@ namespace Lutrija
             this.listBoxDobitniListiciLoto.FormattingEnabled = true;
             this.listBoxDobitniListiciLoto.HorizontalScrollbar = true;
             this.listBoxDobitniListiciLoto.Location = new System.Drawing.Point(40, 236);
-            this.listBoxDobitniListiciLoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxDobitniListiciLoto.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxDobitniListiciLoto.Name = "listBoxDobitniListiciLoto";
             this.listBoxDobitniListiciLoto.ScrollAlwaysVisible = true;
             this.listBoxDobitniListiciLoto.Size = new System.Drawing.Size(456, 121);
@@ -295,7 +445,7 @@ namespace Lutrija
             // 
             this.textBoxIzvuceniBrojeviLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxIzvuceniBrojeviLoto.Location = new System.Drawing.Point(40, 141);
-            this.textBoxIzvuceniBrojeviLoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxIzvuceniBrojeviLoto.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxIzvuceniBrojeviLoto.Name = "textBoxIzvuceniBrojeviLoto";
             this.textBoxIzvuceniBrojeviLoto.Size = new System.Drawing.Size(456, 41);
             this.textBoxIzvuceniBrojeviLoto.TabIndex = 5;
@@ -315,7 +465,7 @@ namespace Lutrija
             // 
             this.buttonDobitniLotoListici.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDobitniLotoListici.Location = new System.Drawing.Point(282, 70);
-            this.buttonDobitniLotoListici.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonDobitniLotoListici.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDobitniLotoListici.Name = "buttonDobitniLotoListici";
             this.buttonDobitniLotoListici.Size = new System.Drawing.Size(127, 29);
             this.buttonDobitniLotoListici.TabIndex = 3;
@@ -327,7 +477,7 @@ namespace Lutrija
             // 
             this.buttonIzvlacenjeLota.Enabled = false;
             this.buttonIzvlacenjeLota.Location = new System.Drawing.Point(120, 70);
-            this.buttonIzvlacenjeLota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIzvlacenjeLota.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIzvlacenjeLota.Name = "buttonIzvlacenjeLota";
             this.buttonIzvlacenjeLota.Size = new System.Drawing.Size(127, 29);
             this.buttonIzvlacenjeLota.TabIndex = 2;
@@ -360,9 +510,9 @@ namespace Lutrija
             this.tabPageEurojackpot.Controls.Add(this.buttonIzvlacenjeEJ);
             this.tabPageEurojackpot.Controls.Add(this.label6);
             this.tabPageEurojackpot.Location = new System.Drawing.Point(4, 22);
-            this.tabPageEurojackpot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageEurojackpot.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageEurojackpot.Name = "tabPageEurojackpot";
-            this.tabPageEurojackpot.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageEurojackpot.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageEurojackpot.Size = new System.Drawing.Size(536, 379);
             this.tabPageEurojackpot.TabIndex = 1;
             this.tabPageEurojackpot.Text = "Eurojackpot";
@@ -381,7 +531,7 @@ namespace Lutrija
             // 
             this.textBoxEJekstra.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxEJekstra.Location = new System.Drawing.Point(383, 142);
-            this.textBoxEJekstra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEJekstra.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEJekstra.Name = "textBoxEJekstra";
             this.textBoxEJekstra.Size = new System.Drawing.Size(116, 41);
             this.textBoxEJekstra.TabIndex = 19;
@@ -392,7 +542,7 @@ namespace Lutrija
             this.listBoxDobitniListiciEJ.FormattingEnabled = true;
             this.listBoxDobitniListiciEJ.HorizontalScrollbar = true;
             this.listBoxDobitniListiciEJ.Location = new System.Drawing.Point(44, 238);
-            this.listBoxDobitniListiciEJ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxDobitniListiciEJ.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxDobitniListiciEJ.Name = "listBoxDobitniListiciEJ";
             this.listBoxDobitniListiciEJ.ScrollAlwaysVisible = true;
             this.listBoxDobitniListiciEJ.Size = new System.Drawing.Size(456, 121);
@@ -414,7 +564,7 @@ namespace Lutrija
             // 
             this.textBoxEJglavni.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxEJglavni.Location = new System.Drawing.Point(44, 142);
-            this.textBoxEJglavni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEJglavni.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEJglavni.Name = "textBoxEJglavni";
             this.textBoxEJglavni.Size = new System.Drawing.Size(277, 41);
             this.textBoxEJglavni.TabIndex = 16;
@@ -433,7 +583,7 @@ namespace Lutrija
             // buttonPrikaziDobitneEJ
             // 
             this.buttonPrikaziDobitneEJ.Location = new System.Drawing.Point(303, 72);
-            this.buttonPrikaziDobitneEJ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonPrikaziDobitneEJ.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPrikaziDobitneEJ.Name = "buttonPrikaziDobitneEJ";
             this.buttonPrikaziDobitneEJ.Size = new System.Drawing.Size(127, 29);
             this.buttonPrikaziDobitneEJ.TabIndex = 14;
@@ -445,7 +595,7 @@ namespace Lutrija
             // 
             this.buttonIzvlacenjeEJ.Enabled = false;
             this.buttonIzvlacenjeEJ.Location = new System.Drawing.Point(124, 72);
-            this.buttonIzvlacenjeEJ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIzvlacenjeEJ.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIzvlacenjeEJ.Name = "buttonIzvlacenjeEJ";
             this.buttonIzvlacenjeEJ.Size = new System.Drawing.Size(127, 29);
             this.buttonIzvlacenjeEJ.TabIndex = 13;
@@ -466,155 +616,6 @@ namespace Lutrija
             this.label6.TabIndex = 12;
             this.label6.Text = "EUROJACKPOT";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Rezultati:";
-            // 
-            // listBoxRezultati
-            // 
-            this.listBoxRezultati.FormattingEnabled = true;
-            this.listBoxRezultati.Location = new System.Drawing.Point(32, 48);
-            this.listBoxRezultati.Name = "listBoxRezultati";
-            this.listBoxRezultati.Size = new System.Drawing.Size(341, 147);
-            this.listBoxRezultati.TabIndex = 1;
-            // 
-            // Dobitnilisticikladionicalabel
-            // 
-            this.Dobitnilisticikladionicalabel.AutoSize = true;
-            this.Dobitnilisticikladionicalabel.Location = new System.Drawing.Point(29, 211);
-            this.Dobitnilisticikladionicalabel.Name = "Dobitnilisticikladionicalabel";
-            this.Dobitnilisticikladionicalabel.Size = new System.Drawing.Size(68, 13);
-            this.Dobitnilisticikladionicalabel.TabIndex = 2;
-            this.Dobitnilisticikladionicalabel.Text = "Dobitni listići:";
-            // 
-            // listBoxDobitniListiciKladionica
-            // 
-            this.listBoxDobitniListiciKladionica.FormattingEnabled = true;
-            this.listBoxDobitniListiciKladionica.Location = new System.Drawing.Point(32, 237);
-            this.listBoxDobitniListiciKladionica.Name = "listBoxDobitniListiciKladionica";
-            this.listBoxDobitniListiciKladionica.Size = new System.Drawing.Size(341, 134);
-            this.listBoxDobitniListiciKladionica.TabIndex = 3;
-            // 
-            // ButtonPokreni_parove
-            // 
-            this.ButtonPokreni_parove.Location = new System.Drawing.Point(391, 48);
-            this.ButtonPokreni_parove.Name = "ButtonPokreni_parove";
-            this.ButtonPokreni_parove.Size = new System.Drawing.Size(75, 23);
-            this.ButtonPokreni_parove.TabIndex = 4;
-            this.ButtonPokreni_parove.Text = "Odigraj Kolo";
-            this.ButtonPokreni_parove.UseVisualStyleBackColor = true;
-            // 
-            // buttonDodajpar
-            // 
-            this.buttonDodajpar.Location = new System.Drawing.Point(391, 211);
-            this.buttonDodajpar.Name = "buttonDodajpar";
-            this.buttonDodajpar.Size = new System.Drawing.Size(106, 26);
-            this.buttonDodajpar.TabIndex = 5;
-            this.buttonDodajpar.Text = "Dodaj novi par";
-            this.buttonDodajpar.UseVisualStyleBackColor = true;
-            this.buttonDodajpar.Click += new System.EventHandler(this.buttonDodajpar_Click);
-            // 
-            // buttonDobitniListiciKladionica
-            // 
-            this.buttonDobitniListiciKladionica.Location = new System.Drawing.Point(379, 295);
-            this.buttonDobitniListiciKladionica.Name = "buttonDobitniListiciKladionica";
-            this.buttonDobitniListiciKladionica.Size = new System.Drawing.Size(131, 26);
-            this.buttonDobitniListiciKladionica.TabIndex = 6;
-            this.buttonDobitniListiciKladionica.Text = "Prikaži dobitne listiće";
-            this.buttonDobitniListiciKladionica.UseVisualStyleBackColor = true;
-            this.buttonDobitniListiciKladionica.Click += new System.EventHandler(this.buttonDobitniListiciKladionica_Click);
-            // 
-            // textBoxtim1
-            // 
-            this.textBoxtim1.Location = new System.Drawing.Point(391, 77);
-            this.textBoxtim1.Name = "textBoxtim1";
-            this.textBoxtim1.Size = new System.Drawing.Size(75, 20);
-            this.textBoxtim1.TabIndex = 7;
-            // 
-            // textBoxtim2
-            // 
-            this.textBoxtim2.Location = new System.Drawing.Point(391, 103);
-            this.textBoxtim2.Name = "textBoxtim2";
-            this.textBoxtim2.Size = new System.Drawing.Size(75, 20);
-            this.textBoxtim2.TabIndex = 8;
-            // 
-            // textBoxTečajZaTip1
-            // 
-            this.textBoxTečajZaTip1.Location = new System.Drawing.Point(391, 132);
-            this.textBoxTečajZaTip1.Name = "textBoxTečajZaTip1";
-            this.textBoxTečajZaTip1.Size = new System.Drawing.Size(27, 20);
-            this.textBoxTečajZaTip1.TabIndex = 9;
-            this.textBoxTečajZaTip1.Text = "1,0";
-            this.textBoxTečajZaTip1.TextChanged += new System.EventHandler(this.textBoxTečajZaTip1_TextChanged);
-            // 
-            // textBoxTečajZaTipX
-            // 
-            this.textBoxTečajZaTipX.Location = new System.Drawing.Point(391, 159);
-            this.textBoxTečajZaTipX.Name = "textBoxTečajZaTipX";
-            this.textBoxTečajZaTipX.Size = new System.Drawing.Size(27, 20);
-            this.textBoxTečajZaTipX.TabIndex = 10;
-            this.textBoxTečajZaTipX.Text = "1,0";
-            this.textBoxTečajZaTipX.TextChanged += new System.EventHandler(this.textBoxTečajZaTipX_TextChanged);
-            // 
-            // textBoxTečajZaTip2
-            // 
-            this.textBoxTečajZaTip2.Location = new System.Drawing.Point(391, 186);
-            this.textBoxTečajZaTip2.Name = "textBoxTečajZaTip2";
-            this.textBoxTečajZaTip2.Size = new System.Drawing.Size(27, 20);
-            this.textBoxTečajZaTip2.TabIndex = 11;
-            this.textBoxTečajZaTip2.Text = "1,0";
-            this.textBoxTečajZaTip2.TextChanged += new System.EventHandler(this.textBoxTečajZaTip2_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(472, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "prvi tim";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(472, 106);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(46, 13);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "drugi tim";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(424, 136);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "tečaj za 1";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(423, 162);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "tečaj za X";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(424, 189);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "tečaj za 2";
-            // 
             // PoslovnicaForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,7 +623,7 @@ namespace Lutrija
             this.ClientSize = new System.Drawing.Size(544, 405);
             this.Controls.Add(this.tabControlPoslovnica);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PoslovnicaForma";
             this.ShowIcon = false;
             this.Text = "Poslovnica";
@@ -672,7 +673,6 @@ namespace Lutrija
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBoxEJekstra;
-        private System.Windows.Forms.ListBox listBoxRezultati;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -687,8 +687,9 @@ namespace Lutrija
         private System.Windows.Forms.Button buttonDobitniListiciKladionica;
         private System.Windows.Forms.Button buttonDodajpar;
         private System.Windows.Forms.Button ButtonPokreni_parove;
-        private System.Windows.Forms.ListBox listBoxDobitniListiciKladionica;
         private System.Windows.Forms.Label Dobitnilisticikladionicalabel;
+        public System.Windows.Forms.ListBox listBoxRezultati;
+        public System.Windows.Forms.ListBox listBoxDobitniListiciKladionica;
     }
 }
 
