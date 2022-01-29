@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
+using System.Xml.Linq;
 
 namespace Lutrija
 {
@@ -19,11 +21,15 @@ namespace Lutrija
         List<int> brojeviNaListicu;
         List<int> brojeviNaLotoListicu;
         List<int> pogodeniLotoBrojevi;
+        List<string> ponuda;
         DateTime vrijemeUplateBingoListica;
         DateTime vrijemeUplateLotoListica;
+        DateTime vrijemeUplateKladionicaListica;
         Boolean bingoAlert;
         Boolean igraj;
         Boolean joker_loto;
+        string pathPonuda;
+        XDocument docPonuda;
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
@@ -35,11 +41,13 @@ namespace Lutrija
             brojeviNaListicu = new List<int>();
             brojeviNaLotoListicu = new List<int>();
             pogodeniLotoBrojevi = new List<int>();
+            ponuda = new List<string>();
             bingoAlert = false;
             igraj = false;
             joker_loto = false;
             stilizirajBingoTablicu();
             stilizirajLotoTablicu();
+            prikaziponudu();
 
             ResumeLayout();
         }
@@ -102,6 +110,115 @@ namespace Lutrija
                 velicina.Width = label.Parent.Width / 5;
                 velicina.Height = label.Parent.Height / 5;
                 label.Size = velicina;
+            }
+        }
+
+        public void prikaziponudu()
+        {
+            var environment = System.Environment.CurrentDirectory;
+            pathPonuda = Directory.GetParent(environment).Parent.FullName;
+            pathPonuda += @"\Database\Ponuda.xml";
+            docPonuda = XDocument.Load(pathPonuda);
+            var parovi = from par in this.docPonuda.Elements("Root").Elements("Par")
+                         select new
+                         {
+                                    dogadaj = (string)par.Element("par"),
+                                     tecaj1 = (string)par.Element("tečaj_1"),
+                                     tecajX = (string)par.Element("tečaj_X"),
+                                     tecaj2 = (string)par.Element("tečaj_2"),
+                                 };
+            panelPonuda.Controls.Clear();
+
+            int i = 0;
+            foreach (var par in parovi)
+            {
+                Label labelpar = new Label();
+                Label label1 = new Label();
+                Label labelx = new Label();
+                Label label2 = new Label();
+                labelpar.Text = par.dogadaj;
+                label1.Text = par.tecaj1;
+                labelx.Text = par.tecajX;
+                label2.Text = par.tecaj2;
+                labelpar.Width = 210;
+                label1.Width = 40;
+                labelx.Width = 40;
+                label2.Width = 40;
+                labelpar.TextAlign = ContentAlignment.MiddleCenter;
+                label1.TextAlign = ContentAlignment.MiddleCenter;
+                labelx.TextAlign = ContentAlignment.MiddleCenter;
+                label2.TextAlign = ContentAlignment.MiddleCenter;
+                labelpar.BorderStyle = BorderStyle.FixedSingle;
+                label1.BorderStyle = BorderStyle.FixedSingle;
+                labelx.BorderStyle = BorderStyle.FixedSingle;
+                label2.BorderStyle = BorderStyle.FixedSingle;
+
+                label1.Click += (sender, e) =>
+                {
+                    if (listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches)
+                    {
+                        label1.BackColor = Color.Red;
+                        listBoxOdigraniparovi.Items.Add(labelpar.Text + ":1, Tečaj:" + label1.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) * Decimal.Parse(label1.Text)).ToString();
+                    }
+                    else if(!(listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches) && label1.BackColor == Color.Red)
+                    {
+                        label1.BackColor = Color.Lavender;
+                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":1, Tečaj:" + label1.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(label1.Text)).ToString();
+                    }
+                };
+                labelx.Click += (sender, e) =>
+                {
+                    if (listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches)
+                    {
+                        labelx.BackColor = Color.Red;
+                        listBoxOdigraniparovi.Items.Add(labelpar.Text + ":X, Tečaj:" + labelx.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) * Decimal.Parse(labelx.Text)).ToString();
+                    }
+                    else if(!(listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches) && labelx.BackColor == Color.Red)
+                    {
+                        labelx.BackColor = Color.Lavender;
+                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":X, Tečaj:" + labelx.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(labelx.Text)).ToString();
+                    }
+                    /*else
+                    {
+                        labelx.BackColor = Color.Red;
+                        label1.BackColor = Color.Lavender;
+                        label2.BackColor = Color.Lavender;
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(labelx.Text)).ToString();
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) * Decimal.Parse(labelx.Text)).ToString();
+                        listBoxOdigraniparovi.Items.Add(labelpar.Text + ":X, Tečaj:" + labelx.Text);
+                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":1, Tečaj:" + labelx.Text);
+                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":2, Tečaj:" + labelx.Text);
+                    }*/
+                };
+                label2.Click += (sender, e) =>
+                {
+                    if (listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches)
+                    {
+                        label2.BackColor = Color.Red;
+                        listBoxOdigraniparovi.Items.Add(labelpar.Text + ":2, Tečaj:" + label2.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) * Decimal.Parse(label2.Text)).ToString();
+                    }
+                    else if (!(listBoxOdigraniparovi.FindString(labelpar.Text) == ListBox.NoMatches) && label2.BackColor == Color.Red)
+                    {
+                        label2.BackColor = Color.Lavender;
+                        listBoxOdigraniparovi.Items.Remove(labelpar.Text + ":2, Tečaj:" + label2.Text);
+                        Tečaj.Text = (Decimal.Parse(Tečaj.Text) / Decimal.Parse(label2.Text)).ToString();
+                    }
+                };
+                panelPonuda.Controls.Add(labelpar);
+                panelPonuda.Controls.Add(label1);
+                panelPonuda.Controls.Add(labelx);
+                panelPonuda.Controls.Add(label2);
+                labelpar.Location = new System.Drawing.Point(0, i * 22);
+                label1.Location = new System.Drawing.Point(210,i*22);
+                labelx.Location = new System.Drawing.Point(260,i*22);
+                label2.Location = new System.Drawing.Point(310,i*22);
+                i++;
+                //ponuda.Add(ponuda)
             }
         }
 
@@ -479,5 +596,36 @@ namespace Lutrija
             this.vrijemeUplateLotoListica = DateTime.Now;
         }
 
+        private void UplatiListicButton_Click(object sender, EventArgs e)
+        {
+            this.vrijemeUplateKladionicaListica = DateTime.Now;
+
+        }
+
+        private void Uplata_TextBox_TextChanged(object sender, EventArgs e)
+        {
+            Decimal s;
+            if(Decimal.TryParse(Uplata_TextBox.Text,out s) || Uplata_TextBox.Text == "")
+                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
+            else
+            {
+                MessageBox.Show(this, "Molimo upisujte brojeve");
+                string s1 = Uplata_TextBox.Text.Remove(Uplata_TextBox.Text.Length-1, 1);
+                Uplata_TextBox.Text = s1;
+                Uplata_TextBox.Select(Uplata_TextBox.Text.Length, 0);
+            }
+        }
+
+        private void buttonPomoć_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, "Odaberite tip klikom na tečaj");
+        }
+
+        private void Tečaj_TextChanged(object sender, EventArgs e)
+        {
+            Decimal s;
+            if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
+                Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
+        }
     }
 }

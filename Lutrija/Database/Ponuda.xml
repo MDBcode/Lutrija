@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Par>
+    <ID>1</ID>
+    <par>Dinamo-Rijeka</par>
+    <tečaj_1>1,5</tečaj_1>
+    <tečaj_X>3</tečaj_X>
+    <tečaj_2>5</tečaj_2>
+  </Par>
+  <Par>
+    <ID>2</ID>
+    <par>Hajduk-Rijeka</par>
+    <tečaj_1>2,6</tečaj_1>
+    <tečaj_X>3,2</tečaj_X>
+    <tečaj_2>3</tečaj_2>
+  </Par>
+  <Par>
+    <ID>3</ID>
+    <par>Cibalia-Istra</par>
+    <tečaj_1>2</tečaj_1>
+    <tečaj_X>3,6</tečaj_X>
+    <tečaj_2>4,2</tečaj_2>
+  </Par>
+  <Par>
+    <ID>4</ID>
+    <par>Gorica-Lokomotiva</par>
+    <tečaj_1>1,8</tečaj_1>
+    <tečaj_X>3,3</tečaj_X>
+    <tečaj_2>4</tečaj_2>
+  </Par>
+  <Par>
+    <ID>5</ID>
+    <par>Juventus-Lazio</par>
+    <tečaj_1>2,1</tečaj_1>
+    <tečaj_X>3,3</tečaj_X>
+    <tečaj_2>3,8</tečaj_2>
+  </Par>
+  <Par>
+    <ID>6</ID>
+    <par>Arsenal-Liverpool</par>
+    <tečaj_1>3,5</tečaj_1>
+    <tečaj_X>3,3</tečaj_X>
+    <tečaj_2>1,9</tečaj_2>
+  </Par>
+  <Par>
+    <ID>7</ID>
+    <par>Slaven Belupo-Hrv.Dragovoljac</par>
+    <tečaj_1>1,6</tečaj_1>
+    <tečaj_X>3,6</tečaj_X>
+    <tečaj_2>6</tečaj_2>
+  </Par>
+</Root>
