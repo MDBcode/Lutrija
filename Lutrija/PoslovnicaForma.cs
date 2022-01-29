@@ -15,18 +15,33 @@ namespace Lutrija
     public partial class PoslovnicaForma : Form
     {
         public KlijentForma klijent;
+        /*----------------------------------------------------------------------------------------------
+                                                BINGO
+        -----------------------------------------------------------------------------------------------*/
         string path;
+        XDocument doc;
+
+        /*----------------------------------------------------------------------------------------------
+                                                LOTO
+        -----------------------------------------------------------------------------------------------*/
         string pathLoto;
         string pathLotoSvi;
-        string pathEJ;
-        XDocument doc;
         XDocument docLoto;
         XDocument docLotoSvi;
+
+        /*----------------------------------------------------------------------------------------------
+                                             EUROJACKPOT
+        -----------------------------------------------------------------------------------------------*/
+
+        string pathEJ;
         XDocument docEJ;
+
         public PoslovnicaForma()
         {
             InitializeComponent();
-
+            /*----------------------------------------------------------------------------------------------
+                                                BINGO
+            -----------------------------------------------------------------------------------------------*/
             labelRedniIzvuceni.Text = "0";
             listBoxDobitniListici.Visible = false;
             labelDobitniListici.Visible = false;
@@ -37,6 +52,9 @@ namespace Lutrija
             path += @"\Database\BingoListic.xml";
             doc = XDocument.Load(path);
 
+            /*----------------------------------------------------------------------------------------------
+                                                LOTO
+            -----------------------------------------------------------------------------------------------*/
             pathLoto = Directory.GetParent(environment).Parent.FullName;
             pathLoto += @"\Database\LotoListic.xml";
             docLoto = XDocument.Load(pathLoto);
@@ -45,6 +63,9 @@ namespace Lutrija
             pathLotoSvi += @"\Database\sviLotoListici.xml";
             docLotoSvi = XDocument.Load(pathLotoSvi);
 
+            /*----------------------------------------------------------------------------------------------
+                                              EUROJACKPOT
+            -----------------------------------------------------------------------------------------------*/
             pathEJ = Directory.GetParent(environment).Parent.FullName;
             pathEJ += @"\Database\EJListic.xml";
             docEJ = XDocument.Load(pathLoto);
@@ -53,6 +74,9 @@ namespace Lutrija
             klijent.Show();
         }
 
+        /*----------------------------------------------------------------------------------------------
+                                                BINGO
+        -----------------------------------------------------------------------------------------------*/
         public void zapisiIzvuceniBroj(int izvuceniBroj, int redniIzvuceni) {
             textBoxIzvuceniBrojevi.Text += izvuceniBroj.ToString() + "  ";
             labelRedniIzvuceni.Text = redniIzvuceni.ToString();
@@ -73,6 +97,36 @@ namespace Lutrija
             this.doc.Save(this.path);
         }
 
+        public void dohvatiBingoListiceIzBaze()
+        {
+            var dobitniListici = from listic in this.doc.Elements("Root").Elements("BingoListic")
+                                 select new
+                                 {
+                                     ID = (string)listic.Element("ID"),
+                                     vrijemeUplate = (string)listic.Element("vrijemeUplate"),
+                                     brojevi = (string)listic.Element("brojevi")
+                                 };
+
+            listBoxDobitniListici.Items.Clear();
+            foreach (var listic in dobitniListici)
+            {
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi;
+                listBoxDobitniListici.Items.Add(sadrzaj);
+            }
+        }
+
+        private void buttonIzvlacenjeBinga_Click(object sender, EventArgs e) => klijent.izvlacenjeBinga();
+
+        private void buttonDobitniBingoListici_Click(object sender, EventArgs e)
+        {
+            labelDobitniListici.Visible = !labelDobitniListici.Visible;
+            listBoxDobitniListici.Visible = !listBoxDobitniListici.Visible;
+            dohvatiBingoListiceIzBaze();
+        }
+
+        /*----------------------------------------------------------------------------------------------
+                                                LOTO
+        -----------------------------------------------------------------------------------------------*/
         public void spremiLotoListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni, List<int> uneseni_joker, List<int> izvuceni_joker)
         {
             string stringBrojeva = "";
@@ -98,20 +152,6 @@ namespace Lutrija
             this.docLoto.Save(this.pathLoto);
         }
 
-        public void dohvatiBingoListiceIzBaze() {
-            var dobitniListici = from listic in this.doc.Elements("Root").Elements("BingoListic") select new { 
-                ID = (string)listic.Element("ID"),
-                vrijemeUplate = (string)listic.Element("vrijemeUplate"),
-                brojevi = (string)listic.Element("brojevi")
-            };
-
-            listBoxDobitniListici.Items.Clear();
-            foreach(var listic in dobitniListici) {
-                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi;
-                listBoxDobitniListici.Items.Add(sadrzaj);
-            }
-        }
-
         public void dohvatiLotoListiceIzBaze()
         {
             var dobitniLotoListici = from listic in this.docLoto.Elements("Root").Elements("LotoListic")
@@ -131,15 +171,6 @@ namespace Lutrija
                 string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni + "  |  " + listic.uneseni_joker + "  |  " + listic.izvuceni_joker;
                 listBoxDobitniListiciLoto.Items.Add(sadrzaj);
             }
-        }
-
-        private void buttonIzvlacenjeBinga_Click(object sender, EventArgs e) => klijent.izvlacenjeBinga();
-
-        private void buttonDobitniBingoListici_Click(object sender, EventArgs e)
-        {
-            labelDobitniListici.Visible = !labelDobitniListici.Visible;
-            listBoxDobitniListici.Visible = !listBoxDobitniListici.Visible;
-            dohvatiBingoListiceIzBaze();
         }
 
         private void buttonIzvlacenjeLota_Click(object sender, EventArgs e) => klijent.izvlacenjeLota();
@@ -205,9 +236,10 @@ namespace Lutrija
             return stat;
         }
 
-        // eurojackpot
 
-
+        /*----------------------------------------------------------------------------------------------
+                                             EUROJACKPOT
+       -----------------------------------------------------------------------------------------------*/
         public void dohvatiEJListiceIzBaze()
         {
             var dobitniEJListici = from listic in this.docEJ.Elements("Root").Elements("EJListic")

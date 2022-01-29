@@ -53,9 +53,9 @@ namespace Lutrija
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkBoxLotoJoker = new System.Windows.Forms.CheckBox();
+            this.button_odaberi = new System.Windows.Forms.Button();
+            this.buttonIGRAJ = new System.Windows.Forms.Button();
             this.generiraj_loto = new System.Windows.Forms.Button();
             this.table_loto = new System.Windows.Forms.TableLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
@@ -141,8 +141,8 @@ namespace Lutrija
             this.tabPageLoto.BackColor = System.Drawing.Color.AntiqueWhite;
             this.tabPageLoto.Controls.Add(this.button_proslost);
             this.tabPageLoto.Controls.Add(this.panel1);
-            this.tabPageLoto.Controls.Add(this.button2);
-            this.tabPageLoto.Controls.Add(this.button1);
+            this.tabPageLoto.Controls.Add(this.button_odaberi);
+            this.tabPageLoto.Controls.Add(this.buttonIGRAJ);
             this.tabPageLoto.Controls.Add(this.generiraj_loto);
             this.tabPageLoto.Controls.Add(this.table_loto);
             this.tabPageLoto.Controls.Add(this.labelLoto);
@@ -166,6 +166,7 @@ namespace Lutrija
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.Controls.Add(this.smanji_sesti);
             this.panel1.Controls.Add(this.povecaj_sesti);
             this.panel1.Controls.Add(this.smanji_peti);
@@ -180,7 +181,7 @@ namespace Lutrija
             this.panel1.Controls.Add(this.povecaj_prvi);
             this.panel1.Controls.Add(this.generiraj_joker);
             this.panel1.Controls.Add(this.table_joker);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.checkBoxLotoJoker);
             this.panel1.Location = new System.Drawing.Point(26, 253);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 140);
@@ -359,95 +360,114 @@ namespace Lutrija
             // label32
             // 
             this.label32.AutoSize = true;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label32.Location = new System.Drawing.Point(4, 1);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(51, 16);
+            this.label32.Size = new System.Drawing.Size(54, 61);
             this.label32.TabIndex = 0;
             this.label32.Text = "label32";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
+            this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label33.Location = new System.Drawing.Point(65, 1);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(51, 16);
+            this.label33.Size = new System.Drawing.Size(54, 61);
             this.label33.TabIndex = 1;
             this.label33.Text = "label33";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label34.Location = new System.Drawing.Point(126, 1);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(51, 16);
+            this.label34.Size = new System.Drawing.Size(54, 61);
             this.label34.TabIndex = 2;
             this.label34.Text = "label34";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
+            this.label35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label35.Location = new System.Drawing.Point(187, 1);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(51, 16);
+            this.label35.Size = new System.Drawing.Size(54, 61);
             this.label35.TabIndex = 3;
             this.label35.Text = "label35";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
+            this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label36.Location = new System.Drawing.Point(248, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(51, 16);
+            this.label36.Size = new System.Drawing.Size(54, 61);
             this.label36.TabIndex = 4;
             this.label36.Text = "label36";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
+            this.label37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label37.Location = new System.Drawing.Point(309, 1);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(51, 16);
+            this.label37.Size = new System.Drawing.Size(58, 61);
             this.label37.TabIndex = 5;
             this.label37.Text = "label37";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // checkBox1
+            // checkBoxLotoJoker
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(542, 54);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(83, 24);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Joker!";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBoxLotoJoker.AutoSize = true;
+            this.checkBoxLotoJoker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBoxLotoJoker.Location = new System.Drawing.Point(542, 54);
+            this.checkBoxLotoJoker.Name = "checkBoxLotoJoker";
+            this.checkBoxLotoJoker.Size = new System.Drawing.Size(83, 24);
+            this.checkBoxLotoJoker.TabIndex = 2;
+            this.checkBoxLotoJoker.Text = "Joker!";
+            this.checkBoxLotoJoker.UseVisualStyleBackColor = true;
+            this.checkBoxLotoJoker.CheckedChanged += new System.EventHandler(this.checkBoxLotoJoker_CheckedChanged);
             // 
-            // button2
+            // button_odaberi
             // 
-            this.button2.Location = new System.Drawing.Point(47, 170);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 37);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Odaberi kombinaciju";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_odaberi.Location = new System.Drawing.Point(47, 170);
+            this.button_odaberi.Name = "button_odaberi";
+            this.button_odaberi.Size = new System.Drawing.Size(200, 37);
+            this.button_odaberi.TabIndex = 20;
+            this.button_odaberi.Text = "Odaberi kombinaciju";
+            this.button_odaberi.UseVisualStyleBackColor = true;
+            this.button_odaberi.Click += new System.EventHandler(this.button_odaberi_Click);
             // 
-            // button1
+            // buttonIGRAJ
             // 
-            this.button1.BackColor = System.Drawing.Color.PaleGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(604, 413);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 48);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "IGRAJ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonIGRAJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonIGRAJ.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonIGRAJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonIGRAJ.Location = new System.Drawing.Point(604, 413);
+            this.buttonIGRAJ.Name = "buttonIGRAJ";
+            this.buttonIGRAJ.Size = new System.Drawing.Size(106, 48);
+            this.buttonIGRAJ.TabIndex = 19;
+            this.buttonIGRAJ.Text = "IGRAJ";
+            this.buttonIGRAJ.UseVisualStyleBackColor = false;
+            this.buttonIGRAJ.Visible = false;
+            this.buttonIGRAJ.Click += new System.EventHandler(this.buttonIGRAJ_Click);
             // 
             // generiraj_loto
             // 
-            this.generiraj_loto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generiraj_loto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.generiraj_loto.Location = new System.Drawing.Point(253, 170);
             this.generiraj_loto.Name = "generiraj_loto";
             this.generiraj_loto.Size = new System.Drawing.Size(194, 37);
@@ -484,62 +504,78 @@ namespace Lutrija
             // label31
             // 
             this.label31.AutoSize = true;
+            this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label31.Location = new System.Drawing.Point(309, 1);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(51, 16);
+            this.label31.Size = new System.Drawing.Size(55, 70);
             this.label31.TabIndex = 5;
             this.label31.Text = "label31";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
+            this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label30.Location = new System.Drawing.Point(248, 1);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(51, 16);
+            this.label30.Size = new System.Drawing.Size(54, 70);
             this.label30.TabIndex = 4;
             this.label30.Text = "label30";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label29.Location = new System.Drawing.Point(187, 1);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(51, 16);
+            this.label29.Size = new System.Drawing.Size(54, 70);
             this.label29.TabIndex = 3;
             this.label29.Text = "label29";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
+            this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label28.Location = new System.Drawing.Point(126, 1);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(51, 16);
+            this.label28.Size = new System.Drawing.Size(54, 70);
             this.label28.TabIndex = 2;
             this.label28.Text = "label28";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
+            this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label27.Location = new System.Drawing.Point(65, 1);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(51, 16);
+            this.label27.Size = new System.Drawing.Size(54, 70);
             this.label27.TabIndex = 1;
             this.label27.Text = "label27";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label26.Location = new System.Drawing.Point(4, 1);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(51, 16);
+            this.label26.Size = new System.Drawing.Size(54, 70);
             this.label26.TabIndex = 0;
             this.label26.Text = "label26";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelLoto
             // 
-            this.labelLoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLoto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelLoto.AutoSize = true;
             this.labelLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelLoto.Location = new System.Drawing.Point(318, 26);
@@ -1114,7 +1150,7 @@ namespace Lutrija
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel table_joker;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxLotoJoker;
         private System.Windows.Forms.Label labelLoto;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
@@ -1136,9 +1172,9 @@ namespace Lutrija
         private System.Windows.Forms.Button povecaj_drugi;
         private System.Windows.Forms.Button smanji_prvi;
         private System.Windows.Forms.Button povecaj_prvi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIGRAJ;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_odaberi;
         private System.Windows.Forms.TableLayoutPanel table_loto;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;

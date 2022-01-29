@@ -14,97 +14,80 @@ namespace Lutrija
     public partial class KlijentForma : Form
     {
         public PoslovnicaForma poslovnica;
+
+        /*----------------------------------------------------------------------------------------------
+                                                BINGO
+         -----------------------------------------------------------------------------------------------*/
         List<int> izvuceni;
-        List<int> izvuceniLoto;
         List<int> brojeviNaListicu;
+        Boolean bingoAlert;
+
+        /*----------------------------------------------------------------------------------------------
+                                               LOTO
+        -----------------------------------------------------------------------------------------------*/
+        List<int> izvuceniLoto;
         List<int> brojeviNaLotoListicu;
         List<int> pogodeniLotoBrojevi;
         List<int> odabraniJoker;
         List<int> izvuceniJoker;
+        DateTime vrijemeUplateLotoListica;
+        Boolean dobitan_loto;
+        Boolean joker_loto;
+        Dictionary<int, int> statistika;
+
+        /*----------------------------------------------------------------------------------------------
+                                            EUROJACKPOT
+        -----------------------------------------------------------------------------------------------*/
         List<int> brojeviNaListicuEJ;
         List<int> pogodeniEJBrojevi;
         List<int> izvuceniEJ;
         DateTime vrijemeUplateBingoListica;
-        DateTime vrijemeUplateLotoListica;
         DateTime vrijemeUplateEJListica;
-        Boolean dobitan_loto;
         Boolean dobitan_joker;
-        Boolean bingoAlert;
-        Boolean igraj;
-        Boolean joker_loto;
         Boolean dobitan_ej;
-        Dictionary<int, int> statistika;
+
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
             SuspendLayout();
 
             this.poslovnica = pf;
+
+         /*----------------------------------------------------------------------------------------------
+                                                BINGO
+         -----------------------------------------------------------------------------------------------*/
             izvuceni = new List<int>();
-            izvuceniLoto = new List<int>();
             brojeviNaListicu = new List<int>();
+            bingoAlert = false;
+            stilizirajBingoTablicu();
+         /*----------------------------------------------------------------------------------------------
+                                                LOTO
+         -----------------------------------------------------------------------------------------------*/
+            izvuceniLoto = new List<int>();
             brojeviNaLotoListicu = new List<int>();
             pogodeniLotoBrojevi = new List<int>();
             odabraniJoker = new List<int>();
             izvuceniJoker = new List<int>();
+            statistika = new Dictionary<int, int>();
+            joker_loto = false;
+            stilizirajLotoTablicu();
+
+            /*----------------------------------------------------------------------------------------------
+                                                EUROJACKPOT
+            -----------------------------------------------------------------------------------------------*/
             brojeviNaListicuEJ = new List<int>();
             pogodeniEJBrojevi = new List<int>();
-            izvuceniEJ = new List<int>();
-            statistika = new Dictionary<int, int>();
-            bingoAlert = false;
-            igraj = false;
-            joker_loto = false;
-            stilizirajBingoTablicu();
-            stilizirajLotoTablicu();
+            izvuceniEJ = new List<int>(); 
             stilizirajEJ();
 
             ResumeLayout();
         }
 
-        public void stilizirajLotoTablicu()
+        /*----------------------------------------------------------------------------------------------
+                                                BINGO
+        -----------------------------------------------------------------------------------------------*/
+        public void stilizirajBingoTablicu()
         {
-            for (int j = 26; j <= 31; j++)
-            {
-                var label = table_loto.Controls["label" + j.ToString()];
-                label.Text = "";
-                Padding pad = new Padding();
-                pad.Left = label.Parent.Size.Width / 25;
-                pad.Top = label.Parent.Size.Height / 3;
-                label.Padding = pad;
-                Font font = new Font(label.Font, FontStyle.Bold);
-                label.Font = font;
-                Size velicina = new Size();
-                velicina.Width = label.Parent.Width;
-                velicina.Height = label.Parent.Height;
-                label.Size = velicina;
-            }
-            generiraj_joker_brojeve();
-        }
-
-        public void generiraj_joker_brojeve()
-        {
-            Random rnd = new Random();
-            for (int k = 32; k <= 37; k++)
-            {
-                var label = table_joker.Controls["label" + k.ToString()];
-
-                int broj = rnd.Next(0, 10);
-                label.Text = broj.ToString();
-
-                Padding pad = new Padding();
-                pad.Left = label.Parent.Size.Width / 25;
-                pad.Top = label.Parent.Size.Height / 3;
-                label.Padding = pad;
-                Font font = new Font(label.Font, FontStyle.Bold);
-                label.Font = font;
-                Size velicina = new Size();
-                velicina.Width = label.Parent.Width;
-                velicina.Height = label.Parent.Height;
-                label.Size = velicina;
-            }
-        }
-
-        public void stilizirajBingoTablicu() {
             for (int i = 1; i <= 25; i++)
             {
                 var label = tableListićBingo.Controls["label" + i.ToString()];
@@ -135,15 +118,17 @@ namespace Lutrija
             this.poslovnica.buttonIzvlacenjeBinga.Enabled = true;
             this.tableListićBingo.Visible = false;
             Random r = new Random();
-            for (int i = 1; i <= 25; i++) {
+            for (int i = 1; i <= 25; i++)
+            {
                 var labela = tableListićBingo.Controls["label" + i.ToString()];
                 if (i == 13) labela.Text = ""; // središnja ćelija, ona je prazna
-                else {
+                else
+                {
                     int randBroj = r.Next(1, 75 + 1);
                     while (this.brojeviNaListicu.Contains(randBroj)) randBroj = r.Next(1, 75 + 1);
                     this.brojeviNaListicu.Add(randBroj);
                     labela.Text = randBroj.ToString();
-                    labela.ForeColor = Color.Black;    
+                    labela.ForeColor = Color.Black;
                 }
             }
             this.tableListićBingo.Visible = true;
@@ -274,17 +259,20 @@ namespace Lutrija
             return false;
         }
 
-        public void izvlacenjeBinga() {
+        public void izvlacenjeBinga()
+        {
             var r = new Random();
-            for (int ukupnoIzvucenih=0; ukupnoIzvucenih<10; ukupnoIzvucenih++) { 
-                int randBroj = r.Next(1,75+1);
+            for (int ukupnoIzvucenih = 0; ukupnoIzvucenih < 10; ukupnoIzvucenih++)
+            {
+                int randBroj = r.Next(1, 75 + 1);
                 while (this.izvuceni.Contains(randBroj) && this.izvuceni.Count < 75) randBroj = r.Next(1, 75 + 1);
                 this.izvuceni.Add(randBroj);
                 Thread.Sleep(200);
                 poslovnica.zapisiIzvuceniBroj(randBroj, this.izvuceni.Count);
                 poslovnica.Refresh();
 
-                for (int i=1; i<=25; i++) {
+                for (int i = 1; i <= 25; i++)
+                {
                     if (i != 13)
                     {
                         var label = tableListićBingo.Controls["label" + i.ToString()];
@@ -307,7 +295,8 @@ namespace Lutrija
                     this.poslovnica.spremiBingoListicUBazu(this.vrijemeUplateBingoListica, this.brojeviNaListicu);
                     break;
                 }
-                else {
+                else
+                {
                     // pronađi postoji li dobitan redak
                     Boolean sviRedoviPogodeni = provjeriRetke(ref bingoAlert);
                     // jesu li pogođeni kutovi
@@ -315,7 +304,6 @@ namespace Lutrija
                 }
             }
         }
-
 
         private void buttonKreirajBingoListic_Click(object sender, EventArgs e)
         {
@@ -326,6 +314,31 @@ namespace Lutrija
                 else MessageBox.Show("Krivi format unosa.");
             } */
             kreirajBingoListic();
+        }
+
+        /*----------------------------------------------------------------------------------------------
+                                                LOTO
+         -----------------------------------------------------------------------------------------------*/
+        public void stilizirajLotoTablicu()
+        {
+            for (int j = 26; j <= 31; j++)
+            {
+                var label = table_loto.Controls["label" + j.ToString()];
+                label.Text = "";
+            }
+            generiraj_joker_brojeve();
+        }
+
+        public void generiraj_joker_brojeve()
+        {
+            Random rnd = new Random();
+            for (int k = 32; k <= 37; k++)
+            {
+                var label = table_joker.Controls["label" + k.ToString()];
+
+                int broj = rnd.Next(0, 10);
+                label.Text = broj.ToString();
+            }
         }
 
         private void generiraj_joker_Click(object sender, EventArgs e)
@@ -353,7 +366,7 @@ namespace Lutrija
 
         private void generiraj_loto_Click(object sender, EventArgs e)
         {
-            button1.Visible = true;
+            buttonIGRAJ.Visible = true;
             Random rnd = new Random();
             int[] brojevi = new int[6];
             for (int i = 1; i <= 6; i++)
@@ -383,14 +396,14 @@ namespace Lutrija
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_odaberi_Click(object sender, EventArgs e)
         {
             var forma = new Form_unos_loto();
             forma.ShowDialog();
             DialogResult result = forma.DialogResult;
             if (result == DialogResult.OK)
             {
-                button1.Visible = true;
+                buttonIGRAJ.Visible = true;
                 for (int i = 0; i < 6; i++)
                 {
                     table_loto.Controls["label" + (i + 26).ToString()].Text = Form_unos_loto.brojevi[i].ToString();
@@ -505,20 +518,19 @@ namespace Lutrija
 
         void nova_igra(object sender, EventArgs e)
         {
-            button1.Visible = false;
+            buttonIGRAJ.Visible = false;
             this.brojeviNaLotoListicu.Clear();
             this.pogodeniLotoBrojevi.Clear();
             this.izvuceniJoker.Clear();
             this.odabraniJoker.Clear();
-            checkBox1.Checked = false;
+            checkBoxLotoJoker.Checked = false;
             tabPageLoto.Controls.Remove((Control)sender);
             izvuceniLoto.Clear();
-            igraj = false;
             foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
                 gumb.Enabled = true;
             foreach (var gumb in panel1.Controls.OfType<Button>())
                 gumb.Enabled = true;
-            checkBox1.Enabled = true;
+            checkBoxLotoJoker.Enabled = true;
             poslovnica.buttonIzvlacenjeLota.Enabled = false;
             for (int i = 26; i <= 31; i++)
             {
@@ -533,9 +545,9 @@ namespace Lutrija
             generiraj_joker_brojeve();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxLotoJoker_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) joker_loto = true;
+            if (checkBoxLotoJoker.Checked) joker_loto = true;
             else joker_loto = false;
 
             if (joker_loto == true)
@@ -547,14 +559,13 @@ namespace Lutrija
             else odabraniJoker.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonIGRAJ_Click(object sender, EventArgs e)
         {
-            igraj = true;
             foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
                 gumb.Enabled = false;
             foreach (var gumb in panel1.Controls.OfType<Button>())
                 gumb.Enabled = false;
-            checkBox1.Enabled = false;
+            checkBoxLotoJoker.Enabled = false;
             poslovnica.buttonIzvlacenjeLota.Enabled = true;
             for (int i = 26; i <= 31; i++)
             {
@@ -583,13 +594,14 @@ namespace Lutrija
                 table_loto.Controls["label" + (i + 26).ToString()].Text = brojevi[i].ToString();
             }
 
-            button1.Visible = true;
+            buttonIGRAJ.Visible = true;
         }
 
-        // eurojackpot
+        /*----------------------------------------------------------------------------------------------
+                                             EUROJACKPOT
+        -----------------------------------------------------------------------------------------------*/
         private void ej_igraj_Click(object sender, EventArgs e)
         {
-            igraj = true;
             foreach (var gumb in tabPageEurojackpot.Controls.OfType<Button>())
                 gumb.Enabled = false;
             
@@ -767,7 +779,6 @@ namespace Lutrija
       
             tabPageEurojackpot.Controls.Remove((Control)sender);
             izvuceniEJ.Clear();
-            igraj = false;
             foreach (var gumb in tabPageEurojackpot.Controls.OfType<Button>())
                 gumb.Enabled = true;
             poslovnica.buttonIzvlacenjeLota.Enabled = false;

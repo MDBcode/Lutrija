@@ -112,7 +112,7 @@ namespace Lutrija
             this.labelDobitniListici.AutoSize = true;
             this.labelDobitniListici.Location = new System.Drawing.Point(50, 272);
             this.labelDobitniListici.Name = "labelDobitniListici";
-            this.labelDobitniListici.Size = new System.Drawing.Size(129, 17);
+            this.labelDobitniListici.Size = new System.Drawing.Size(121, 16);
             this.labelDobitniListici.TabIndex = 8;
             this.labelDobitniListici.Text = "Dobitni bingo listići:";
             // 
@@ -121,7 +121,7 @@ namespace Lutrija
             this.labelRedniIzvuceni.AutoSize = true;
             this.labelRedniIzvuceni.Location = new System.Drawing.Point(635, 154);
             this.labelRedniIzvuceni.Name = "labelRedniIzvuceni";
-            this.labelRedniIzvuceni.Size = new System.Drawing.Size(46, 17);
+            this.labelRedniIzvuceni.Size = new System.Drawing.Size(44, 16);
             this.labelRedniIzvuceni.TabIndex = 6;
             this.labelRedniIzvuceni.Text = "label1";
             // 
@@ -130,7 +130,7 @@ namespace Lutrija
             this.labelBrojIzvucenih.AutoSize = true;
             this.labelBrojIzvucenih.Location = new System.Drawing.Point(539, 154);
             this.labelBrojIzvucenih.Name = "labelBrojIzvucenih";
-            this.labelBrojIzvucenih.Size = new System.Drawing.Size(104, 17);
+            this.labelBrojIzvucenih.Size = new System.Drawing.Size(95, 16);
             this.labelBrojIzvucenih.TabIndex = 5;
             this.labelBrojIzvucenih.Text = "Broj izvučenih: ";
             // 
@@ -148,7 +148,7 @@ namespace Lutrija
             this.labelIzvuceniBrojevi.AutoSize = true;
             this.labelIzvuceniBrojevi.Location = new System.Drawing.Point(50, 154);
             this.labelIzvuceniBrojevi.Name = "labelIzvuceniBrojevi";
-            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(109, 17);
+            this.labelIzvuceniBrojevi.Size = new System.Drawing.Size(102, 16);
             this.labelIzvuceniBrojevi.TabIndex = 3;
             this.labelIzvuceniBrojevi.Text = "Izvučeni brojevi:";
             // 
@@ -246,7 +246,7 @@ namespace Lutrija
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(50, 272);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 17);
+            this.label2.Size = new System.Drawing.Size(109, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "Dobitni loto listići:";
             this.label2.Visible = false;
@@ -266,12 +266,13 @@ namespace Lutrija
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(50, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 17);
+            this.label1.Size = new System.Drawing.Size(102, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Izvučeni brojevi:";
             // 
             // buttonDobitniLotoListici
             // 
+            this.buttonDobitniLotoListici.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDobitniLotoListici.Location = new System.Drawing.Point(376, 86);
             this.buttonDobitniLotoListici.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDobitniLotoListici.Name = "buttonDobitniLotoListici";
@@ -295,8 +296,7 @@ namespace Lutrija
             // 
             // labelLoto
             // 
-            this.labelLoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLoto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelLoto.AutoSize = true;
             this.labelLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelLoto.Location = new System.Drawing.Point(318, 26);
@@ -329,7 +329,7 @@ namespace Lutrija
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(508, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 17);
+            this.label3.Size = new System.Drawing.Size(142, 16);
             this.label3.TabIndex = 20;
             this.label3.Text = "Izvučeni ekstra brojevi:";
             // 
@@ -361,7 +361,7 @@ namespace Lutrija
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(55, 274);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 17);
+            this.label4.Size = new System.Drawing.Size(84, 16);
             this.label4.TabIndex = 17;
             this.label4.Text = "Dobitni listići:";
             this.label4.Visible = false;
@@ -381,7 +381,7 @@ namespace Lutrija
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(55, 156);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 17);
+            this.label5.Size = new System.Drawing.Size(141, 16);
             this.label5.TabIndex = 15;
             this.label5.Text = "Izvučeni glavni brojevi:";
             // 
