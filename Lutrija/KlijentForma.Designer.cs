@@ -1088,8 +1088,10 @@ namespace Lutrija
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 498);
             this.Controls.Add(this.tabControlKlijent);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KlijentForma";
+            this.ShowIcon = false;
             this.Text = "Klijent";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KlijentForma_FormClosed);
             this.tabControlKlijent.ResumeLayout(false);

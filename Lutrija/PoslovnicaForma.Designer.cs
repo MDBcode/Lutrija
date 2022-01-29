@@ -429,6 +429,7 @@ namespace Lutrija
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PoslovnicaForma";
+            this.ShowIcon = false;
             this.Text = "Poslovnica";
             this.tabPageBingo.ResumeLayout(false);
             this.tabPageBingo.PerformLayout();
