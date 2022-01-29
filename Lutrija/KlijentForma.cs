@@ -32,7 +32,7 @@ namespace Lutrija
         List<int> izvuceniJoker;
         DateTime vrijemeUplateLotoListica;
         Boolean dobitan_loto;
-        Boolean joker_loto;
+        public Boolean joker_loto;
         Dictionary<int, int> statistika;
 
         /*----------------------------------------------------------------------------------------------
@@ -561,19 +561,25 @@ namespace Lutrija
 
         private void buttonIGRAJ_Click(object sender, EventArgs e)
         {
-            foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
-                gumb.Enabled = false;
-            foreach (var gumb in panel1.Controls.OfType<Button>())
-                gumb.Enabled = false;
-            checkBoxLotoJoker.Enabled = false;
-            poslovnica.buttonIzvlacenjeLota.Enabled = true;
-            for (int i = 26; i <= 31; i++)
+            var forma = new CijenaLoto(joker_loto);
+            forma.ShowDialog();
+            DialogResult result = forma.DialogResult;
+            if (result == DialogResult.OK)
             {
-                var label = table_loto.Controls["label" + i.ToString()];
-                brojeviNaLotoListicu.Add(Int16.Parse(label.Text));
+                foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
+                    gumb.Enabled = false;
+                foreach (var gumb in panel1.Controls.OfType<Button>())
+                    gumb.Enabled = false;
+                checkBoxLotoJoker.Enabled = false;
+                poslovnica.buttonIzvlacenjeLota.Enabled = true;
+                for (int i = 26; i <= 31; i++)
+                {
+                    var label = table_loto.Controls["label" + i.ToString()];
+                    brojeviNaLotoListicu.Add(Int16.Parse(label.Text));
+                }
+                this.vrijemeUplateLotoListica = DateTime.Now;
+                this.poslovnica.spremiUBazuSvihLotoListica(this.brojeviNaLotoListicu);
             }
-            this.vrijemeUplateLotoListica = DateTime.Now;
-            this.poslovnica.spremiUBazuSvihLotoListica(this.brojeviNaLotoListicu);
         }
 
         private void button_proslost_Click(object sender, EventArgs e)
