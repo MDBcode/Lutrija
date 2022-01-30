@@ -65,7 +65,7 @@ namespace Lutrija
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 17);
+            this.label2.Size = new System.Drawing.Size(145, 16);
             this.label2.TabIndex = 30;
             this.label2.Text = "Odaberi ekstra brojeve";
             // 
@@ -74,7 +74,7 @@ namespace Lutrija
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 17);
+            this.label1.Size = new System.Drawing.Size(149, 16);
             this.label1.TabIndex = 29;
             this.label1.Text = "Odaberi glavne brojeve";
             // 
@@ -83,7 +83,7 @@ namespace Lutrija
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown1.Location = new System.Drawing.Point(120, 205);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            50,
+            10,
             0,
             0,
             0});
@@ -107,7 +107,7 @@ namespace Lutrija
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown2.Location = new System.Drawing.Point(27, 205);
             this.numericUpDown2.Maximum = new decimal(new int[] {
-            50,
+            10,
             0,
             0,
             0});
