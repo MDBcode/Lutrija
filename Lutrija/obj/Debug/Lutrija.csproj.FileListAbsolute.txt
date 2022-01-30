@@ -137,3 +137,4 @@ C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.csproj.CopyCom
 C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.exe
 C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.pdb
 C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.Form_unos_ej.resources
+C:\Users\Korisnik\Desktop\Lutrija\Lutrija\obj\Debug\Lutrija.Form_unos_ej.resources

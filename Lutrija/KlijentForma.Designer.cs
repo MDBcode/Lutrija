@@ -129,6 +129,9 @@ namespace Lutrija
             this.ejlabel3 = new System.Windows.Forms.Label();
             this.ejlabel2 = new System.Windows.Forms.Label();
             this.ejlabel1 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.labelLotoDobitak = new System.Windows.Forms.Label();
+            this.labelJokerDobitak = new System.Windows.Forms.Label();
             this.tabControlKlijent.SuspendLayout();
             this.tabPageLoto.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -159,6 +162,9 @@ namespace Lutrija
             // tabPageLoto
             // 
             this.tabPageLoto.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabPageLoto.Controls.Add(this.labelJokerDobitak);
+            this.tabPageLoto.Controls.Add(this.labelLotoDobitak);
+            this.tabPageLoto.Controls.Add(this.label49);
             this.tabPageLoto.Controls.Add(this.button_proslost);
             this.tabPageLoto.Controls.Add(this.panel1);
             this.tabPageLoto.Controls.Add(this.button_odaberi);
@@ -176,7 +182,7 @@ namespace Lutrija
             // button_proslost
             // 
             this.button_proslost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_proslost.Location = new System.Drawing.Point(453, 170);
+            this.button_proslost.Location = new System.Drawing.Point(587, 170);
             this.button_proslost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_proslost.Name = "button_proslost";
             this.button_proslost.Size = new System.Drawing.Size(195, 37);
@@ -203,7 +209,7 @@ namespace Lutrija
             this.panel1.Controls.Add(this.generiraj_joker);
             this.panel1.Controls.Add(this.table_joker);
             this.panel1.Controls.Add(this.checkBoxLotoJoker);
-            this.panel1.Location = new System.Drawing.Point(27, 254);
+            this.panel1.Location = new System.Drawing.Point(117, 252);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 140);
@@ -359,10 +365,10 @@ namespace Lutrija
             // 
             // generiraj_joker
             // 
-            this.generiraj_joker.Location = new System.Drawing.Point(21, 44);
+            this.generiraj_joker.Location = new System.Drawing.Point(5, 44);
             this.generiraj_joker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generiraj_joker.Name = "generiraj_joker";
-            this.generiraj_joker.Size = new System.Drawing.Size(139, 44);
+            this.generiraj_joker.Size = new System.Drawing.Size(155, 44);
             this.generiraj_joker.TabIndex = 4;
             this.generiraj_joker.Text = "Generiraj nove brojeve";
             this.generiraj_joker.UseVisualStyleBackColor = true;
@@ -480,7 +486,7 @@ namespace Lutrija
             // 
             // button_odaberi
             // 
-            this.button_odaberi.Location = new System.Drawing.Point(46, 170);
+            this.button_odaberi.Location = new System.Drawing.Point(122, 170);
             this.button_odaberi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_odaberi.Name = "button_odaberi";
             this.button_odaberi.Size = new System.Drawing.Size(200, 37);
@@ -494,7 +500,7 @@ namespace Lutrija
             this.buttonIGRAJ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonIGRAJ.BackColor = System.Drawing.Color.PaleGreen;
             this.buttonIGRAJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonIGRAJ.Location = new System.Drawing.Point(604, 414);
+            this.buttonIGRAJ.Location = new System.Drawing.Point(776, 445);
             this.buttonIGRAJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonIGRAJ.Name = "buttonIGRAJ";
             this.buttonIGRAJ.Size = new System.Drawing.Size(107, 48);
@@ -507,7 +513,7 @@ namespace Lutrija
             // generiraj_loto
             // 
             this.generiraj_loto.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.generiraj_loto.Location = new System.Drawing.Point(253, 170);
+            this.generiraj_loto.Location = new System.Drawing.Point(357, 170);
             this.generiraj_loto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generiraj_loto.Name = "generiraj_loto";
             this.generiraj_loto.Size = new System.Drawing.Size(195, 37);
@@ -534,7 +540,7 @@ namespace Lutrija
             this.table_loto.Controls.Add(this.label28, 2, 0);
             this.table_loto.Controls.Add(this.label27, 1, 0);
             this.table_loto.Controls.Add(this.label26, 0, 0);
-            this.table_loto.Location = new System.Drawing.Point(165, 92);
+            this.table_loto.Location = new System.Drawing.Point(274, 79);
             this.table_loto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table_loto.Name = "table_loto";
             this.table_loto.RowCount = 1;
@@ -619,7 +625,7 @@ namespace Lutrija
             this.labelLoto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelLoto.AutoSize = true;
             this.labelLoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelLoto.Location = new System.Drawing.Point(317, 26);
+            this.labelLoto.Location = new System.Drawing.Point(419, 22);
             this.labelLoto.Name = "labelLoto";
             this.labelLoto.Size = new System.Drawing.Size(75, 20);
             this.labelLoto.TabIndex = 0;
@@ -643,25 +649,25 @@ namespace Lutrija
             // labelBingoDobitak
             // 
             this.labelBingoDobitak.AutoSize = true;
-            this.labelBingoDobitak.Location = new System.Drawing.Point(597, 156);
+            this.labelBingoDobitak.Location = new System.Drawing.Point(730, 173);
             this.labelBingoDobitak.Name = "labelBingoDobitak";
-            this.labelBingoDobitak.Size = new System.Drawing.Size(54, 17);
+            this.labelBingoDobitak.Size = new System.Drawing.Size(51, 16);
             this.labelBingoDobitak.TabIndex = 6;
             this.labelBingoDobitak.Text = "label49";
             // 
             // labelMoguciBingoDobitak
             // 
             this.labelMoguciBingoDobitak.AutoSize = true;
-            this.labelMoguciBingoDobitak.Location = new System.Drawing.Point(485, 156);
+            this.labelMoguciBingoDobitak.Location = new System.Drawing.Point(613, 173);
             this.labelMoguciBingoDobitak.Name = "labelMoguciBingoDobitak";
-            this.labelMoguciBingoDobitak.Size = new System.Drawing.Size(107, 17);
+            this.labelMoguciBingoDobitak.Size = new System.Drawing.Size(102, 16);
             this.labelMoguciBingoDobitak.TabIndex = 5;
             this.labelMoguciBingoDobitak.Text = "Mogući dobitak:";
             // 
             // buttonKreirajBingoListic
             // 
             this.buttonKreirajBingoListic.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(485, 204);
+            this.buttonKreirajBingoListic.Location = new System.Drawing.Point(616, 222);
             this.buttonKreirajBingoListic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonKreirajBingoListic.Name = "buttonKreirajBingoListic";
             this.buttonKreirajBingoListic.Size = new System.Drawing.Size(135, 36);
@@ -705,7 +711,7 @@ namespace Lutrija
             this.tableListićBingo.Controls.Add(this.label21, 0, 4);
             this.tableListićBingo.Controls.Add(this.label1, 0, 0);
             this.tableListićBingo.Controls.Add(this.label6, 0, 1);
-            this.tableListićBingo.Location = new System.Drawing.Point(137, 112);
+            this.tableListićBingo.Location = new System.Drawing.Point(171, 86);
             this.tableListićBingo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableListićBingo.Name = "tableListićBingo";
             this.tableListićBingo.RowCount = 5;
@@ -715,240 +721,290 @@ namespace Lutrija
             this.tableListićBingo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableListićBingo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableListićBingo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableListićBingo.Size = new System.Drawing.Size(295, 224);
+            this.tableListićBingo.Size = new System.Drawing.Size(372, 320);
             this.tableListićBingo.TabIndex = 0;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(236, 177);
+            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label25.Location = new System.Drawing.Point(300, 253);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 17);
+            this.label25.Size = new System.Drawing.Size(68, 66);
             this.label25.TabIndex = 24;
             this.label25.Text = "label25";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(178, 177);
+            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Location = new System.Drawing.Point(226, 253);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 34);
+            this.label24.Size = new System.Drawing.Size(67, 66);
             this.label24.TabIndex = 23;
             this.label24.Text = "label24";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(120, 177);
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Location = new System.Drawing.Point(152, 253);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(46, 34);
+            this.label23.Size = new System.Drawing.Size(67, 66);
             this.label23.TabIndex = 22;
             this.label23.Text = "label23";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(62, 177);
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Location = new System.Drawing.Point(78, 253);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(46, 34);
+            this.label22.Size = new System.Drawing.Size(67, 66);
             this.label22.TabIndex = 21;
             this.label22.Text = "label22";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(236, 133);
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Location = new System.Drawing.Point(300, 190);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 17);
+            this.label20.Size = new System.Drawing.Size(68, 62);
             this.label20.TabIndex = 19;
             this.label20.Text = "label20";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(178, 133);
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Location = new System.Drawing.Point(226, 190);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 34);
+            this.label19.Size = new System.Drawing.Size(67, 62);
             this.label19.TabIndex = 18;
             this.label19.Text = "label19";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(120, 133);
+            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label18.Location = new System.Drawing.Point(152, 190);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(46, 34);
+            this.label18.Size = new System.Drawing.Size(67, 62);
             this.label18.TabIndex = 17;
             this.label18.Text = "label18";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(62, 133);
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Location = new System.Drawing.Point(78, 190);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(46, 34);
+            this.label17.Size = new System.Drawing.Size(67, 62);
             this.label17.TabIndex = 16;
             this.label17.Text = "label17";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 133);
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Location = new System.Drawing.Point(4, 190);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 34);
+            this.label16.Size = new System.Drawing.Size(67, 62);
             this.label16.TabIndex = 15;
             this.label16.Text = "label16";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(236, 89);
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Location = new System.Drawing.Point(300, 127);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 17);
+            this.label15.Size = new System.Drawing.Size(68, 62);
             this.label15.TabIndex = 14;
             this.label15.Text = "label15";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(178, 89);
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Location = new System.Drawing.Point(226, 127);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 34);
+            this.label14.Size = new System.Drawing.Size(67, 62);
             this.label14.TabIndex = 13;
             this.label14.Text = "label14";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(120, 89);
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Location = new System.Drawing.Point(152, 127);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 34);
+            this.label13.Size = new System.Drawing.Size(67, 62);
             this.label13.TabIndex = 12;
             this.label13.Text = "label13";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(62, 89);
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Location = new System.Drawing.Point(78, 127);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 34);
+            this.label12.Size = new System.Drawing.Size(67, 62);
             this.label12.TabIndex = 11;
             this.label12.Text = "label12";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 89);
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Location = new System.Drawing.Point(4, 127);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 34);
+            this.label11.Size = new System.Drawing.Size(67, 62);
             this.label11.TabIndex = 10;
             this.label11.Text = "label11";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(236, 45);
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Location = new System.Drawing.Point(300, 64);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 17);
+            this.label10.Size = new System.Drawing.Size(68, 62);
             this.label10.TabIndex = 9;
             this.label10.Text = "label10";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(178, 45);
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Location = new System.Drawing.Point(226, 64);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.Size = new System.Drawing.Size(67, 62);
             this.label9.TabIndex = 8;
             this.label9.Text = "label9";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(120, 45);
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(152, 64);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.Size = new System.Drawing.Size(67, 62);
             this.label8.TabIndex = 7;
             this.label8.Text = "label8";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(62, 45);
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Location = new System.Drawing.Point(78, 64);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.Size = new System.Drawing.Size(67, 62);
             this.label7.TabIndex = 6;
             this.label7.Text = "label7";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(236, 1);
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(300, 1);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(68, 62);
             this.label5.TabIndex = 4;
             this.label5.Text = "label5";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(178, 1);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(226, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.Size = new System.Drawing.Size(67, 62);
             this.label4.TabIndex = 3;
             this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(120, 1);
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(152, 1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(67, 62);
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 1);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(78, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(67, 62);
             this.label2.TabIndex = 1;
             this.label2.Text = "label2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 177);
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Location = new System.Drawing.Point(4, 253);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(46, 34);
+            this.label21.Size = new System.Drawing.Size(67, 66);
             this.label21.TabIndex = 20;
             this.label21.Text = "label21";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(67, 62);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 45);
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(4, 64);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.Size = new System.Drawing.Size(67, 62);
             this.label6.TabIndex = 5;
             this.label6.Text = "label6";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBingo
             // 
             this.labelBingo.AutoSize = true;
             this.labelBingo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBingo.Location = new System.Drawing.Point(284, 26);
+            this.labelBingo.Location = new System.Drawing.Point(407, 22);
             this.labelBingo.Name = "labelBingo";
             this.labelBingo.Size = new System.Drawing.Size(136, 24);
             this.labelBingo.TabIndex = 2;
@@ -989,7 +1045,7 @@ namespace Lutrija
             this.label48.Location = new System.Drawing.Point(777, 368);
             this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(23, 17);
+            this.label48.Size = new System.Drawing.Size(21, 16);
             this.label48.TabIndex = 16;
             this.label48.Text = "kn";
             // 
@@ -999,14 +1055,14 @@ namespace Lutrija
             this.label47.Location = new System.Drawing.Point(507, 110);
             this.label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(112, 17);
+            this.label47.Size = new System.Drawing.Size(103, 16);
             this.label47.TabIndex = 15;
             this.label47.Text = "Odigrani susreti:";
             // 
             // Uplata_TextBox
             // 
             this.Uplata_TextBox.Location = new System.Drawing.Point(636, 364);
-            this.Uplata_TextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Uplata_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.Uplata_TextBox.Name = "Uplata_TextBox";
             this.Uplata_TextBox.Size = new System.Drawing.Size(132, 22);
             this.Uplata_TextBox.TabIndex = 14;
@@ -1018,7 +1074,7 @@ namespace Lutrija
             this.Dobitak.Location = new System.Drawing.Point(690, 439);
             this.Dobitak.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Dobitak.Name = "Dobitak";
-            this.Dobitak.Size = new System.Drawing.Size(16, 17);
+            this.Dobitak.Size = new System.Drawing.Size(14, 16);
             this.Dobitak.TabIndex = 13;
             this.Dobitak.Text = "0";
             // 
@@ -1028,7 +1084,7 @@ namespace Lutrija
             this.Tečaj.Location = new System.Drawing.Point(690, 409);
             this.Tečaj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Tečaj.Name = "Tečaj";
-            this.Tečaj.Size = new System.Drawing.Size(16, 17);
+            this.Tečaj.Size = new System.Drawing.Size(14, 16);
             this.Tečaj.TabIndex = 12;
             this.Tečaj.Text = "1";
             this.Tečaj.TextChanged += new System.EventHandler(this.Tečaj_TextChanged);
@@ -1039,7 +1095,7 @@ namespace Lutrija
             this.label43.Location = new System.Drawing.Point(571, 439);
             this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(107, 17);
+            this.label43.Size = new System.Drawing.Size(102, 16);
             this.label43.TabIndex = 11;
             this.label43.Text = "Mogući dobitak:";
             // 
@@ -1049,7 +1105,7 @@ namespace Lutrija
             this.label40.Location = new System.Drawing.Point(674, 345);
             this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(49, 17);
+            this.label40.Size = new System.Drawing.Size(47, 16);
             this.label40.TabIndex = 10;
             this.label40.Text = "Uplata";
             // 
@@ -1059,14 +1115,14 @@ namespace Lutrija
             this.label39.Location = new System.Drawing.Point(588, 409);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(90, 17);
+            this.label39.Size = new System.Drawing.Size(84, 16);
             this.label39.TabIndex = 9;
             this.label39.Text = "Ukupni tečaj:";
             // 
             // UplatiListicButton
             // 
             this.UplatiListicButton.Location = new System.Drawing.Point(647, 473);
-            this.UplatiListicButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UplatiListicButton.Margin = new System.Windows.Forms.Padding(4);
             this.UplatiListicButton.Name = "UplatiListicButton";
             this.UplatiListicButton.Size = new System.Drawing.Size(100, 28);
             this.UplatiListicButton.TabIndex = 8;
@@ -1076,8 +1132,8 @@ namespace Lutrija
             // 
             // buttonPomoć
             // 
-            this.buttonPomoć.Location = new System.Drawing.Point(715, 80);
-            this.buttonPomoć.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPomoć.Location = new System.Drawing.Point(790, 79);
+            this.buttonPomoć.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPomoć.Name = "buttonPomoć";
             this.buttonPomoć.Size = new System.Drawing.Size(100, 28);
             this.buttonPomoć.TabIndex = 7;
@@ -1090,8 +1146,8 @@ namespace Lutrija
             this.listBoxOdigraniparovi.FormattingEnabled = true;
             this.listBoxOdigraniparovi.HorizontalScrollbar = true;
             this.listBoxOdigraniparovi.ItemHeight = 16;
-            this.listBoxOdigraniparovi.Location = new System.Drawing.Point(507, 133);
-            this.listBoxOdigraniparovi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxOdigraniparovi.Location = new System.Drawing.Point(507, 130);
+            this.listBoxOdigraniparovi.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxOdigraniparovi.Name = "listBoxOdigraniparovi";
             this.listBoxOdigraniparovi.ScrollAlwaysVisible = true;
             this.listBoxOdigraniparovi.Size = new System.Drawing.Size(383, 196);
@@ -1102,8 +1158,8 @@ namespace Lutrija
             this.panelPonuda.AutoScroll = true;
             this.panelPonuda.BackColor = System.Drawing.Color.Lavender;
             this.panelPonuda.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelPonuda.Location = new System.Drawing.Point(19, 155);
-            this.panelPonuda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPonuda.Location = new System.Drawing.Point(20, 130);
+            this.panelPonuda.Margin = new System.Windows.Forms.Padding(4);
             this.panelPonuda.Name = "panelPonuda";
             this.panelPonuda.Size = new System.Drawing.Size(479, 345);
             this.panelPonuda.TabIndex = 5;
@@ -1111,41 +1167,41 @@ namespace Lutrija
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(453, 135);
+            this.label45.Location = new System.Drawing.Point(454, 110);
             this.label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(16, 17);
+            this.label45.Size = new System.Drawing.Size(14, 16);
             this.label45.TabIndex = 4;
             this.label45.Text = "2";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(387, 135);
+            this.label42.Location = new System.Drawing.Point(387, 110);
             this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(17, 17);
+            this.label42.Size = new System.Drawing.Size(15, 16);
             this.label42.TabIndex = 3;
             this.label42.Text = "X";
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(320, 135);
+            this.label41.Location = new System.Drawing.Point(320, 110);
             this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(16, 17);
+            this.label41.Size = new System.Drawing.Size(14, 16);
             this.label41.TabIndex = 2;
             this.label41.Text = "1";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label44.Location = new System.Drawing.Point(211, 101);
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label44.Location = new System.Drawing.Point(210, 83);
             this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(86, 25);
+            this.label44.Size = new System.Drawing.Size(65, 18);
             this.label44.TabIndex = 1;
             this.label44.Text = "Ponuda";
             // 
@@ -1153,12 +1209,12 @@ namespace Lutrija
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label46.Location = new System.Drawing.Point(320, 44);
+            this.label46.Location = new System.Drawing.Point(403, 22);
             this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(144, 20);
+            this.label46.Size = new System.Drawing.Size(168, 20);
             this.label46.TabIndex = 0;
-            this.label46.Text = "Kladionica Zicer";
+            this.label46.Text = "KLADIONICA Zicer";
             // 
             // tabPageEurojackpot
             // 
@@ -1184,7 +1240,7 @@ namespace Lutrija
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label38.Location = new System.Drawing.Point(290, 53);
+            this.label38.Location = new System.Drawing.Point(403, 22);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(145, 20);
             this.label38.TabIndex = 27;
@@ -1194,7 +1250,7 @@ namespace Lutrija
             // 
             this.ej_igraj.BackColor = System.Drawing.Color.PaleGreen;
             this.ej_igraj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ej_igraj.Location = new System.Drawing.Point(307, 350);
+            this.ej_igraj.Location = new System.Drawing.Point(776, 445);
             this.ej_igraj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ej_igraj.Name = "ej_igraj";
             this.ej_igraj.Size = new System.Drawing.Size(107, 48);
@@ -1207,7 +1263,7 @@ namespace Lutrija
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(642, 261);
+            this.button4.Location = new System.Drawing.Point(625, 261);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(195, 37);
@@ -1218,7 +1274,7 @@ namespace Lutrija
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(50, 261);
+            this.button5.Location = new System.Drawing.Point(144, 261);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 37);
@@ -1230,7 +1286,7 @@ namespace Lutrija
             // generiraj_ej
             // 
             this.generiraj_ej.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.generiraj_ej.Location = new System.Drawing.Point(441, 261);
+            this.generiraj_ej.Location = new System.Drawing.Point(387, 261);
             this.generiraj_ej.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.generiraj_ej.Name = "generiraj_ej";
             this.generiraj_ej.Size = new System.Drawing.Size(195, 37);
@@ -1249,29 +1305,34 @@ namespace Lutrija
             this.table_ej2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.71429F));
             this.table_ej2.Controls.Add(this.ejlabel7, 1, 0);
             this.table_ej2.Controls.Add(this.ejlabel6, 0, 0);
-            this.table_ej2.Location = new System.Drawing.Point(524, 150);
+            this.table_ej2.Location = new System.Drawing.Point(662, 150);
             this.table_ej2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table_ej2.Name = "table_ej2";
             this.table_ej2.RowCount = 1;
             this.table_ej2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.table_ej2.Size = new System.Drawing.Size(332, 71);
+            this.table_ej2.Size = new System.Drawing.Size(194, 71);
             this.table_ej2.TabIndex = 3;
             // 
             // ejlabel7
             // 
             this.ejlabel7.AutoSize = true;
-            this.ejlabel7.Location = new System.Drawing.Point(170, 1);
+            this.ejlabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ejlabel7.Location = new System.Drawing.Point(101, 1);
             this.ejlabel7.Name = "ejlabel7";
-            this.ejlabel7.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel7.Size = new System.Drawing.Size(89, 69);
             this.ejlabel7.TabIndex = 1;
             this.ejlabel7.Text = "label48";
+            this.ejlabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ejlabel6
             // 
             this.ejlabel6.AutoSize = true;
+            this.ejlabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ejlabel6.Location = new System.Drawing.Point(4, 1);
             this.ejlabel6.Name = "ejlabel6";
-            this.ejlabel6.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel6.Size = new System.Drawing.Size(90, 69);
             this.ejlabel6.TabIndex = 0;
             this.ejlabel6.Text = "label49";
             this.ejlabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1292,59 +1353,103 @@ namespace Lutrija
             this.table_ej.Controls.Add(this.ejlabel3, 2, 0);
             this.table_ej.Controls.Add(this.ejlabel2, 1, 0);
             this.table_ej.Controls.Add(this.ejlabel1, 0, 0);
-            this.table_ej.Location = new System.Drawing.Point(28, 150);
+            this.table_ej.Location = new System.Drawing.Point(60, 150);
             this.table_ej.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.table_ej.Name = "table_ej";
             this.table_ej.RowCount = 1;
             this.table_ej.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.table_ej.Size = new System.Drawing.Size(555, 71);
+            this.table_ej.Size = new System.Drawing.Size(522, 71);
             this.table_ej.TabIndex = 2;
             // 
             // ejlabel5
             // 
             this.ejlabel5.AutoSize = true;
-            this.ejlabel5.Location = new System.Drawing.Point(444, 1);
+            this.ejlabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ejlabel5.Location = new System.Drawing.Point(420, 1);
             this.ejlabel5.Name = "ejlabel5";
-            this.ejlabel5.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel5.Size = new System.Drawing.Size(98, 69);
             this.ejlabel5.TabIndex = 4;
             this.ejlabel5.Text = "label39";
+            this.ejlabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ejlabel4
             // 
             this.ejlabel4.AutoSize = true;
-            this.ejlabel4.Location = new System.Drawing.Point(334, 1);
+            this.ejlabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ejlabel4.Location = new System.Drawing.Point(316, 1);
             this.ejlabel4.Name = "ejlabel4";
-            this.ejlabel4.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel4.Size = new System.Drawing.Size(97, 69);
             this.ejlabel4.TabIndex = 3;
             this.ejlabel4.Text = "label40";
+            this.ejlabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ejlabel3
             // 
             this.ejlabel3.AutoSize = true;
-            this.ejlabel3.Location = new System.Drawing.Point(224, 1);
+            this.ejlabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ejlabel3.Location = new System.Drawing.Point(212, 1);
             this.ejlabel3.Name = "ejlabel3";
-            this.ejlabel3.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel3.Size = new System.Drawing.Size(97, 69);
             this.ejlabel3.TabIndex = 2;
             this.ejlabel3.Text = "label41";
+            this.ejlabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ejlabel2
             // 
             this.ejlabel2.AutoSize = true;
-            this.ejlabel2.Location = new System.Drawing.Point(114, 1);
+            this.ejlabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ejlabel2.Location = new System.Drawing.Point(108, 1);
             this.ejlabel2.Name = "ejlabel2";
-            this.ejlabel2.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel2.Size = new System.Drawing.Size(97, 69);
             this.ejlabel2.TabIndex = 1;
             this.ejlabel2.Text = "label42";
+            this.ejlabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ejlabel1
             // 
             this.ejlabel1.AutoSize = true;
+            this.ejlabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ejlabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ejlabel1.Location = new System.Drawing.Point(4, 1);
             this.ejlabel1.Name = "ejlabel1";
-            this.ejlabel1.Size = new System.Drawing.Size(54, 17);
+            this.ejlabel1.Size = new System.Drawing.Size(97, 69);
             this.ejlabel1.TabIndex = 0;
             this.ejlabel1.Text = "label43";
             this.ejlabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label49.Location = new System.Drawing.Point(118, 442);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(126, 20);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "Mogući dobitak:";
+            // 
+            // labelLotoDobitak
+            // 
+            this.labelLotoDobitak.AutoSize = true;
+            this.labelLotoDobitak.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelLotoDobitak.Location = new System.Drawing.Point(279, 428);
+            this.labelLotoDobitak.Name = "labelLotoDobitak";
+            this.labelLotoDobitak.Size = new System.Drawing.Size(42, 18);
+            this.labelLotoDobitak.TabIndex = 24;
+            this.labelLotoDobitak.Text = "Loto:";
+            // 
+            // labelJokerDobitak
+            // 
+            this.labelJokerDobitak.AutoSize = true;
+            this.labelJokerDobitak.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelJokerDobitak.Location = new System.Drawing.Point(279, 462);
+            this.labelJokerDobitak.Name = "labelJokerDobitak";
+            this.labelJokerDobitak.Size = new System.Drawing.Size(50, 18);
+            this.labelJokerDobitak.TabIndex = 25;
+            this.labelJokerDobitak.Text = "Joker:";
             // 
             // KlijentForma
             // 
@@ -1485,5 +1590,8 @@ namespace Lutrija
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label labelBingoDobitak;
         private System.Windows.Forms.Label labelMoguciBingoDobitak;
+        private System.Windows.Forms.Label labelJokerDobitak;
+        private System.Windows.Forms.Label labelLotoDobitak;
+        private System.Windows.Forms.Label label49;
     }
 }

@@ -36,6 +36,12 @@ namespace Lutrija
         Boolean dobitan_loto;
         public Boolean joker_loto;
         Dictionary<int, int> statistika;
+        int fondLoto = 2300000;
+        int fondJoker = 80000;
+        double[] postotakLoto = { 0.0003, 0.001, 0.005 };
+        double[] postotakJoker = { 0.001, 0.005, 0.01, 0.05, 0.1 };
+        double nagradaLoto = 0;
+        double nagradaJoker = 0;
 
         /*----------------------------------------------------------------------------------------------
                                             KLADIONICA
@@ -89,6 +95,7 @@ namespace Lutrija
             statistika = new Dictionary<int, int>();
             joker_loto = false;
             stilizirajLotoTablicu();
+            prikaziMoguceDobitke();
 
             /*----------------------------------------------------------------------------------------------
                                                 KLADIONICA
@@ -113,6 +120,12 @@ namespace Lutrija
             ResumeLayout();
         }
 
+        private void KlijentForma_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+
         /*----------------------------------------------------------------------------------------------
                                                 BINGO
         -----------------------------------------------------------------------------------------------*/
@@ -122,10 +135,6 @@ namespace Lutrija
             {
                 var label = tableListićBingo.Controls["label" + i.ToString()];
                 label.Text = ""; //inicijaliziraj prazan bingo listić
-                Padding pad = new Padding();
-                pad.Left = label.Parent.Size.Width / 5 / 4;
-                pad.Top = label.Parent.Size.Height / 5 / 4;
-                label.Padding = pad;
                 Font font = new Font(label.Font, FontStyle.Bold);
                 label.Font = font;
                 Size velicina = new Size();
@@ -346,6 +355,12 @@ namespace Lutrija
             generiraj_joker_brojeve();
         }
 
+        private void prikaziMoguceDobitke()
+        {
+            labelLotoDobitak.Text = "Loto: " + fondLoto.ToString() + " kn";
+            labelJokerDobitak.Text = "Joker: " + fondJoker.ToString() + " kn";
+        }
+
         public void generiraj_joker_brojeve()
         {
             Random rnd = new Random();
@@ -428,10 +443,6 @@ namespace Lutrija
             }
         }
 
-        private void KlijentForma_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         public void izvlacenjeLota()
         {
@@ -471,9 +482,12 @@ namespace Lutrija
             izvlacenjeJokera();
             if (broji_dobitne >= 3)
             {
-                MessageBox.Show("Dobitan!");
+                nagradaLoto = fondLoto * postotakLoto[broji_dobitne - 3];
+                MessageBox.Show("Dobitan!\n" + "Dobitak = " + nagradaLoto.ToString());
+                fondLoto = 2300000;
                 dobitan_loto = true;
             }
+            else fondLoto += 50000;
 
             provjeriJoker();
 
@@ -490,7 +504,7 @@ namespace Lutrija
             }
 
             if(dobitan_joker == true ||dobitan_loto == true)
-                this.poslovnica.spremiLotoListicUBazu(this.vrijemeUplateLotoListica, this.brojeviNaLotoListicu, this.pogodeniLotoBrojevi, this.odabraniJoker, this.izvuceniJoker);
+                this.poslovnica.spremiLotoListicUBazu(this.vrijemeUplateLotoListica, this.nagradaLoto, this.nagradaJoker, this.brojeviNaLotoListicu, this.pogodeniLotoBrojevi, this.odabraniJoker, this.izvuceniJoker);
 
             Button novi_listic = new Button();
             novi_listic.Text = "NOVA IGRA!";
@@ -529,7 +543,12 @@ namespace Lutrija
                     }
                     else break;
                 }
-                if (dobitni > 0) { MessageBox.Show("Dobitan!"); dobitan_joker = true; }
+                if (dobitni > 0) 
+                {
+                    nagradaJoker = fondJoker * postotakJoker[dobitni-1];
+                    MessageBox.Show("Dobitan!\n" + "Dobitak = " + nagradaJoker.ToString() + "kn"); 
+                    dobitan_joker = true;
+                }
             }
         }
 
@@ -543,6 +562,9 @@ namespace Lutrija
             checkBoxLotoJoker.Checked = false;
             tabPageLoto.Controls.Remove((Control)sender);
             izvuceniLoto.Clear();
+            labelLotoDobitak.Text = "Loto: " + fondLoto.ToString() + " kn";
+            nagradaJoker = 0;
+            nagradaLoto = 0;
             foreach (var gumb in tabPageLoto.Controls.OfType<Button>())
                 gumb.Enabled = true;
             foreach (var gumb in panel1.Controls.OfType<Button>())
@@ -553,6 +575,11 @@ namespace Lutrija
             {
                 var label = table_loto.Controls["label" + i.ToString()];
                 label.Text = "";
+                label.ForeColor = Color.Black;
+            }
+            for (int i = 32; i <= 37; i++)
+            {
+                var label = table_joker.Controls["label" + i.ToString()];
                 label.ForeColor = Color.Black;
             }
             poslovnica.textBoxIzvuceniBrojeviLoto.BackColor = Color.White;
@@ -836,16 +863,6 @@ namespace Lutrija
                 else
                    label = table_ej2.Controls["ejlabel" + j.ToString()];
                 label.Text = "";
-                Padding pad = new Padding();
-                pad.Left = label.Parent.Size.Width / 25;
-                pad.Top = label.Parent.Size.Height / 3;
-                label.Padding = pad;
-                Font font = new Font(label.Font, FontStyle.Bold);
-                label.Font = font;
-                Size velicina = new Size();
-                velicina.Width = label.Parent.Width;
-                velicina.Height = label.Parent.Height;
-                label.Size = velicina;
             }
            
         }

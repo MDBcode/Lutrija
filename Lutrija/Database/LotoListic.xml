@@ -3,12 +3,16 @@
   <LotoListic>
     <ID>1</ID>
     <vrijemeUplate>25.1.2022. 21:28:44</vrijemeUplate>
+    <nagrada_loto>690 </nagrada_loto>
+    <nagrada_joker> 0 </nagrada_joker>
     <brojevi>3 7 22 34 39 42 </brojevi>
     <pogodeni>7 34 39</pogodeni>
   </LotoListic>
   <LotoListic>
     <ID>2</ID>
     <vrijemeUplate>26.1.2022. 21:32:01</vrijemeUplate>
+    <nagrada_loto>705 </nagrada_loto>
+    <nagrada_joker>400 </nagrada_joker>
     <brojevi>14 21 22 38 41 45</brojevi>
     <pogodeni>14 22 38 41</pogodeni>
     <uneseni_joker> 9 2 3 0 2 2 </uneseni_joker>
@@ -17,24 +21,32 @@
   <LotoListic>
     <ID>3</ID>
     <vrijemeUplate>26.1.2022. 22:15:30</vrijemeUplate>
+    <nagrada_loto>750 </nagrada_loto>
+    <nagrada_joker> 0 </nagrada_joker>
     <brojevi>7 11 18 22 28 31 </brojevi>
     <pogodeni>7 18 31</pogodeni>
   </LotoListic>
   <LotoListic>
     <ID>4</ID>
     <vrijemeUplate>26.1.2022. 14:59:58</vrijemeUplate>
+    <nagrada_loto>690 </nagrada_loto>
+    <nagrada_joker> 0 </nagrada_joker>
     <brojevi>4 5 6 8 11 13 </brojevi>
     <pogodeni>8 11 13 </pogodeni>
   </LotoListic>
   <LotoListic>
     <ID>5</ID>
     <vrijemeUplate>27.1.2022. 11:46:53</vrijemeUplate>
+    <nagrada_loto>2300 </nagrada_loto>
+    <nagrada_joker> 0 </nagrada_joker>
     <brojevi>6 16 29 31 37 42 </brojevi>
-    <pogodeni>37 31 29 </pogodeni>
+    <pogodeni>37 31 29 42</pogodeni>
   </LotoListic>
   <LotoListic>
     <ID>6</ID>
     <vrijemeUplate>28.1.2022. 12:50:49</vrijemeUplate>
+    <nagrada_loto>0 </nagrada_loto>
+    <nagrada_joker>400 </nagrada_joker>
     <brojevi></brojevi>
     <pogodeni></pogodeni>
     <uneseni_joker>3 8 0 7 2 2 </uneseni_joker>
@@ -43,15 +55,31 @@
   <LotoListic>
     <ID>7</ID>
     <vrijemeUplate>28.1.2022. 12:56:03</vrijemeUplate>
+    <nagrada_loto>0 </nagrada_loto>
+    <nagrada_joker>80 </nagrada_joker>
     <brojevi></brojevi>
     <pogodeni></pogodeni>
     <uneseni_joker>5 8 7 2 2 5 </uneseni_joker>
     <izvuceni_joker>6 6 9 3 5 5 </izvuceni_joker>
   </LotoListic>
-  <EJListic>
-    <ID>1</ID>
-    <vrijemeUplate>28/01/2022 23:02:49</vrijemeUplate>
-    <brojevi>19 48 26 36 44 3 10 </brojevi>
-    <pogodeni>26 36 3 </pogodeni>
-  </EJListic>
+  <LotoListic>
+    <ID>8</ID>
+    <vrijemeUplate>30.1.2022. 10:40:31</vrijemeUplate>
+    <nagrada_loto>0</nagrada_loto>
+    <nagrada_joker>80</nagrada_joker>
+    <brojevi></brojevi>
+    <pogodeni></pogodeni>
+    <uneseni_joker>6 5 1 3 0 7 </uneseni_joker>
+    <izvuceni_joker>7 9 6 6 3 7 </izvuceni_joker>
+  </LotoListic>
+  <LotoListic>
+    <ID>9</ID>
+    <vrijemeUplate>30.1.2022. 10:48:50</vrijemeUplate>
+    <nagrada_loto>0</nagrada_loto>
+    <nagrada_joker>80</nagrada_joker>
+    <brojevi></brojevi>
+    <pogodeni></pogodeni>
+    <uneseni_joker>0 2 2 7 0 4 </uneseni_joker>
+    <izvuceni_joker>9 6 9 4 2 4 </izvuceni_joker>
+  </LotoListic>
 </Root>
