@@ -98,20 +98,23 @@ namespace Lutrija
         /*----------------------------------------------------------------------------------------------
                                                 BINGO
         -----------------------------------------------------------------------------------------------*/
-        public void zapisiIzvuceniBroj(int izvuceniBroj, int redniIzvuceni) {
+        public void zapisiIzvuceniBroj(int izvuceniBroj, int redniIzvuceni)
+        {
             textBoxIzvuceniBrojevi.Text += izvuceniBroj.ToString() + "  ";
             labelRedniIzvuceni.Text = redniIzvuceni.ToString();
         }
 
-        public void spremiBingoListicUBazu(DateTime d, List<int> brojevi) {
+        public void spremiBingoListicUBazu(DateTime d, List<int> brojevi, int dobitak)
+        {
             string stringBrojeva = "";
             foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
 
-            int noviID = this.doc.Descendants("BingoListic").Count() + 1;
+            int noviID = this.doc.Descendants("BingoListic").Count() + 1; // ID "autoincrement"
 
             XElement BingoListic = new XElement("BingoListic",
                 new XElement("ID", noviID.ToString()),
                 new XElement("vrijemeUplate", d.ToString()),
+                new XElement("dobitak", dobitak.ToString()),
                 new XElement("brojevi", stringBrojeva));
 
             this.doc.Root.Add(BingoListic);
@@ -125,13 +128,14 @@ namespace Lutrija
                                  {
                                      ID = (string)listic.Element("ID"),
                                      vrijemeUplate = (string)listic.Element("vrijemeUplate"),
+                                     dobitak = (string)listic.Element("dobitak"),
                                      brojevi = (string)listic.Element("brojevi")
                                  };
 
             listBoxDobitniListici.Items.Clear();
             foreach (var listic in dobitniListici)
             {
-                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi;
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.dobitak + " kn" + "  |  " + listic.brojevi;
                 listBoxDobitniListici.Items.Add(sadrzaj);
             }
         }

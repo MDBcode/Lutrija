@@ -23,7 +23,7 @@ namespace Lutrija
         List<int> izvuceni;
         List<int> brojeviNaListicu;
         Boolean bingoAlert;
-
+        int bingoDobitak;
         /*----------------------------------------------------------------------------------------------
                                                LOTO
         -----------------------------------------------------------------------------------------------*/
@@ -65,10 +65,12 @@ namespace Lutrija
             SuspendLayout();
 
             this.poslovnica = pf;
-
-         /*----------------------------------------------------------------------------------------------
-                                                BINGO
-         -----------------------------------------------------------------------------------------------*/
+            Random r = new Random();
+            /*----------------------------------------------------------------------------------------------
+                                                   BINGO
+            -----------------------------------------------------------------------------------------------*/
+            bingoDobitak = r.Next(1000000, 3000000);
+            labelBingoDobitak.Text = this.bingoDobitak.ToString() + " kn";
             izvuceni = new List<int>();
             brojeviNaListicu = new List<int>();
             bingoAlert = false;
@@ -115,7 +117,7 @@ namespace Lutrija
                 var label = tableListićBingo.Controls["label" + i.ToString()];
                 label.Text = ""; //inicijaliziraj prazan bingo listić
                 Padding pad = new Padding();
-                pad.Left = label.Parent.Size.Width / 5 / 4; //5 ćelija, /4 je namješteno
+                pad.Left = label.Parent.Size.Width / 5 / 4;
                 pad.Top = label.Parent.Size.Height / 5 / 4;
                 label.Padding = pad;
                 Font font = new Font(label.Font, FontStyle.Bold);
@@ -127,7 +129,6 @@ namespace Lutrija
             }
         }
 
-        //public event EventHandler kreirajBingo; // trebalo bi sa eventima
 
         public void kreirajBingoListic()
         {
@@ -158,7 +159,7 @@ namespace Lutrija
 
         public Boolean provjeriRetke(ref Boolean bingoAlert)
         {
-            int pogodenihRedova = 4;
+            int pogodenihRedova = 4; // pretp. da su svi redovi pogodeni
             for (int i = 0; i < 5; i++)
             {
                 if (i != 2)
@@ -179,11 +180,8 @@ namespace Lutrija
                     {
                         if (!bingoAlert)
                         {
-                            MessageBox.Show("Listić je dobitan! Pogođen redak.");
-                            //TODO spremi u bazu
+                            MessageBox.Show("Pogođen REDAK!");
                             bingoAlert = true;
-                            //break;
-
                         }
                     }
                 }
@@ -194,7 +192,7 @@ namespace Lutrija
 
         public Boolean provjeriStupce(ref Boolean bingoAlert)
         {
-            int pogodenihStupaca = 4;
+            int pogodenihStupaca = 4; // pretp. da su svi stupci pogodeni
             for (int i = 0; i < 5; i++)
             {
                 if (i != 2)
@@ -215,10 +213,8 @@ namespace Lutrija
                     {
                         if (!bingoAlert)
                         {
-                            MessageBox.Show("Listić je dobitan! Pogođen stupac.");
-                            //TODO spremi ga u bazu
+                            MessageBox.Show("Pogođen STUPAC!");
                             bingoAlert = true;
-                            //break;
                         }
                     }
                 }
@@ -255,9 +251,8 @@ namespace Lutrija
                 {
                     if (!bingoAlert)
                     {
-                        MessageBox.Show("Listić je dobitan! Dobitak druge vrste - PLUS.");
+                        MessageBox.Show("Pogođen PLUS!");
                         bingoAlert = true;
-
                     }
                 }
             }
@@ -273,7 +268,7 @@ namespace Lutrija
                 pogoden = true;
                 if (!bingoAlert)
                 {
-                    MessageBox.Show("Listić je dobitan! Dobitak treće vrste - KUTOVI.");
+                    MessageBox.Show("Pogođeni KUTEVI!");
                     bingoAlert = true;
                 }
             }
@@ -284,7 +279,7 @@ namespace Lutrija
         public void izvlacenjeBinga()
         {
             var r = new Random();
-            for (int ukupnoIzvucenih = 0; ukupnoIzvucenih < 10; ukupnoIzvucenih++)
+            for (int ukupnoIzvucenih = 0; ukupnoIzvucenih < 10; ukupnoIzvucenih++) // u jednoj rudni izvlači se 10 brojeva
             {
                 int randBroj = r.Next(1, 75 + 1);
                 while (this.izvuceni.Contains(randBroj) && this.izvuceni.Count < 75) randBroj = r.Next(1, 75 + 1);
@@ -314,7 +309,7 @@ namespace Lutrija
                 {
                     MessageBox.Show("BINGO!");
                     this.poslovnica.buttonIzvlacenjeBinga.Enabled = false;
-                    this.poslovnica.spremiBingoListicUBazu(this.vrijemeUplateBingoListica, this.brojeviNaListicu);
+                    this.poslovnica.spremiBingoListicUBazu(this.vrijemeUplateBingoListica, this.brojeviNaListicu, this.bingoDobitak);
                     break;
                 }
                 else
@@ -329,12 +324,6 @@ namespace Lutrija
 
         private void buttonKreirajBingoListic_Click(object sender, EventArgs e)
         {
-            /*decimal iznos; //ovako ne treba jer je iznos bingo listića fiksne cijene
-            if (textBoxIznosUplateBingo.Text.Equals("")) MessageBox.Show("Unesite iznos uplate.");
-            else {
-                if (Decimal.TryParse(textBoxIznosUplateBingo.Text, out iznos)) kreirajBingoListic();
-                else MessageBox.Show("Krivi format unosa.");
-            } */
             kreirajBingoListic();
         }
 
