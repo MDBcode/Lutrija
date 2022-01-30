@@ -692,7 +692,7 @@ namespace Lutrija
             ponuda.Clear();
 
             int i = 0;
-            foreach (var par in parovi)
+            foreach (var par in parovi)   //punim panel s labelama parova i tečajeva te interakciju panela s korisnikom
             {
                 Label labelpar = new Label();
                 Label label1 = new Label();
@@ -773,7 +773,6 @@ namespace Lutrija
                 labelx.Location = new System.Drawing.Point(260, i * 22);
                 label2.Location = new System.Drawing.Point(310, i * 22);
                 i++;
-                //ponuda.Add(ponuda)
             }
         }
 
@@ -788,7 +787,7 @@ namespace Lutrija
             if (Decimal.TryParse(Uplata_TextBox.Text, out s) || Uplata_TextBox.Text == "")
                 Dobitak.Text = (Decimal.Parse(Tečaj.Text) * s).ToString();
         }
-
+        //provjere unosa uplate
         private void Uplata_TextBox_TextChanged(object sender, EventArgs e)
         {
             Decimal s;
@@ -802,7 +801,7 @@ namespace Lutrija
                 Uplata_TextBox.Select(Uplata_TextBox.Text.Length, 0);
             }
         }
-
+        //uplaćuje se listić i klijent čeka rezultate kako bi mogao ponovno igrati
         private void UplatiListicButton_Click(object sender, EventArgs e)
         {
             if (Tečaj.Text == "1")
@@ -827,7 +826,7 @@ namespace Lutrija
                 UplatiListicButton.Enabled = false;
             }
         }
-
+        //vjerojatnosti rezultata utakmice se dobiju iz tečajeva i tako se generiraju
         public void odigrajKolo()
         {
             this.poslovnica.listBoxRezultati.Items.Clear();

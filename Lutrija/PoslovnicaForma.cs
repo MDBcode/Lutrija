@@ -363,6 +363,7 @@ namespace Lutrija
             }
         }
 
+        //provjere za unos u texbox kontrole
         private void textBoxTečajZaTip1_TextChanged(object sender, EventArgs e)
         {
             Decimal s;
