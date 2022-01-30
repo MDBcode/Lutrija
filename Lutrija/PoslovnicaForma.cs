@@ -267,6 +267,7 @@ namespace Lutrija
             this.docLotoSvi.Save(this.pathLotoSvi);
         }
 
+        //prolazimo po svim listićima iz baze i brojimo ponavljanja svakog broja od 1 do 45
         public Dictionary<int, int> povuciIzBazeLota()
         {
             Dictionary<int, int> stat = new Dictionary<int, int>();
@@ -419,8 +420,11 @@ namespace Lutrija
             listBoxDobitniListiciEJ.Items.Clear();
             foreach (var listic in dobitniEJListici)
             {
-                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni ;
-                sadrzaj += "Dobitak: " + listic.nagrada.ToString() + " kn";
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  ";
+                listBoxDobitniListiciEJ.Items.Add(sadrzaj);
+                sadrzaj = "\t\t odigrani brojevi: " + listic.brojevi + "  |  pogođeni brojevi: " + listic.pogodeni ;
+                listBoxDobitniListiciEJ.Items.Add(sadrzaj);
+                sadrzaj = "\t\t dobitak: " + listic.nagrada.ToString() + " kn";
                 listBoxDobitniListiciEJ.Items.Add(sadrzaj);
             }
         }

@@ -378,6 +378,7 @@ namespace Lutrija
             labelJokerDobitak.Text = "Joker: " + fondJoker.ToString() + " kn";
         }
 
+        //generiramo 6 random brojeva od 0 do 9 (mogu se ponavljati)
         public void generiraj_joker_brojeve()
         {
             Random rnd = new Random();
@@ -395,6 +396,7 @@ namespace Lutrija
             generiraj_joker_brojeve();
         }
 
+        //svaki znamenku Joker broja možemo klikom gumba smanjiti/povećati
         private void povecaj_Click(object sender, EventArgs e)
         {
             var label = table_joker.Controls["label" + (sender as Button).Tag.ToString()];
@@ -413,6 +415,7 @@ namespace Lutrija
             label.Text = broj.ToString();
         }
 
+        //generiramo 6 random brojeva (ne smiju se ponavljati i moraju biti uzlazno sortirani)
         private void generiraj_loto_Click(object sender, EventArgs e)
         {
             buttonIGRAJ.Visible = true;
@@ -460,7 +463,7 @@ namespace Lutrija
             }
         }
 
-
+        //izvlači se 6 nasumično odabranih brojeva, nakon čega se niz sortira i omogućava se pokretanje nove igre
         public void izvlacenjeLota()
         {
             var r = new Random();
@@ -519,7 +522,7 @@ namespace Lutrija
                 brojeviNaLotoListicu.Clear();
                 pogodeniLotoBrojevi.Clear();
             }
-
+            //ako je listic dobitan (ili loto ili joker) spremamo u bazu dobitnih listića
             if(dobitan_joker == true ||dobitan_loto == true)
                 this.poslovnica.spremiLotoListicUBazu(this.vrijemeUplateLotoListica, this.nagradaLoto, this.nagradaJoker, this.brojeviNaLotoListicu, this.pogodeniLotoBrojevi, this.odabraniJoker, this.izvuceniJoker);
 
@@ -533,6 +536,7 @@ namespace Lutrija
             novi_listic.Click += nova_igra;
         }
 
+        //odmah nakon izvlačenja lota, pokreće se izvlačenje jokera
         private void izvlacenjeJokera()
         {
             var r = new Random();
@@ -544,6 +548,7 @@ namespace Lutrija
             }
         }
 
+        //joker broj, da bi bio dobitan, mora se gledajući s desna na lijevo poklopiti u barem jednoj znamenki
         private void provjeriJoker()
         {
             if(joker_loto == true)
@@ -569,6 +574,7 @@ namespace Lutrija
             }
         }
 
+        //nakon što se završi izvlačenje, otvara se mogućnost nove igre
         void nova_igra(object sender, EventArgs e)
         {
             buttonIGRAJ.Visible = false;
@@ -643,6 +649,7 @@ namespace Lutrija
             }
         }
 
+        //povlačenje brojeva iz prošlosti radi tako da se pogleda baza svih do sada odigranih listića te se oni najvećih frekvencija zapisuju u loto listić
         private void button_proslost_Click(object sender, EventArgs e)
         {
             statistika = this.poslovnica.povuciIzBazeLota();
