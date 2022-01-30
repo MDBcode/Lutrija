@@ -2,14 +2,32 @@
 <Root>
   <KladionicaListic>
     <ID>1</ID>
-    <vrijemeUplate>30.1.2022. 15:30:45</vrijemeUplate>
-    <parovi>Manchester City-Watford 1Dinamo-Rijeka 1</parovi>
-    <dobitak>16.50</dobitak>
+    <vrijemeUplate>30.1.2022. 18:48:32</vrijemeUplate>
+    <parovi>Dinamo-Rijeka 1,</parovi>
+    <dobitak>15.0 kn</dobitak>
   </KladionicaListic>
   <KladionicaListic>
     <ID>2</ID>
-    <vrijemeUplate>30.1.2022. 15:36:53</vrijemeUplate>
-    <parovi>Dinamo-Rijeka 1Manchester City-Watford 1Gorica-Lokomotiva 1</parovi>
-    <dobitak>59.400</dobitak>
+    <vrijemeUplate>30.1.2022. 18:50:48</vrijemeUplate>
+    <parovi>Gorica-Lokomotiva 1, Slaven Belupo-Hrv.Dragovoljac 1,</parovi>
+    <dobitak>28.80 kn</dobitak>
+  </KladionicaListic>
+  <KladionicaListic>
+    <ID>3</ID>
+    <vrijemeUplate>30.1.2022. 18:51:09</vrijemeUplate>
+    <parovi>Gorica-Lokomotiva 1, Slaven Belupo-Hrv.Dragovoljac 1, Dinamo-Rijeka 1,</parovi>
+    <dobitak>43.200 kn</dobitak>
+  </KladionicaListic>
+  <KladionicaListic>
+    <ID>4</ID>
+    <vrijemeUplate>30.1.2022. 18:54:43</vrijemeUplate>
+    <parovi>Gorica-Lokomotiva 1, Manchester City-Watford 1, Dinamo-Rijeka 1,</parovi>
+    <dobitak>29.700 kn</dobitak>
+  </KladionicaListic>
+  <KladionicaListic>
+    <ID>5</ID>
+    <vrijemeUplate>30.1.2022. 18:59:44</vrijemeUplate>
+    <parovi>Gorica-Lokomotiva 1, Slaven Belupo-Hrv.Dragovoljac 1, </parovi>
+    <dobitak>43,20 kn</dobitak>
   </KladionicaListic>
 </Root>

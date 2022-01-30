@@ -58,6 +58,7 @@ namespace Lutrija
             buttonIzvlacenjeBinga.Enabled = false;
             listBoxDobitniListiciKladionica.Visible = false;
             Dobitnilisticikladionicalabel.Visible = false;
+            ButtonPokreni_parove.Enabled = false;
 
             var environment = System.Environment.CurrentDirectory;
             path = Directory.GetParent(environment).Parent.FullName;
@@ -292,7 +293,7 @@ namespace Lutrija
         public void spremiKladionicaListicUBazu(DateTime d, List<(string, string)> parovi, Decimal dobitak)
         {
             string stringParova = "";
-            foreach ((string, string) par in parovi) stringParova += par.Item1 + " " + par.Item2;
+            foreach ((string, string) par in parovi) stringParova += par.Item1 + " " + par.Item2 + ", ";
 
             int noviID = this.docKladionica.Descendants("KladionicaListic").Count() + 1;
 
@@ -300,7 +301,7 @@ namespace Lutrija
                 new XElement("ID", noviID.ToString()),
                 new XElement("vrijemeUplate", d.ToString()),
                 new XElement("parovi", stringParova),
-                new XElement("dobitak", dobitak));
+                new XElement("dobitak", dobitak + " kn"));
 
             this.docKladionica.Root.Add(KladionicaListic);
             this.docKladionica.Save(this.pathKladionica);

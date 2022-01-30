@@ -804,6 +804,8 @@ namespace Lutrija
                 MessageBox.Show(this, "Ulog mora biti veći od 0.");
             else
             {
+                panelPonuda.Enabled = false;
+                poslovnica.ButtonPokreni_parove.Enabled = true;
                 dobitak = Decimal.Parse(Dobitak.Text);
                 this.vrijemeUplateKladionicaListica = DateTime.Now;
                 for (int i = 0; i < listBoxOdigraniparovi.Items.Count; i++)
@@ -815,6 +817,7 @@ namespace Lutrija
                     listic.Add((dvoboj, tip));
                 }
                 MessageBox.Show(this, "Listić je uplaćen.");
+                UplatiListicButton.Enabled = false;
             }
         }
 
@@ -852,8 +855,13 @@ namespace Lutrija
             {
                 MessageBox.Show(this, "Listić je dobitan");
                 poslovnica.spremiKladionicaListicUBazu(vrijemeUplateKladionicaListica,listic,dobitak);
+                poslovnica.dohvatiKladionicaListiceIzBaze();
             }
             else MessageBox.Show(this, "Nažalost,listić nije dobitan.");
+            poslovnica.ButtonPokreni_parove.Enabled = false;
+            panelPonuda.Enabled = true;
+            UplatiListicButton.Enabled = true;
+            listic.Clear();
         }
 
         /*----------------------------------------------------------------------------------------------
