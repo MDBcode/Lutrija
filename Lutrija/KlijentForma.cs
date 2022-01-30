@@ -55,6 +55,7 @@ namespace Lutrija
         DateTime vrijemeUplateKladionicaListica;
         string pathPonuda;
         XDocument docPonuda;
+        Decimal dobitak;
         /*----------------------------------------------------------------------------------------------
                                             EUROJACKPOT
         -----------------------------------------------------------------------------------------------*/
@@ -803,6 +804,7 @@ namespace Lutrija
                 MessageBox.Show(this, "Ulog mora biti veći od 0.");
             else
             {
+                dobitak = Decimal.Parse(Dobitak.Text);
                 this.vrijemeUplateKladionicaListica = DateTime.Now;
                 for (int i = 0; i < listBoxOdigraniparovi.Items.Count; i++)
                 {
@@ -819,13 +821,14 @@ namespace Lutrija
         public void odigrajKolo()
         {
             this.poslovnica.listBoxRezultati.Items.Clear();
+            Random r = new Random();
+            Boolean dobitan = true;
             for (int i = 0; i < ponuda.Count; i++)
             {
-                int vjer1 = (int)Math.Floor(1000 / Decimal.Parse(koef1[i]));
-                int vjerx = (int)Math.Floor(1000 / Decimal.Parse(koefx[i]));
-                int vjer2 = (int)Math.Floor(1000 / Decimal.Parse(koef2[i]));
+                int vjer1 = (int)Math.Floor(100 / Decimal.Parse(koef1[i]));
+                int vjerx = (int)Math.Floor(100 / Decimal.Parse(koefx[i]));
+                int vjer2 = (int)Math.Floor(100 / Decimal.Parse(koef2[i]));
                 List<string> kolo = new List<string>(new string[vjer1 + vjerx + vjer2]);
-                var r = new Random();
                 for (int j = 0; j < vjer1; j++)
                 {
                     kolo[j] = "1";
@@ -839,10 +842,18 @@ namespace Lutrija
                     kolo[j] = "2";
                 }
                 int odabrani = r.Next(0, vjer1 + vjerx + vjer2);
-                //if(!(listBoxOdigraniparovi.FindString(ponuda[i]) == ListBox.NoMatches))
-                 //   if(listic.)
+                int index = listBoxOdigraniparovi.FindString(ponuda[i]);
+                if (!(index == ListBox.NoMatches))
+                    if (!kolo[odabrani].Equals(listic[index].Item2))
+                        dobitan = false;
                 this.poslovnica.listBoxRezultati.Items.Add(ponuda[i] + ":" + kolo[odabrani].ToString());
             }
+            if (dobitan)
+            {
+                MessageBox.Show(this, "Listić je dobitan");
+                poslovnica.spremiKladionicaListicUBazu(vrijemeUplateKladionicaListica,listic,dobitak);
+            }
+            else MessageBox.Show(this, "Nažalost,listić nije dobitan.");
         }
 
         /*----------------------------------------------------------------------------------------------

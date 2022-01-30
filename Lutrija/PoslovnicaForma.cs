@@ -289,10 +289,10 @@ namespace Lutrija
         /*----------------------------------------------------------------------------------------------
                                                KLADIONICA
        -----------------------------------------------------------------------------------------------*/
-        public void spremiKladionicaListicUBazu(DateTime d, List<Tuple<string, string>> parovi, int dobitak)
+        public void spremiKladionicaListicUBazu(DateTime d, List<(string, string)> parovi, Decimal dobitak)
         {
             string stringParova = "";
-            foreach (Tuple<string, string> par in parovi) stringParova += par.Item1 + " " + par.Item2;
+            foreach ((string, string) par in parovi) stringParova += par.Item1 + " " + par.Item2;
 
             int noviID = this.docKladionica.Descendants("KladionicaListic").Count() + 1;
 
@@ -307,7 +307,7 @@ namespace Lutrija
         }
         public void dohvatiKladionicaListiceIzBaze()
         {
-            var dobitniListici = from listic in this.doc.Elements("Root").Elements("KladionicaListic")
+            var dobitniListici = from listic in this.docKladionica.Elements("Root").Elements("KladionicaListic")
                                  select new
                                  {
                                      ID = (string)listic.Element("ID"),

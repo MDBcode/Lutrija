@@ -1,3 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
+  <KladionicaListic>
+    <ID>1</ID>
+    <vrijemeUplate>30.1.2022. 15:30:45</vrijemeUplate>
+    <parovi>Manchester City-Watford 1Dinamo-Rijeka 1</parovi>
+    <dobitak>16.50</dobitak>
+  </KladionicaListic>
+  <KladionicaListic>
+    <ID>2</ID>
+    <vrijemeUplate>30.1.2022. 15:36:53</vrijemeUplate>
+    <parovi>Dinamo-Rijeka 1Manchester City-Watford 1Gorica-Lokomotiva 1</parovi>
+    <dobitak>59.400</dobitak>
+  </KladionicaListic>
 </Root>
