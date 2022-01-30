@@ -483,7 +483,7 @@ namespace Lutrija
             if (broji_dobitne >= 3)
             {
                 nagradaLoto = fondLoto * postotakLoto[broji_dobitne - 3];
-                MessageBox.Show("Dobitan!\n" + "Dobitak = " + nagradaLoto.ToString());
+                MessageBox.Show("Dobitan!\n" + "Dobitak = " + nagradaLoto.ToString() + "kn");
                 fondLoto = 2300000;
                 dobitan_loto = true;
             }

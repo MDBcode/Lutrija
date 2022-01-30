@@ -82,4 +82,14 @@
     <uneseni_joker>0 2 2 7 0 4 </uneseni_joker>
     <izvuceni_joker>9 6 9 4 2 4 </izvuceni_joker>
   </LotoListic>
+  <LotoListic>
+    <ID>10</ID>
+    <vrijemeUplate>30.1.2022. 10:58:53</vrijemeUplate>
+    <nagrada_loto>690</nagrada_loto>
+    <nagrada_joker>80</nagrada_joker>
+    <brojevi>1 23 24 26 40 43 </brojevi>
+    <pogodeni>26 24 1 </pogodeni>
+    <uneseni_joker>4 0 1 7 5 5 </uneseni_joker>
+    <izvuceni_joker>9 8 7 1 4 5 </izvuceni_joker>
+  </LotoListic>
 </Root>
