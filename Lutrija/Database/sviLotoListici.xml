@@ -111,4 +111,10 @@
   <LotoListic>
     <brojevi>1 23 24 26 40 43</brojevi>
   </LotoListic>
+  <LotoListic>
+    <brojevi>1 8 10 15 23 33</brojevi>
+  </LotoListic>
+  <LotoListic>
+    <brojevi>5 8 17 27 34 36</brojevi>
+  </LotoListic>
 </Root>

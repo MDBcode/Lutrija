@@ -411,21 +411,23 @@ namespace Lutrija
                                          ID = (string)listic.Element("ID"),
                                          vrijemeUplate = (string)listic.Element("vrijemeUplate"),
                                          brojevi = (string)listic.Element("brojevi"),
-                                         pogodeni = (string)listic.Element("pogodeni")
+                                         pogodeni = (string)listic.Element("pogodeni"),
+                                         nagrada = (string)listic.Element("nagrada")
                                      };
 
             listBoxDobitniListiciEJ.Items.Clear();
             foreach (var listic in dobitniEJListici)
             {
                 string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.brojevi + "  |  " + listic.pogodeni ;
+                sadrzaj += "Dobitak: " + listic.nagrada.ToString() + " kn";
                 listBoxDobitniListiciEJ.Items.Add(sadrzaj);
             }
         }
-        public void spremiEJListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni)
+        public void spremiEJListicUBazu(DateTime d, List<int> brojevi, List<int> pogodeni, double dobitak)
              {
             string stringBrojeva = "";
             string stringPogodenih = "";
-            
+            string stringNagrada = dobitak.ToString();
             foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
             foreach (int pogodeni_broj in pogodeni) stringPogodenih += pogodeni_broj.ToString() + " ";
 
@@ -435,7 +437,8 @@ namespace Lutrija
                 new XElement("ID", noviID.ToString()),
                 new XElement("vrijemeUplate", d.ToString()),
                 new XElement("brojevi", stringBrojeva),
-                new XElement("pogodeni", stringPogodenih));
+                new XElement("pogodeni", stringPogodenih),
+                new XElement("nagrada", stringNagrada));
                 
 
             this.docEJ.Root.Add(EJListic);
@@ -453,10 +456,25 @@ namespace Lutrija
 
         public void zapisiIzvuceniEJBroj(int izvuceniBroj, int redniIzvuceni)
         {
-            if(redniIzvuceni <= 5)
-            textBoxEJglavni.Text += izvuceniBroj.ToString() + "  ";
+            if (redniIzvuceni <= 5)
+                textBoxEJglavni.Text += izvuceniBroj.ToString() + "  ";
             else
-            textBoxEJekstra.Text +=izvuceniBroj.ToString() + "  ";
+                textBoxEJekstra.Text += izvuceniBroj.ToString() + "  ";
+        }
+
+        public void zapisiIzvuceniEJBrojSortirano(int izvuceniBroj, int redniIzvuceni)
+        {
+            
+            if (redniIzvuceni <= 5)
+            {
+                textBoxEJglavni.Text += izvuceniBroj.ToString() + "  ";
+                textBoxEJglavni.BackColor = Color.SandyBrown;
+            }
+            else
+            {
+                textBoxEJekstra.Text += izvuceniBroj.ToString() + "  ";
+                textBoxEJekstra.BackColor = Color.SandyBrown;
+            }
         }
 
         internal void spremiUBazuSvihEJListica(List<int> brojevi)

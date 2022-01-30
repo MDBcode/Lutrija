@@ -34,6 +34,7 @@ namespace Lutrija
         List<int> izvuceniJoker;
         DateTime vrijemeUplateLotoListica;
         Boolean dobitan_loto;
+        Boolean dobitan_joker;
         public Boolean joker_loto;
         Dictionary<int, int> statistika;
         int fondLoto = 2300000;
@@ -65,9 +66,10 @@ namespace Lutrija
         List<int> izvuceni_ekstra_brojevi;
         DateTime vrijemeUplateBingoListica;
         DateTime vrijemeUplateEJListica;
-        Boolean dobitan_joker;
         Boolean dobitan_ej;
-
+        int fondEJ = 100000000;
+        double nagradaEJ = 0;
+        Dictionary<KeyValuePair<int, int>, double> podjela_nagrada_ej;
         public KlijentForma(PoslovnicaForma pf)
         {
             InitializeComponent();
@@ -115,6 +117,20 @@ namespace Lutrija
             pogodeni_ekstra_brojevi = new List<int>();
             ekstra_brojevi = new List<int>();
             izvuceni_ekstra_brojevi = new List<int>();
+
+            podjela_nagrada_ej = new Dictionary<KeyValuePair<int, int>, double>();
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(2, 1), 0.00001);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(1, 2), 0.00005);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(3, 0), 0.0001);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(3, 1), 0.0005);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(2, 2), 0.001);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(3, 2), 0.005);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(4, 0), 0.01);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(4, 1), 0.03);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(4, 2), 0.05);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(5, 0), 0.1);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(5, 1), 0.4);
+            podjela_nagrada_ej.Add(new KeyValuePair<int, int>(5, 2), 1);
             stilizirajEJ();
 
             ResumeLayout();
@@ -864,7 +880,9 @@ namespace Lutrija
                    label = table_ej2.Controls["ejlabel" + j.ToString()];
                 label.Text = "";
             }
-           
+
+            labelEJDobitak.Text += " " + fondEJ.ToString() + " kn";
+
         }
 
         private void generiraj_ej_Click(object sender, EventArgs e)
@@ -983,12 +1001,31 @@ namespace Lutrija
                 }
             }
 
+
             Thread.Sleep(3000);
+            poslovnica.textBoxEJglavni.Clear();
+            poslovnica.textBoxEJekstra.Clear();
+            izvuceniEJ.Sort();
+            izvuceni_ekstra_brojevi.Sort();
+
+            for (int i = 0; i < 7; i++)
+            {
+                if(i<5)
+                    poslovnica.zapisiIzvuceniEJBrojSortirano(izvuceniEJ[i], i+1);
+                else
+                    poslovnica.zapisiIzvuceniEJBrojSortirano(izvuceni_ekstra_brojevi[i-5], i+1);
+            }
             if (broji_dobitne >= 3)
             {
-                MessageBox.Show("Dobitak " + dobitni_gl.ToString()+" + "+ dobitni_ekstra.ToString() + "!");
+                KeyValuePair<int, int> pom = new KeyValuePair<int, int>(dobitni_gl, dobitni_ekstra);
+                nagradaEJ = podjela_nagrada_ej[pom]*fondEJ;
+                MessageBox.Show("Dobitak " + dobitni_gl.ToString() + " + " + dobitni_ekstra.ToString() + "!\n" 
+                    + "Osvojeno " + nagradaEJ.ToString() + " kn!");
+                fondEJ = 100000000;
                 dobitan_ej = true;
             }
+            else
+                fondEJ += 5000000; 
 
 
             if (dobitan_ej == false)
@@ -999,7 +1036,7 @@ namespace Lutrija
 
             if (dobitan_ej == true)
                 this.poslovnica.spremiEJListicUBazu(this.vrijemeUplateEJListica, this.brojeviNaListicuEJ,
-                    this.pogodeniEJBrojevi);
+                    this.pogodeniEJBrojevi, this.nagradaEJ);
 
             Button novi_listic = new Button();
             novi_listic.Text = "NOVA IGRA!";
@@ -1020,6 +1057,10 @@ namespace Lutrija
       
             tabPageEurojackpot.Controls.Remove((Control)sender);
             izvuceniEJ.Clear();
+            izvuceni_ekstra_brojevi.Clear();
+            labelEJDobitak.Text = "";
+            labelEJDobitak.Text += "Mogući dobitak: " + fondEJ.ToString() + " kn";
+            nagradaEJ = 0;
             foreach (var gumb in tabPageEurojackpot.Controls.OfType<Button>())
                 gumb.Enabled = true;
             poslovnica.buttonIzvlacenjeLota.Enabled = false;
@@ -1069,26 +1110,29 @@ namespace Lutrija
 
             List<Dictionary<int, int>> l = this.poslovnica.povuciIzBazeEJ();
             int brojac = 0;
-            int[] brojevi = new int[7];
+            int[] brojevi1 = new int[5];
+            int[] brojevi2 = new int[2];
             foreach (KeyValuePair<int, int> broj in l[0].OrderByDescending(key => key.Value))
             {
-                brojevi[brojac] = broj.Key;
+                brojevi1[brojac] = broj.Key;
                 brojac++;
                 if (brojac == 5) break;
             }
+            brojac = 0;
             foreach (KeyValuePair<int, int> broj in l[1].OrderByDescending(key => key.Value))
             {
-                brojevi[brojac] = broj.Key;
+                brojevi2[brojac] = broj.Key;
                 brojac++;
-                if (brojac == 7) break;
+                if (brojac == 2) break;
             }
-            
+            Array.Sort(brojevi1);
+            Array.Sort(brojevi2);
             for (int i = 0; i < 7; i++)
             {
                 if(i<5)
-                    table_ej.Controls["ejlabel" + (i + 1).ToString()].Text = brojevi[i].ToString();
+                    table_ej.Controls["ejlabel" + (i + 1).ToString()].Text = brojevi1[i].ToString();
                 else
-                    table_ej2.Controls["ejlabel" + (i + 1).ToString()].Text = brojevi[i].ToString();
+                    table_ej2.Controls["ejlabel" + (i + 1).ToString()].Text = brojevi2[i-5].ToString();
             }
 
             ej_igraj.Visible = true;

@@ -71,9 +71,11 @@ namespace Lutrija
                     i++;
                 }
             }
-        
+
+            Array.Sort(brojevi1);
+            Array.Sort(brojevi2);
 
 
-    }
+        }
 }
 }
