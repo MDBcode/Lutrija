@@ -203,7 +203,9 @@
   <ItemGroup>
     <Content Include="Database\BingoListic.xml" />
     <Content Include="Database\EJListic.xml" />
+    <Content Include="Database\KladionicaListic.xml" />
     <Content Include="Database\LotoListic.xml" />
+    <Content Include="Database\Ponuda.xml" />
     <Content Include="Database\sviEjListici.xml" />
     <Content Include="Database\sviLotoListici.xml" />
   </ItemGroup>
