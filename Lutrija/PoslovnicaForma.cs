@@ -298,8 +298,12 @@ namespace Lutrija
 
         private void buttonDodajpar_Click(object sender, EventArgs e)
         {
-            if (textBoxtim1.TextLength > 13 || textBoxtim2.TextLength > 13 || textBoxtim1.TextLength <= 0 || textBoxtim1.TextLength <= 0)
-                MessageBox.Show(this, "klubovi moraju imati između 1 do 13 znakova");
+            if (textBoxtim1.TextLength > 15 || textBoxtim2.TextLength > 15 || textBoxtim1.TextLength <= 0 || textBoxtim1.TextLength <= 0)
+                MessageBox.Show(this, "klubovi moraju imati između 1 do 15 znakova");
+            else if (textBoxTečajZaTip1.Text == "" || textBoxTečajZaTipX.Text == "" || textBoxTečajZaTip2.Text == "")
+            {
+                MessageBox.Show(this, "Upišite tečajeve.");
+            }
             else
             {
                 string par = textBoxtim1.Text + "-" + textBoxtim2.Text;
@@ -332,7 +336,7 @@ namespace Lutrija
         private void textBoxTečajZaTip1_TextChanged(object sender, EventArgs e)
         {
             Decimal s;
-            if (!Decimal.TryParse(textBoxTečajZaTip1.Text, out s) || textBoxTečajZaTip1.Text == "")
+            if (!Decimal.TryParse(textBoxTečajZaTip1.Text, out s) && !(textBoxTečajZaTip1.Text == ""))
             {
                 MessageBox.Show(this, "tečaj mora biti decimalni broj veći od 1.0");
                 textBoxTečajZaTip1.Text = "1,0";
@@ -342,7 +346,7 @@ namespace Lutrija
         private void textBoxTečajZaTipX_TextChanged(object sender, EventArgs e)
         {
             Decimal s;
-            if (!Decimal.TryParse(textBoxTečajZaTipX.Text, out s) || textBoxTečajZaTipX.Text == "")
+            if (!Decimal.TryParse(textBoxTečajZaTipX.Text, out s) && !(textBoxTečajZaTipX.Text == ""))
             {
                 MessageBox.Show(this, "tečaj mora biti decimalni broj  veći od 1.0");
                 textBoxTečajZaTipX.Text = "1,0";
@@ -352,7 +356,7 @@ namespace Lutrija
         private void textBoxTečajZaTip2_TextChanged(object sender, EventArgs e)
         {
             Decimal s;
-            if (!Decimal.TryParse(textBoxTečajZaTip2.Text, out s) || textBoxTečajZaTip2.Text == "")
+            if (!Decimal.TryParse(textBoxTečajZaTip2.Text, out s) && !(textBoxTečajZaTip2.Text == ""))
             {
                 MessageBox.Show(this, "tečaj mora biti decimalni broj veći od 1.0");
                 textBoxTečajZaTip2.Text = "1,0";

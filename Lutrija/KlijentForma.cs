@@ -643,6 +643,7 @@ namespace Lutrija
                              tecaj2 = (string)par.Element("tečaj_2"),
                          };
             panelPonuda.Controls.Clear();
+            ponuda.Clear();
 
             int i = 0;
             foreach (var par in parovi)
@@ -779,27 +780,29 @@ namespace Lutrija
 
         public void odigrajKolo()
         {
+            this.poslovnica.listBoxRezultati.Items.Clear();
             for (int i = 0; i < ponuda.Count; i++)
             {
-                List<string> kolo = new List<string>(new string[1000]);
                 int vjer1 = (int)Math.Floor(1000 / Decimal.Parse(koef1[i]));
                 int vjerx = (int)Math.Floor(1000 / Decimal.Parse(koefx[i]));
-                int vjer2 = 1000 - (vjerx + vjer1);
+                int vjer2 = (int)Math.Floor(1000 / Decimal.Parse(koef2[i]));
+                List<string> kolo = new List<string>(new string[vjer1 + vjerx + vjer2]);
                 var r = new Random();
                 for (int j = 0; j < vjer1; j++)
                 {
                     kolo[j] = "1";
                 }
-                for (int j = vjer1; j < vjer2; j++)
+                for (int j = vjer1; j < vjer1 + vjerx; j++)
                 {
                     kolo[j] = "X";
                 }
-                for (int j = vjer2; j < kolo.Count; j++)
+                for (int j = vjer1 + vjerx; j < vjer1 + vjerx + vjer2; j++)
                 {
                     kolo[j] = "2";
                 }
-                int odabrani = r.Next(0, 999);
-
+                int odabrani = r.Next(0, vjer1 + vjerx + vjer2);
+                //if(!(listBoxOdigraniparovi.FindString(ponuda[i]) == ListBox.NoMatches))
+                 //   if(listic.)
                 this.poslovnica.listBoxRezultati.Items.Add(ponuda[i] + ":" + kolo[odabrani].ToString());
             }
         }
