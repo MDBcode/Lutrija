@@ -910,7 +910,7 @@ namespace Lutrija
             labelEJDobitak.Text += " " + fondEJ.ToString() + " kn";
 
         }
-
+        // klikom na gumb se listic popunjava sa slucajno odabranim brojevima
         private void generiraj_ej_Click(object sender, EventArgs e)
         {
             ej_igraj.Visible = true;
@@ -967,6 +967,7 @@ namespace Lutrija
             }
 
         }
+        //izvlacenje eurojackpota
         public void izvlacenjeEJ()
         {
             var r = new Random();
@@ -1073,7 +1074,7 @@ namespace Lutrija
 
             novi_listic.Click += nova_igra_ej;
         }
-
+        //f-ja za pokretanje nove igre  eurojackpota
         void nova_igra_ej(object sender, EventArgs e)
         {
             ej_igraj.Visible = false;
@@ -1108,7 +1109,7 @@ namespace Lutrija
             poslovnica.textBoxEJekstra.Clear();
 
         }
-
+        //na klik na gumb se otvara forma za unos brojeva na listicu
         private void button5_Click(object sender, EventArgs e)
         {
             var forma = new Form_unos_ej();
@@ -1130,7 +1131,7 @@ namespace Lutrija
 
             
         }
-
+        //klikom na gumb dobivaju se podatci o najfrekventnijim brojevima, i po njima se ispunjava listic 
         private void button4_Click(object sender, EventArgs e)
         {
 

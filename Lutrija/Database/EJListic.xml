@@ -14,4 +14,11 @@
     <pogodeni>44 25 7 </pogodeni>
     <nagrada>11500</nagrada>
   </EJListic>
+  <EJListic>
+    <ID>3</ID>
+    <vrijemeUplate>30/01/2022 19:56:48</vrijemeUplate>
+    <brojevi>1 3 4 5 6 1 2 </brojevi>
+    <pogodeni>3 2 1 </pogodeni>
+    <nagrada>5000</nagrada>
+  </EJListic>
 </Root>

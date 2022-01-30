@@ -481,7 +481,7 @@ namespace Lutrija
                 textBoxEJekstra.BackColor = Color.SandyBrown;
             }
         }
-
+        
         internal void spremiUBazuSvihEJListica(List<int> brojevi)
         {
             string stringBrojeva = "";
@@ -493,7 +493,7 @@ namespace Lutrija
             this.docEJSvi.Root.Add(EJListic);
             this.docEJSvi.Save(this.pathEJSvi);
         }
-
+        //f-ja koja vraca najfrekventnije brojeve
         public List<Dictionary<int, int>> povuciIzBazeEJ()
         {
             List<Dictionary<int, int>> l = new List<Dictionary<int, int>>();
