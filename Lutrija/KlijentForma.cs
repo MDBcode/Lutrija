@@ -800,7 +800,7 @@ namespace Lutrija
         {
             if (Tečaj.Text == "1")
                 MessageBox.Show(this, "Izaberite barem jedan tip iz ponude.");
-            else if (Dobitak.Text == "0")
+            else if (Decimal.Parse(Dobitak.Text) == 0)
                 MessageBox.Show(this, "Ulog mora biti veći od 0.");
             else
             {
