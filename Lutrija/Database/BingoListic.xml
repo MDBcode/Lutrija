@@ -2,52 +2,24 @@
 <Root>
   <BingoListic>
     <ID>1</ID>
-    <vrijemeUplate>25.1.2022. 21:28:44</vrijemeUplate>
-    <brojevi>67 36 42 56 44 25 13 20 35 23 27 72 2 3 75 62 48 59 52 1 47 17 31 49 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>2</ID>
-    <vrijemeUplate>25.1.2022. 21:32:01</vrijemeUplate>
-    <brojevi>54 27 14 47 24 7 9 71 22 30 64 35 46 16 51 58 25 65 26 29 41 69 17 19 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>3</ID>
-    <vrijemeUplate>25.1.2022. 22:15:30</vrijemeUplate>
-    <brojevi>23 72 71 68 73 5 25 66 53 4 59 27 55 75 54 69 19 21 49 14 52 20 18 33 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>4</ID>
     <vrijemeUplate>25.1.2022. 22:28:19</vrijemeUplate>
+	<dobitak>1802692</dobitak>
     <brojevi>56 55 61 47 25 73 2 34 41 74 37 71 72 17 30 26 53 33 48 18 9 58 11 59 </brojevi>
   </BingoListic>
   <BingoListic>
-    <ID>5</ID>
+    <ID>2</ID>
     <vrijemeUplate>26.1.2022. 11:50:24</vrijemeUplate>
+	<dobitak>1758482</dobitak>
     <brojevi>54 30 27 10 67 16 60 58 5 2 39 63 42 69 52 70 34 1 4 46 40 55 6 12 </brojevi>
   </BingoListic>
   <BingoListic>
-    <ID>6</ID>
-    <vrijemeUplate>26.1.2022. 14:01:24</vrijemeUplate>
-    <brojevi>25 37 53 42 54 36 47 56 61 23 30 46 15 7 26 31 29 67 44 63 16 35 48 27 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>7</ID>
-    <vrijemeUplate>28/01/2022 20:15:39</vrijemeUplate>
-    <brojevi>23 27 72 51 11 42 46 16 70 39 36 50 28 66 41 14 29 21 52 38 7 59 57 48 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>8</ID>
-    <vrijemeUplate>28/01/2022 20:16:21</vrijemeUplate>
-    <brojevi>39 48 52 58 8 9 53 50 31 1 32 54 30 56 27 43 14 16 26 46 47 67 57 20 </brojevi>
-  </BingoListic>
-  <BingoListic>
-    <ID>9</ID>
+    <ID>3</ID>
     <vrijemeUplate>30.1.2022. 1:23:20</vrijemeUplate>
     <dobitak>1197650</dobitak>
     <brojevi>64 1 29 65 4 11 74 13 3 53 27 59 71 35 37 52 9 54 31 36 7 24 28 17 </brojevi>
   </BingoListic>
   <BingoListic>
-    <ID>10</ID>
+    <ID>4</ID>
     <vrijemeUplate>30.1.2022. 8:44:18</vrijemeUplate>
     <dobitak>1344387</dobitak>
     <brojevi>35 34 66 11 22 75 65 49 1 58 48 7 72 3 62 21 2 28 20 10 57 15 39 44 </brojevi>

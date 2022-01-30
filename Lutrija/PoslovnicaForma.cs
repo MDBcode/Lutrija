@@ -139,7 +139,11 @@ namespace Lutrija
             listBoxDobitniListici.Items.Clear();
             foreach (var listic in dobitniListici)
             {
-                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  " + listic.dobitak + " kn" + "  |  " + listic.brojevi;
+                string sadrzaj = listic.ID + "  |  " + listic.vrijemeUplate + "  |  ";
+                listBoxDobitniListici.Items.Add(sadrzaj);
+                sadrzaj = "\t\t dobitak: " + listic.dobitak + " kn";
+                listBoxDobitniListici.Items.Add(sadrzaj);
+                sadrzaj = "\t\t brojevi na listiću: " + listic.brojevi;
                 listBoxDobitniListici.Items.Add(sadrzaj);
             }
         }
