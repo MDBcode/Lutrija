@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <EJListic>
+    <brojevi>6 12 15 35 46 3 5</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>2 9 38 40 50 5 8</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>10 27 34 48 49 1 4</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>2 14 28 30 45 1 9</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>21 35 40 44 49 9 10</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>1 2 3 4 50 1 2</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>1 2 3 4 5 1 10</brojevi>
+  </EJListic>
+  <EJListic>
+    <brojevi>3 11 17 27 41 4 10</brojevi>
+  </EJListic>
+</Root>

@@ -42,7 +42,9 @@ namespace Lutrija
         -----------------------------------------------------------------------------------------------*/
 
         string pathEJ;
+        string pathEJSvi;
         XDocument docEJ;
+        XDocument docEJSvi;
 
         public PoslovnicaForma()
         {
@@ -89,8 +91,10 @@ namespace Lutrija
             -----------------------------------------------------------------------------------------------*/
             pathEJ = Directory.GetParent(environment).Parent.FullName;
             pathEJ += @"\Database\EJListic.xml";
-            docEJ = XDocument.Load(pathLoto);
-
+            docEJ = XDocument.Load(pathEJ);
+            pathEJSvi = Directory.GetParent(environment).Parent.FullName;
+            pathEJSvi += @"\Database\sviEJListici.xml";
+            docEJSvi = XDocument.Load(pathEJSvi);
             klijent = new KlijentForma(this);
             klijent.Show();
         }
@@ -415,7 +419,7 @@ namespace Lutrija
                 
 
             this.docEJ.Root.Add(EJListic);
-            this.docEJ.Save(this.pathLoto);
+            this.docEJ.Save(this.pathEJ);
         }
 
         private void buttonPrikaziDobitneEJ_Click(object sender, EventArgs e)
@@ -433,6 +437,46 @@ namespace Lutrija
             textBoxEJglavni.Text += izvuceniBroj.ToString() + "  ";
             else
             textBoxEJekstra.Text +=izvuceniBroj.ToString() + "  ";
+        }
+
+        internal void spremiUBazuSvihEJListica(List<int> brojevi)
+        {
+            string stringBrojeva = "";
+            foreach (int broj in brojevi) stringBrojeva += broj.ToString() + " ";
+            stringBrojeva = stringBrojeva.Remove(stringBrojeva.Length - 1, 1);
+            XElement EJListic = new XElement("EJListic",
+                new XElement("brojevi", stringBrojeva));
+
+            this.docEJSvi.Root.Add(EJListic);
+            this.docEJSvi.Save(this.pathEJSvi);
+        }
+
+        public List<Dictionary<int, int>> povuciIzBazeEJ()
+        {
+            List<Dictionary<int, int>> l = new List<Dictionary<int, int>>();
+            Dictionary<int, int> stat = new Dictionary<int, int>();
+            Dictionary<int, int> stat2 = new Dictionary<int, int>();
+            for (int i = 1; i < 51; i++)
+                stat.Add(i, 0);
+            for (int i = 1; i < 11; i++)
+                stat2.Add(i, 0);
+
+            var EJListici = from listic in this.docEJSvi.Elements("Root").Elements("EJListic")
+                            select new
+                            {
+                                brojevi = (string)listic.Element("brojevi")
+                            };
+            foreach (var listic in EJListici)
+            {
+                int[] array = listic.brojevi.Split(' ').Select(int.Parse).ToArray();
+                for (int i = 0; i < 5; i++)
+                    stat[array[i]]++;
+                for (int i = 5; i < 7; i++)
+                    stat2[array[i]]++;
+            }
+            l.Add(stat);
+            l.Add(stat2);
+            return l;
         }
 
     }

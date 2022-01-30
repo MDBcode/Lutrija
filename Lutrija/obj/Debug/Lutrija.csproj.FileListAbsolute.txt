@@ -118,3 +118,22 @@ C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt_novo\Lutrija\
 C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt_novo\Lutrija\obj\Debug\Lutrija.csproj.CopyComplete
 C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt_novo\Lutrija\obj\Debug\Lutrija.exe
 C:\Users\benko\OneDrive\Radna površina\Faks\3.semestar\C#\projekt_novo\Lutrija\obj\Debug\Lutrija.pdb
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\Lutrija.exe.config
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\Lutrija.exe
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\Lutrija.pdb
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\System.Buffers.dll
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\System.Memory.dll
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\bin\Debug\MySql.Data.xml
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.csprojAssemblyReference.cache
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.CijenaLoto.resources
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.Form_unos_loto.resources
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.PoslovnicaForma.resources
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.KlijentForma.resources
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.Properties.Resources.resources
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.csproj.GenerateResource.cache
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.csproj.CoreCompileInputs.cache
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.csproj.CopyComplete
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.exe
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.pdb
+C:\Users\38598\Documents\GitHub\Lutrija\Lutrija\obj\Debug\Lutrija.Form_unos_ej.resources
